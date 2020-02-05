@@ -6,9 +6,9 @@
         // $picture = $_GET['picture'];
         // $description = $_GET['description'];
     }
-
+   //echo $id;
     require_once ('db_connect.php');
-    $sql = 'SELECT sp_name, team, picture, description FROM picture WHERE id = :id';
+    $sql = 'SELECT sp_name, team, picture, description FROM picture WHERE picture.id = :id';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);    
     $stmt->execute();
