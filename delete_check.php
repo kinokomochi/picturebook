@@ -4,7 +4,7 @@
         $team = $_GET['team'];
     }
     
-    require_once ('.gitignore/db_connect.php');
+    require_once ('db_connect.php');
     $sql = 'SELECT * FROM picture WHERE id = :id';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);

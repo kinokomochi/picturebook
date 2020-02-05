@@ -7,8 +7,8 @@
         $description = $_POST['description'];
 
     }
-    var_dump($_POST);
-    require_once ('.gitignore/db_connect.php');
+    //var_dump($_POST);
+    require_once ('db_connect.php');
     $sql = 'UPDATE picture 
             SET sp_name = :sp_name, team = :team, picture = :picture, description = :desctiption
             WHERE id = :id';
@@ -35,8 +35,8 @@ $notes = $stmt->fetch(PDO::FETCH_ASSOC);
     
 
     //echo $team;
-    // $url = "{$team}/index.php";
-    // header('Location:'.$url);
-    // exit();
+    $url = "{$team}/index.php";
+    header('Location:'.$url);
+    exit();
 
     

@@ -1,5 +1,5 @@
 <?php 
-    require_once ('../.gitignore/db_connect.php');
+    require_once ('../db_connect.php');
     $sql = 'SELECT * FROM picture WHERE team = "plant"';
     $stmt = $pdo->prepare($sql);
     // $stmt->bindValue(':sp_name', $sp_name, PDO::PARAM_STR);

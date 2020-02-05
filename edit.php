@@ -7,7 +7,7 @@
         // $description = $_GET['description'];
     }
 
-    require_once ('.gitignore/db_connect.php');
+    require_once ('db_connect.php');
     $sql = 'SELECT sp_name, team, picture, description FROM picture WHERE id = :id';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);    
