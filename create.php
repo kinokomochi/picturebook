@@ -2,10 +2,10 @@
 require_once ('db_connect.php');
     
     if(isset($_POST['submit'])){
-        $sp_name = $_POST['sp_name'];
-        $team = $_POST['team'];
-        $picture = $_POST['picture'];
-        $description = $_POST['description'];
+        $sp_name = htmlspecialchars($_POST['sp_name'], ENT_QUOTES, 'UTF-8');
+        $team = htmlspecialchars($_POST['team'], ENT_QUOTES, 'UTF-8');
+        $picture = htmlspecialchars($_POST['picture'], ENT_QUOTES, 'utf-8');
+        $description = htmlspecialchars($_POST['description'], ENT_QUOTES, 'UTF-8');
     }
 
     
