@@ -1,17 +1,17 @@
 <?php 
     if(isset($_POST['submit'])){
-        $id = htmlspecialchars($_POST['id'], ENT_QUOTES, 'utf-8');
-        $team = htmlspecialchars($_POST['team'], ENT_QUOTES, 'utf-8');
-        $sp_name = htmlspecialchars($_POST['sp_name'], ENT_QUOTES, 'utf-8');
-        $description = htmlspecialchars($_POST['description'], ENT_QUOTES, 'utf-8');
+        $id = $_POST['id'];
+        $team = $_POST['team'];
+        $sp_name = $_POST['sp_name'];
+        $description = $_POST['description'];
 
     }
-    var_dump($_POST);
-    echo $_POST['id']."\n";
-    echo $_POST['sp_name']."\n";
-    echo $_POST['team']."\n";
-    echo $_POST['description']."\n";
-    echo $id;
+    // var_dump($_POST);
+    // echo $_POST['id']."\n";
+    // echo $_POST['sp_name']."\n";
+    // echo $_POST['team']."\n";
+    // echo $_POST['description']."\n";
+    // echo $id;
     echo $sp_name;
     require_once ('db_connect.php');
     $sql = 'UPDATE picture 

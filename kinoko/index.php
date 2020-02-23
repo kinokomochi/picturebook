@@ -1,6 +1,7 @@
 <?php 
-    
-    session_start();
+error_reporting(E_ALL);
+session_start();
+    require_once '../function.php';
     require_once __DIR__ . '/../vendor/autoload.php';
 
     use Monolog\Logger;
@@ -11,26 +12,23 @@
 
 
     //ログファイルのパス
-    $logging_path = __DIR__ . '/../log/test_log.log';
+    $logging_path = __DIR__ . '/../log/index_log.log';
     $stream = new StreamHandler($logging_path, Logger::INFO);
     //出力後、改行するために下記クラスを静止し、パラメーターとしてセットする。
     $formatter = new LineFormatter(null, null, true);
     $stream->setFormatter($formatter);
     $logger = new Logger('pbook/kinoko/index.php');
-    //monologの実体にハンドラーとして出力先を追加していく
     $logger->pushHandler($stream);
 
     //下記のようにしないと配列などの値が出力されない
     $logger->pushProcessor(function($record){
-        $record['extra']['dummy'] = 'hello world';
+        $record['extra']['dummy'] = '';
         return $record;
     });
 
     //dumperの引数はは出力したいデータ
-    $logger->addInfo('request_info ' . dumper($pbooks));
-    $logger->debug(__DIR__);
-    $logger->warning('警告メッセージ');
-    $logger->error('エラーメッセージ');
+    
+    $logger->error(var_export($_FILES, true));
     
     //var_dumpの結果を文字列として出力するために下記関数を追加
     function dumper($obj){
@@ -40,11 +38,14 @@
         ob_end_clean();//バッファの内容を消去
         return $ret;
     }
+    if(!isset($_FILES)){
+        $logger->warning('画像登録失敗' . var_export($_FILES, true));
+    }
     
 
-    $image = date('YmdHis') . $_FILES['picture']['name'];
-    move_uploaded_file($_FILES['picture']['tmp_name'],'../files/'. $image);
-    $_SESSION['image'] = $image;
+    // $picture = date('YmdHis') . $_FILES['picture']['name'];
+    // move_uploaded_file($_FILES['picture']['tmp_name'],'../files/'. $picture);
+    // $_SESSION['picture'] = $picture;
     
 
     require_once ('../db_connect.php');
@@ -63,6 +64,10 @@
     $stmt = null;
 
     $message = "図鑑一覧";
+    
+    //$logger->addInfo('request_info ' . dumper($pbooks));
+    $logger->debug('SQL:' . $sql);
+    
 
 
 

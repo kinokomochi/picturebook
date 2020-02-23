@@ -27,7 +27,7 @@
     <p><a href='room.php'>班一覧に戻る</a></p>
 
 
- <?php var_dump($pbook); ?>
+ <?php //var_dump($pbook); ?>
 
 
 

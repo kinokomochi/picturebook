@@ -27,7 +27,7 @@ use Monolog\Formatter\LineFormatter;
 date_default_timezone_set("Asia/Tokyo");
 
 //ログファイルのパス
-$logging_path = __DIR__ . '/log/test_log.log';
+$logging_path = __DIR__ . '/log/edit_log.log';
 $stream = new StreamHandler($logging_path, Logger::INFO);
 //出力後、改行するために下記クラスを静止し、パラメーターとしてセットする。
 $formatter = new LineFormatter(null, null, true);

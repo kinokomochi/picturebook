@@ -23,7 +23,7 @@ date_default_timezone_set("Asia/Tokyo");
 
 
 //ログファイルのパス
-$logging_path = __DIR__ . '/log/test_log.log';
+$logging_path = __DIR__ . '/log/delete_check_log.log';
 $stream = new StreamHandler($logging_path, Logger::INFO);
 //出力後、改行するために下記クラスを静止し、パラメーターとしてセットする。
 $formatter = new LineFormatter(null, null, true);
@@ -39,9 +39,11 @@ $logger->pushProcessor(function($record){
 
 //$arrは出力したいデータ
 $logger->addInfo('request_info ' . dumper($_GET));
-$logger->addDebug(__DIR__);
-$logger->warning('警告メッセージ');
-$logger->error('エラーメッセージ');
+$logger->addDebug('SQL:' . $sql);
+if(!isset($pbook)){
+$logger->warning('パラメーター確認' . var_export($pbook, true));
+}
+//$logger->error('エラーメッセージ');
 
 //var_dumpの結果を文字列として出力するために下記関数を追加
 function dumper($obj){
