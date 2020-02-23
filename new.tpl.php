@@ -15,7 +15,7 @@
     <label>班</label>
     <select name='team'>
     <option value="disabled">選んでね</option>
-    <option value='sea'>>海</option>
+    <option value='sea'>海</option>
     <option value='kinoko'>きのこ</option>
     <option value='plant'>植物</option>
     </select>

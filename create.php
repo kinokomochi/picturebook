@@ -1,5 +1,5 @@
 <?php 
-//error_reporting(E_ALL);
+error_reporting(E_ALL);
 require_once ('db_connect.php');
 $message = "入力エラーがあります";
 
@@ -28,7 +28,6 @@ $message = "入力エラーがあります";
 
         if(!empty($error)){
             require_once ('new.tpl.php');
-            
         }
         if(empty($error)){
             $sp_name = $_POST['sp_name'];
@@ -36,7 +35,7 @@ $message = "入力エラーがあります";
             $picture = date('YmdHis') . $_FILES['picture']['name'];
             move_uploaded_file($_FILES['picture']['tmp_name'], '../files/' . $picture);
             $description = $_POST['description'];
-            // /echo $_FILES['picture']['name'];
+            //echo $_FILES['picture']['name'];
         }
     $sql = 'INSERT INTO picture (sp_name, team, picture, description)
             VALUES (:sp_name, :team, :picture, :description)';
@@ -74,11 +73,11 @@ $logger->pushProcessor(function($record){
 });
 
 //$arrは出力したいデータ
-if(!isset($pbook) || !isset($_POST)){
-$logger->addInfo('request_info ' . dumper($_POST));
+//if(!isset($pbook) || !isset($_POST)){
+$logger->addInfo('$_POSTの中身:' . dumper($_POST));
 $logger->addDebug(var_export($_FILES['picture']['name']));
-$logger->warning(dumper($_POST['picture']));
-}
+$logger->warning('$errorの中身:'.dumper($error));
+//}
 //$logger->error('エラーメッセージ');
 
 //var_dumpの結果を文字列として出力するために下記関数を追加
