@@ -14,10 +14,10 @@
     <?php endif; ?>
     <label>班</label>
     <select name='team'>
-    <option value="disabled">選んでね</option>
-    <option value='sea'>海</option>
-    <option value='kinoko'>きのこ</option>
-    <option value='plant'>植物</option>
+    <option disabled selected value>選んでね</option>
+    <option value='sea'<?php if(isset($team) && $team == 'sea'){echo 'selected';} ?>>海</option>
+    <option value='kinoko'<?php if(isset($team) && $team == 'kinoko'){echo 'selected';} ?>>きのこ</option>
+    <option value='plant'<?php if(isset($team) && $team == 'plant'){echo 'selected';} ?>>植物</option>
     </select>
     <p></p>
     <label>写真</label>
