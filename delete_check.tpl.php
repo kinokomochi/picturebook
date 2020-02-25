@@ -9,8 +9,8 @@
         <p>[説明]:<?= $pbook['description']."\n<br>"; ?></p>
 
         
-        <p><a href='delete.php?id=<?=$pbook['id'] ?>&team=<?=$pbook['team'] ?>'>投稿を削除</a></p>
-        <p><a href='room.php'>班一覧に戻る</a></p>
+        <p><a href="delete.php?id=<?=$pbook['id'] ?>&team=<?=$pbook['team'] ?>">投稿を削除</a></p>
+        <p><a href="room.php">班一覧に戻る</a></p>
 
 <?php include('footer_inc.php') ?>
 </body>

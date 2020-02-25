@@ -17,8 +17,8 @@
         <p><a href='../delete_check.php?id=<?=$pbook['id']; ?>&team=<?=$pbook['team']?>'>投稿を削除</a></p>
     <?php endforeach; ?>
     <hr>
-    <p><a href='../room.php'>班一覧に戻る</a></p>
-        <p><a href='../new.php'> 写真登録</a></p>
+    <p><a href="../room.php">班一覧に戻る</a></p>
+        <p><a href="../new.php"> 写真登録</a></p>
 
 
 
