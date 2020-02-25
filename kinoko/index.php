@@ -63,7 +63,7 @@ session_start();
     $pdo = null;
     $stmt = null;
 
-    $message = "図鑑一覧";
+    $message = "きのこの部屋";
     
     //$logger->addInfo('request_info ' . dumper($pbooks));
     $logger->debug('SQL:' . $sql);

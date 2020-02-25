@@ -15,7 +15,7 @@
     $pdo = null;
     $stmt = null;
 
-    $message = "図鑑一覧";
+    $message = "海の部屋";
 
 
 
