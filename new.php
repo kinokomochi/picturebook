@@ -1,13 +1,13 @@
 <?php 
 error_reporting(E_ALL);
 //$error = [];
-if(isset($_POST['submit'])){
-    $sp_name = $_POST['sp_name'];
-    $team = $_POST['team'];
-    $picture = $_POST['picture'];
-    $description = $_POST['description'];
-}
-require_once ('db_connect.php');
+// if(isset($_POST['submit'])){
+//     $sp_name = $_POST['sp_name'];
+//     $team = $_POST['team'];
+//     $picture = $_POST['picture'];
+//     $description = $_POST['description'];
+// }
+require_once ('db_connect.php');//DBに接続
 $pdo = null;
 $stmt = null;
 
@@ -36,7 +36,9 @@ $logger->pushProcessor(function($record){
 //$arrは出力したいデータ
 $logger->addInfo('request_info ' . dumper($_POST));
 $logger->addDebug(dumper($_POST));
-//$logger->warning('警告メッセージ');
+if(isset($error)){
+$logger->warning(dumper($error));
+}
 //$logger->error('エラーメッセージ');
 
 //var_dumpの結果を文字列として出力するために下記関数を追加
