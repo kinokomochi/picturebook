@@ -72,6 +72,7 @@ $message = "入力エラーがあります";
             move_uploaded_file($_FILES['picture']['tmp_name'], '/Applications/XAMPP/xamppfiles/htdocs/pbook/files/'.$picture);
 
         //入力内容をDBに保存する
+        //description青文字なぜか　予約語？
         $sql = 'INSERT INTO picture (sp_name, team, picture, description)
                 VALUES (:sp_name, :team, :picture, :description)';
         $stmt = $pdo->prepare($sql);

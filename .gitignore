@@ -4,4 +4,5 @@ log/delete_check_log.log
 log/edit_log.log
 log/index_log.log
 log/new_log.log
+log/update_log.log
 files

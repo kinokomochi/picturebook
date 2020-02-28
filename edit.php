@@ -5,6 +5,8 @@
         // $team = $_GET['team'];
         // $picture = $_GET['picture'];
         // $description = $_GET['description'];
+    }else{
+        header('Location: room.php');
     }
    //echo $id;
     require_once ('db_connect.php');
@@ -18,7 +20,7 @@
     $stmt = null;
 
 
-    require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -42,8 +44,8 @@ $logger->pushProcessor(function($record){
 });
 
 //$arrは出力したいデータ
-$logger->addInfo('request_info ' . dumper($pbook));
-$logger->addDebug(__DIR__);
+$logger->addInfo('$pbook:' . dumper($pbook));
+$logger->addDebug('$_POST:'.$_POST);
 $logger->warning('警告メッセージ');
 $logger->error('エラーメッセージ');
 
