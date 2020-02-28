@@ -8,21 +8,46 @@ $message = "入力エラーがあります";
     if(isset($_POST['submit'])){//登録するボタンが押されているか確認
 
         //$_POSTに入っている値を変数に入れる
-        $sp_name = $_POST['sp_name'];
-        $team = $_POST['team'];
-        $picture = $_FILES['picture']['name'];
-        $description = $_POST['description'];
+        // if(isset($_POST['sp_name'])){
+        //     $sp_name = $_POST['sp_name'];
+        // }else{
+        //     $sp_name = '';
+        // }
+        //このif-else文は以下のように書き替え可
+        $sp_name = isset($_POST['sp_name']) ? $_POST['sp_name'] : '';
+        // if(isset($_POST['team'])){
+        //     $team = $_POST['team'];
+        // }else{
+        //     $team = '';
+        // }
+        $team = isset($_POST['team']) ? $_POST['team']: '';
+        // if(isset($_FILES['picture']['name'])){
+        //     $picture = $_FILES['picture']['name'];
+        // }else{
+        //     $picture = '';
+        // }
+        $picture = isset($_FILES['picture']['name']) ? $_FILES['picture']['name'] : '';
+        // if(isset($_POST['description'])){
+        //     $description = $_POST['description'];
+        // }else{
+        //     $description = '';
+        // }
+        $description = isset($_POST['description']) ? $_POST['description'] : '';
+        
         //種名欄が空欄だったら$error配列に'blank'を入れる
-        if(isset($sp_name) && $sp_name == ''){
+        if($sp_name == ''){
             $error['sp_name'] = 'blank';
         }
         //種名が５０文字以上だったら$error配列に'length'を入れる
-        if(isset($sp_name) && mb_strlen($sp_name) > 50){
+        if(mb_strlen($sp_name) > 50){
             $error['sp_name'] = 'length';
         }
         //班欄が空欄だったら$error配列に'blank'を入れる
-        if(isset($team) && $team == ''){
+        if($team == ''){
             $error['team'] = 'blank';
+        }
+        if($picture == ''){
+            $error['picture'] = 'blank';
         }
         $filename = $_FILES['picture']['name'];
         if(!empty($filename)){
@@ -32,7 +57,7 @@ $message = "入力エラーがあります";
             }
         }
         //説明欄が空欄だったら$error配列に'blank'を入れる
-        if(isset($description) && $description == ''){
+        if($description == ''){
             $error['description'] = 'blank';
         }
         //$error配列に値がセットされているかどうか調べる
@@ -89,7 +114,7 @@ $logger->addInfo('$_POSTの中身:' . dumper(isset($_POST)));
 $logger->addDebug(var_export($_FILES['picture']['name'], true));
 $logger->warning('$errorの中身:'.dumper($error));
 //}
-$logger->error('$_FILES:'. var_export($_FILES['file']['tmp_name'], true));
+//$logger->error('$_FILES:'. var_export($_FILES['file']['tmp_name'], true));
 
 //var_dumpの結果を文字列として出力するために下記関数を追加
 function dumper($obj){
