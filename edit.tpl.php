@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include('header_inc.php') ?>
-<?php include('function.php') ?>
+<?php require_once('function.php') ?>
 <body>
 <h2><?=$message ; ?></h2>
     <p></p>

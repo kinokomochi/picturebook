@@ -5,4 +5,6 @@ log/edit_log.log
 log/index_log.log
 log/new_log.log
 log/update_log.log
+log/login_check_log.log
+log/login_log.log
 files

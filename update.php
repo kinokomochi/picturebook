@@ -4,10 +4,10 @@ require_once ('db_connect.php');
 
 $message = "入力エラーがあります";
     if(isset($_POST['submit'])){
-        $id = isset($_POST['id']) ? $_POST['id'] : '';
-        $team = isset($_POST['team']) ? $_POST['team'] : '';
-        $sp_name = isset($_POST['sp_name']) ? $_POST['sp_name'] : '';
-        $description = isset($_POST['description']) ? $_POST['description'] : '';
+        $id = $_POST['id'] ?? '';
+        $team = $_POST['team'] ?? '';
+        $sp_name = $_POST['sp_name'] ?? '';
+        $description = $_POST['description'] ?? '';
 
         $sql = 'SELECT picture FROM picture WHERE id=:id';
         $stmt = $pdo->prepare($sql);

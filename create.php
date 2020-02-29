@@ -14,26 +14,30 @@ $message = "入力エラーがあります";
         //     $sp_name = '';
         // }
         //このif-else文は以下のように書き替え可
-        $sp_name = isset($_POST['sp_name']) ? $_POST['sp_name'] : '';
+        //$sp_name = isset($_POST['sp_name']) ? $_POST['sp_name'] : '';
+        //さらに以下のように簡略化できる
+        $sp_name = $_POST['sp_name'] ?? '';
         // if(isset($_POST['team'])){
         //     $team = $_POST['team'];
         // }else{
         //     $team = '';
         // }
-        $team = isset($_POST['team']) ? $_POST['team']: '';
+        //$team = isset($_POST['team']) ? $_POST['team']: '';
+        $team = $_POST['team'] ?? '';
         // if(isset($_FILES['picture']['name'])){
         //     $picture = $_FILES['picture']['name'];
         // }else{
         //     $picture = '';
         // }
-        $picture = isset($_FILES['picture']['name']) ? $_FILES['picture']['name'] : '';
+        //$picture = isset($_FILES['picture']['name']) ? $_FILES['picture']['name'] : '';
+        $picture = $_FILES['picture']['name'] ?? '';
         // if(isset($_POST['description'])){
         //     $description = $_POST['description'];
         // }else{
         //     $description = '';
         // }
-        $description = isset($_POST['description']) ? $_POST['description'] : '';
-        
+        //$description = isset($_POST['description']) ? $_POST['description'] : '';
+        $description = $_POST['description'] ?? '';
         //種名欄が空欄だったら$error配列に'blank'を入れる
         if($sp_name == ''){
             $error['sp_name'] = 'blank';
