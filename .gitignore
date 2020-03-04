@@ -9,4 +9,5 @@ log/login_check_log.log
 log/login_log.log
 log/signup_complete_log.log
 log/signup_check_log.log
+signup_check_log.log
 files
