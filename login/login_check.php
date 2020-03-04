@@ -35,7 +35,7 @@ $password = $_POST['password'] ?? '';
 //つまり、DBから入力されたデータが存在するか検索する
     if(!isset($error)){
         $sql = 'SELECT * FROM user  
-                WHERE :email AND :password';
+                WHERE email = :email AND password = :password';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR_CHAR);
         $stmt->bindValue(':password', $password, PDO::PARAM_STR_CHAR);
@@ -55,6 +55,8 @@ $password = $_POST['password'] ?? '';
             require_once('login.tpl.php');
         }
     }
+}else{
+    header('Location:../room.php');
 }
     
     
@@ -96,7 +98,7 @@ $logger->pushProcessor(function($record){
 });
 
 //$arrは出力したいデータ
-$logger->addInfo('request_info ' . dumper($error));
+$logger->addInfo('request_info ' . dumper(isset($error)));
 $logger->Debug('$sql'.($email));
 //if(isset($error)){
 $logger->warning(dumper($_SESSION));

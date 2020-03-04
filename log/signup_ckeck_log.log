@@ -1,0 +1,989 @@
+[2020-03-02 18:03:54] pbook/log/signup_check.php.INFO: $_POSTの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-02 18:03:54] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(6) "length"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-02 18:08:28] pbook/log/signup_check.php.INFO: $_POSTの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-02 18:08:28] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(6) "length"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-02 18:08:46] pbook/log/signup_check.php.INFO: $_POSTの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-02 18:08:46] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(6) "length"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-02 18:08:57] pbook/log/signup_check.php.INFO: $_POSTの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-02 18:08:57] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(6) "length"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-02 18:09:24] pbook/log/signup_check.php.INFO: $_POSTの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-02 18:09:24] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(6) "length"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-02 18:09:58] pbook/log/signup_check.php.INFO: $_POSTの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-02 18:09:58] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(6) "length"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-02 18:10:13] pbook/log/signup_check.php.INFO: $_POSTの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-02 18:10:13] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(6) "length"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-02 21:49:26] pbook/log/signup_check.php.INFO: $_POSTの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-02 21:49:26] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-02 21:50:00] pbook/log/signup_check.php.INFO: $_POSTの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-02 21:50:00] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:41:31] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:41:31] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:43:32] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:43:32] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:44:35] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:44:35] pbook/log/signup_check.php.WARNING: $errorの中身:array(5) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:45:06] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:45:06] pbook/log/signup_check.php.WARNING: $errorの中身:array(5) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:45:40] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:45:40] pbook/log/signup_check.php.WARNING: $errorの中身:array(5) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:46:19] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:46:19] pbook/log/signup_check.php.WARNING: $errorの中身:array(5) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:46:53] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:46:53] pbook/log/signup_check.php.WARNING: $errorの中身:array(5) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:47:44] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:47:44] pbook/log/signup_check.php.WARNING: $errorの中身:array(5) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:48:40] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:48:40] pbook/log/signup_check.php.WARNING: $errorの中身:array(5) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:49:22] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:49:22] pbook/log/signup_check.php.WARNING: $errorの中身:array(5) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 14:49:47] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:49:47] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 14:51:16] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:51:16] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 14:52:50] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:52:50] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 14:53:24] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 14:53:24] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:06:21] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:06:21] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:09:09] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:09:09] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:42:11] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:42:11] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:42:49] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:42:49] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:46:01] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:46:01] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:46:17] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:46:17] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:46:31] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:46:31] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:47:43] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:47:43] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:47:45] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:47:45] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:48:01] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:48:01] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:48:52] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:48:52] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:48:53] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:48:53] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:48:55] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:48:55] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:51:15] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:51:15] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:51:16] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:51:16] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:52:07] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:52:07] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:52:08] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:52:08] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:52:10] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:52:10] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:52:43] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:52:43] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:52:44] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:52:44] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:53:47] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:53:47] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:53:48] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:53:48] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:54:22] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:54:22] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:54:23] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:54:23] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:55:09] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:55:09] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:55:10] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:55:10] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:55:13] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:55:13] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:59:01] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:59:01] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:59:03] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:59:03] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 15:59:04] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:59:04] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 15:59:06] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:59:06] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 15:59:08] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:59:08] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:59:12] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:59:12] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 15:59:41] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:59:41] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 15:59:44] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 15:59:44] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 16:02:22] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:02:22] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 16:02:23] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:02:23] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["name"]=>
+  string(5) "blank"
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 16:02:32] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:02:32] pbook/log/signup_check.php.WARNING: $errorの中身:array(1) {
+  ["name"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:02:39] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:02:39] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:04:13] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:04:13] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:04:39] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:04:39] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:05:26] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:05:26] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:26:44] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:26:44] pbook/log/signup_check.php.WARNING: $errorの中身:array(4) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["email"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:26:52] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:26:52] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:28:00] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:28:00] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:28:04] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:28:04] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password_re_enter"]=>
+  string(5) "blank"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 16:34:45] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:34:45] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:37:21] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:37:21] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:37:25] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:37:25] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:38:49] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:38:49] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:38:55] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:38:55] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:39:41] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:39:41] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 16:39:53] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 16:39:53] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:39:40] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:39:40] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:41:29] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:41:29] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:41:36] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:41:36] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:45:19] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:45:19] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:45:34] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:45:34] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 17:45:50] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:45:50] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 17:46:05] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:46:05] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:46:17] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:46:17] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 17:46:45] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:46:45] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 17:47:10] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:47:10] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:47:19] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:47:19] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 17:53:30] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:53:30] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:53:33] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:53:33] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:55:20] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:55:20] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:55:39] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:55:39] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:56:07] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:56:07] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:57:43] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:57:43] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:57:45] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:57:45] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:58:16] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:58:16] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:58:32] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:58:32] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:58:39] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:58:39] pbook/log/signup_check.php.WARNING: $errorの中身:array(1) {
+  ["birthday"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 17:58:54] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:58:54] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:59:01] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:59:01] pbook/log/signup_check.php.WARNING: $errorの中身:array(3) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(5) "blank"
+  ["password_re_enter"]=>
+  string(5) "blank"
+}
+ [] {"dummy":""}
+[2020-03-03 17:59:05] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:59:05] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 17:59:06] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:59:06] pbook/log/signup_check.php.WARNING: $errorの中身:array(1) {
+  ["birthday"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-03 17:59:10] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 17:59:10] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 18:00:15] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 18:00:15] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-03 18:00:18] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-03 18:00:18] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:29:25] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-04 10:29:25] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:33:06] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-04 10:33:06] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:33:26] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-04 10:33:26] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:37:25] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:37:25] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:39:21] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:39:21] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:45:18] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:45:18] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:48:28] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:48:28] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:48:38] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:48:38] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:49:52] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:49:52] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:51:38] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:51:38] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:52:43] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:52:43] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:54:44] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:54:44] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:54:57] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:54:57] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:58:18] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:58:18] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:58:31] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:58:31] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:58:39] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:58:39] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 10:58:48] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 10:58:48] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 11:00:04] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 11:00:04] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 11:00:19] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 11:00:19] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 11:00:28] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 11:00:28] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 11:04:12] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 11:04:12] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 11:25:16] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-04 11:25:16] pbook/log/signup_check.php.WARNING: $errorの中身:array(1) {
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-04 11:25:31] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-04 11:25:31] pbook/log/signup_check.php.WARNING: $errorの中身:array(2) {
+  ["birthday"]=>
+  string(6) "failed"
+  ["password"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-04 11:27:42] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(false)
+ [] {"dummy":""}
+[2020-03-04 11:27:42] pbook/log/signup_check.php.WARNING: $errorの中身:array(1) {
+  ["birthday"]=>
+  string(6) "failed"
+}
+ [] {"dummy":""}
+[2020-03-04 11:27:53] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 11:27:53] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 11:28:27] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 11:28:27] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 11:30:29] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 11:30:29] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 11:59:06] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 11:59:06] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 12:00:27] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 12:00:27] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 12:02:16] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 12:02:16] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 12:10:40] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 12:10:40] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 12:24:13] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 12:24:13] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 12:24:55] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 12:24:55] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 14:10:29] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 14:10:29] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 14:19:58] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 14:19:58] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
+[2020-03-04 14:29:45] pbook/log/signup_check.php.INFO: $birthdayの中身:bool(true)
+ [] {"dummy":""}
+[2020-03-04 14:29:45] pbook/log/signup_check.php.WARNING: $errorの中身:NULL
+ [] {"dummy":""}
