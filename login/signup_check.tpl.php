@@ -38,7 +38,7 @@ width="300" height="300" alt="" />
 <input type="hidden" name="password" value="<?=$password; ?>">
 <?php if(isset($password)){echo '********';}; ?>
 <p></p>
-<input type="submit" value="登録内容送信">
+<input type="submit" name="submit" value="登録内容送信">
 </form>
 
 <p></p>

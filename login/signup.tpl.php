@@ -2,7 +2,7 @@
 <html>
 <?php include('../header_inc.php') ?>
 <body>
-<?=$message; ?>
+<h2><?=$message; ?></h2>
 <!-- <?php //var_dump($error); ?> -->
 <form action="signup_check.php" method="post" enctype="multipart/form-data">
 <label>名前</label>
@@ -28,13 +28,13 @@
 <p></p>
 <label>生年月日</label>
 <select name="year">
-<?php optionLoop('1950', date('Y'), $year); ?> 
+<?php optionLoop('1950', date('Y')); ?> 
 </select>年
 <select name="month">
-<?php optionLoop('1', 12, $month); ?> 
+<?php optionLoop('1', 12); ?> 
 </select>月
 <select name="day">
-<?php optionLoop('1',31, $day); ?> 
+<?php optionLoop('1',31); ?> 
 </select>日
 <?php if(isset($error['birthday']) && $error['birthday'] == 'failed'): ?>
 <p>＊存在する生年月日を入力して下さい＊</p>

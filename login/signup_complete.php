@@ -11,17 +11,23 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'] ?? '';
     //$password_re_enter = $_POST['password_re_enter'] ?? '';
     
-    $sql = 'INSERT INTO user (nickname, `image`,team, email, birthday, `password`) 
-            VALUES (`:nickname`, `:image`, :team, :email, :birthday, `:password`)';
+    $sql = 'INSERT INTO user (nickname, image, team, email, birthday, password) 
+            VALUES (:nickname, :image, :team, :email, :birthday, :password)';
+    
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':nickname', $name, PDO::PARAM_STR);
     $stmt->bindValue(':image', $image, PDO::PARAM_STR);
     $stmt->bindValue(':team', $team, PDO::PARAM_STR);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-    $stmt->bindValue(':birthday', $name, PDO::PARAM_STR);
+    $stmt->bindValue(':birthday', $birthday, PDO::PARAM_STR);
     $stmt->bindValue(':password', $password, PDO::PARAM_STR);
     $stmt->execute();
-
+    $ret = $stmt->execute();
+    if ( $ret === false ) {
+        var_export($stmt->errorInfo());
+        exit;
+    }
+    
     $pdo = null;
     $stmt = null;
     
