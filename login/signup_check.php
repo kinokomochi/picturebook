@@ -16,6 +16,7 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     $password_re_enter = $_POST['password_re_enter'] ?? '';
+   
     //validationチェック $errorにそれぞれのエラー内容の値を入れる
     if($name == ''){
         $error['name'] = 'blank';
@@ -40,24 +41,51 @@ if(isset($_POST['submit'])){
     if($email == ''){
         $error['email'] = 'blank';
     }
+    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+        $error['email'] = 'failed';
+    }
     if($password == ''){
         $error['password'] = 'blank';
     }
+    // if(count(mb_convert_kana($password)) > 0){
+    //     $error['password'] = 'kana';
+    // }
     if($password_re_enter == ''){
         $error['password_re_enter'] = 'blank';
     } 
+    // if(count(mb_convert_kana($password_re_enter)) > 0){
+    //     $error['password_re_enter'] = 'kana';
+    // }
     if($password != $password_re_enter){
         $error['password'] = 'failed';
     }
-    
+  
     //$errorが空でなければsignup_check.tpl.phpを呼び出す
     //書き直しの場合はsignup.tpl.phpを呼び出す
     if(isset($error)){
         $message = '入力内容に不備があります';
-        require_once('signup.tpl.php');
+        require('signup.tpl.php');
     }
     
     if(!isset($error)){
+    //IDの重複チェック
+    if($email != ''){
+        $sql = 'SELECT * FROM user WHERE email = :email';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $member = $stmt->fetch();
+
+        $pdo = null;
+        $stmt = null;
+        
+        if(!empty($member)) {
+            $message = "入力されたメールアドレスは既に登録されています。";
+            $error['email'] = 'duplicate';
+            require('signup.tpl.php');
+            exit();
+        }
+    }
         $password = password_hash($password, PASSWORD_BCRYPT);
         $password_re_enter = password_hash($password_re_enter, PASSWORD_BCRYPT);
 
@@ -97,7 +125,7 @@ date_default_timezone_set("Asia/Tokyo");
 
 //ログファイルのパス
 $logging_path = __DIR__ . '/../log/signup_check_log.log';
-$stream = new StreamHandler($logging_path, Logger::INFO);
+$stream = new StreamHandler($logging_path, Logger::DEBUG);
 //出力後、改行するために下記クラスを静止し、パラメーターとしてセットする。
 $formatter = new LineFormatter(null, null, true);
 $stream->setFormatter($formatter);
@@ -112,9 +140,9 @@ $logger->pushProcessor(function($record){
 
 //$arrは出力したいデータ
 //if(!isset($pbook) || !isset($_POST)){
-@$logger->addInfo('$birthdayの中身:' . dumper(isset($birthday)));
-@$logger->addDebug(var_export($_FILES['image']['name'], true));
-@$logger->warning('$errorの中身:'.dumper($error));
+@$logger->addInfo('$birthdayの中身:' . dumper(($_POST)));
+@$logger->addDebug('$memberの中身'.var_export($member, true));
+@$logger->warning('$emailの中身:'.dumper($email));
 //}
 //$logger->error('$_FILES:'. var_export($_FILES['file']['tmp_name'], true));
 

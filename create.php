@@ -6,7 +6,7 @@ $message = "入力エラーがあります";
 //$file_path = 'files/'. $_FILES['picture']['name'];
     
     if(isset($_POST['submit'])){//登録するボタンが押されているか確認
-
+        $user_id = $_POST['user_id'] ?? '';
         //$_POSTに入っている値を変数に入れる
         // if(isset($_POST['sp_name'])){
         //     $sp_name = $_POST['sp_name'];
@@ -77,13 +77,14 @@ $message = "入力エラーがあります";
 
         //入力内容をDBに保存する
         //description青文字なぜか　予約語？
-        $sql = 'INSERT INTO picture (sp_name, team, picture, description)
-                VALUES (:sp_name, :team, :picture, :description)';
+        $sql = 'INSERT INTO picture (sp_name, team, picture, description, user_id)
+                VALUES (:sp_name, :team, :picture, :description, :user_id)';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':sp_name', $sp_name, PDO::PARAM_STR);
         $stmt->bindValue(':team', $team, PDO::PARAM_STR);
         $stmt->bindValue(':picture', $picture, PDO::PARAM_STR);
         $stmt->bindValue(':description', $description, PDO::PARAM_STR);
+        $stmt->bindValue(':user_id', $user_id, PDO::PARAM_INT);
         $stmt->execute();
 
         //print_r($_FILES);
@@ -100,7 +101,7 @@ date_default_timezone_set("Asia/Tokyo");
 
 //ログファイルのパス
 $logging_path = __DIR__ . '/log/create_log.log';
-$stream = new StreamHandler($logging_path, Logger::INFO);
+$stream = new StreamHandler($logging_path, Logger::DEBUG);
 //出力後、改行するために下記クラスを静止し、パラメーターとしてセットする。
 $formatter = new LineFormatter(null, null, true);
 $stream->setFormatter($formatter);
@@ -115,9 +116,9 @@ $logger->pushProcessor(function($record){
 
 //$arrは出力したいデータ
 //if(!isset($pbook) || !isset($_POST)){
-$logger->addInfo('$_POSTの中身:' . dumper(isset($_POST)));
-$logger->addDebug(var_export($_FILES['picture']['name'], true));
-$logger->warning('$errorの中身:'.dumper($error));
+$logger->addInfo('$_POSTの中身:' . dumper($_POST));
+$logger->addDebug('$_SESSIONの中身'.var_export($_SESSION, true));
+$logger->warning('$user_idの中身:'.$user_id);
 //}
 //$logger->error('$_FILES:'. var_export($_FILES['file']['tmp_name'], true));
 

@@ -1,6 +1,7 @@
 <?php 
 error_reporting(E_ALL);
 session_start();
+
     require_once '../function.php';
     require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -47,7 +48,7 @@ session_start();
     // move_uploaded_file($_FILES['picture']['tmp_name'],'../files/'. $picture);
     // $_SESSION['picture'] = $picture;
     
-
+    
     require_once ('../db_connect.php');
     $sql = 'SELECT * FROM picture WHERE team = "kinoko"';
     $stmt = $pdo->prepare($sql);
@@ -57,9 +58,20 @@ session_start();
     $pbooks = [];
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $pbooks[] = $row;
+        $id = $row['user_id'];
     }
+
+    $sql = 'SELECT nickname FROM user INNER JOIN picture 
+    ON user.id = picture.user_id WHERE user.id = :id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+    $stmt->execute();
+    $member = $stmt->fetch(PDO::FETCH_ASSOC);
     //print_r($pbooks);
-    
+   //var_dump($pbooks);
+    //var_dump($members);
+    var_dump($member);
+
     $pdo = null;
     $stmt = null;
 

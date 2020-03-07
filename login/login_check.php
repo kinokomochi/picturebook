@@ -11,6 +11,8 @@ $msg = "接続成功";
 }
 //セッション開始する
 session_start();
+var_dump($_SESSION);
+
 //ログインボタンが押された時の処理↓
 if(isset($_POST['submit'])){
 //バリデーションチェック用の$errorを使う
@@ -31,25 +33,35 @@ $password = $_POST['password'] ?? '';
     if(isset($error)){
         require_once('login.tpl.php');
     }
-//$errorが空であれば、IDとPWがDBに登録された情報と一致するか認証する
+//$errorが空であれば、IDがDBに登録された情報と一致するか認証する
 //つまり、DBから入力されたデータが存在するか検索する
     if(!isset($error)){
         $sql = 'SELECT * FROM user  
-                WHERE email = :email AND password = :password';
+                WHERE email = :email';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':email', $email, PDO::PARAM_STR_CHAR);
-        $stmt->bindValue(':password', $password, PDO::PARAM_STR_CHAR);
         $stmt->execute();
         $member = $stmt->fetch(PDO::FETCH_ASSOC);
         $pdo = null;
         $stmt = null;
-        //DBに検索したレコードが存在したら、ログイン成功
+        //DBにレコードが存在しないつまりユーザーがいない場合はエラーを吐く
+        if(!$member){
+            $error['email'] = 'empty';
+        }
+        //DBに検索したレコードが存在したら、PWが一致するか調べる
         if(isset($member) && $member != ''){
-            $_SESSION['email'] = $member['email'];
+            if(password_verify($_POST['password'], $member['password'])){
+            //取得したレコードのメールアドレスをセッションに格納
+            //$_SESSION['email'] = $member['email'];
+            $_SESSION['id'] = $member['id'];
             $_SESSION['time'] = time();
 
             //元いたページにリダイレクトするか確認ページにリダイレクトする
             require_once('login_check.tpl.php');
+            }else{
+                $error['login'] = 'failed';
+                require_once('login.tpl.php');
+            }
         }else{
             $error['login'] = 'failed';
             require_once('login.tpl.php');
@@ -84,7 +96,7 @@ date_default_timezone_set("Asia/Tokyo");
 
 //ログファイルのパス
 $logging_path = __DIR__ . '/../log/login_check_log.log';
-$stream = new StreamHandler($logging_path, Logger::INFO);
+$stream = new StreamHandler($logging_path, Logger::DEBUG);
 //出力後、改行するために下記クラスを静止し、パラメーターとしてセットする。
 $formatter = new LineFormatter(null, null, true);
 $stream->setFormatter($formatter);
@@ -98,12 +110,12 @@ $logger->pushProcessor(function($record){
 });
 
 //$arrは出力したいデータ
-$logger->addInfo('request_info ' . dumper(isset($error)));
-$logger->Debug('$sql'.($email));
+$logger->addInfo('request_info ' . dumper($_POST));
+$logger->Debug('$member'.dumper($member));
 //if(isset($error)){
-$logger->warning(dumper($_SESSION));
+$logger->warning('$_SESSIONの値'.dumper($_SESSION));
 //}
-//$logger->error('エラーメッセージ');
+$logger->error('$_COOKIEの値'.dumper($_COOKIE));
 
 //var_dumpの結果を文字列として出力するために下記関数を追加
 function dumper($obj){

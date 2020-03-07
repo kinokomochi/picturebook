@@ -22,11 +22,11 @@ if(isset($_POST['submit'])){
     $stmt->bindValue(':birthday', $birthday, PDO::PARAM_STR);
     $stmt->bindValue(':password', $password, PDO::PARAM_STR);
     $stmt->execute();
-    $ret = $stmt->execute();
-    if ( $ret === false ) {
-        var_export($stmt->errorInfo());
-        exit;
-    }
+    // $ret = $stmt->execute();
+    // if ( $ret === false ) {
+    //     var_export($stmt->errorInfo());
+    //     exit;
+    // }
     
     $pdo = null;
     $stmt = null;

@@ -1,5 +1,6 @@
 <?php 
-error_reporting(E_ALL);
+session_start();
+//error_reporting(E_ALL);
 require_once ('db_connect.php');
 
 $message = "入力エラーがあります";

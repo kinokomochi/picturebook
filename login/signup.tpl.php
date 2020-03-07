@@ -39,7 +39,9 @@
 <?php if(isset($error['birthday']) && $error['birthday'] == 'failed'): ?>
 <p>＊存在する生年月日を入力して下さい＊</p>
 <?php endif; ?>
-
+<?php if(!isset($error['birthday']) && !empty($error)): ?>
+<p>*もう一度生年月日をを登録してください*</p>
+<?php endif; ?>
 <p></p>
 <label>班</label>
 <select name="team">
@@ -56,6 +58,12 @@
 <input type="text" name="email" value="<?php if(isset($email) && $email != ''){echo $email;} ?>">
 <?php if(isset($error['email']) && $error['email'] == 'blank'): ?>
 <p>＊ID（メールアドレス）を入力して下さい＊</p>
+<?php endif; ?>
+<?php if(isset($error['email']) && $error['email'] =='duplicate'): ?>
+<p>＊他のメールアドレスを登録してください*</p>
+<?php endif; ?>
+<?php if(isset($error['email']) && $error['email'] =='failed'): ?>
+<p>＊正しいメールアドレスを登録してください*</p>
 <?php endif; ?>
 <p></p>
 <label>パスワード</label>

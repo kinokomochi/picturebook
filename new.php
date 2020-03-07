@@ -1,14 +1,15 @@
 <?php 
-error_reporting(E_ALL);
-if(($_SESSION['email']) && ($_SESSION['password'])){
-//$error = [];
-// if(isset($_POST['submit'])){
-//     $sp_name = $_POST['sp_name'];
-//     $team = $_POST['team'];
-//     $picture = $_POST['picture'];
-//     $description = $_POST['description'];
-// }
+session_start();
+
+if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
 require_once ('db_connect.php');//DBに接続
+$id = $_SESSION['id'];
+//DBからログインしているメンバーのuser.idを取得してpicture.user_idと紐付けたい。　
+$sql = 'SELECT * FROM user WHERE id = :id';
+$stmt = $pdo->prepare($sql);
+$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+$stmt->execute();
+$member = $stmt->fetch();
 $pdo = null;
 $stmt = null;
 
@@ -50,7 +51,7 @@ $stmt = null;
 //     ob_end_clean();//バッファの内容を消去
 //     return $ret;
 // }
-//var_dump($_GET);
+var_dump($_SESSION);
 
     //$error = [];
     $message = "図鑑登録";

@@ -1,4 +1,7 @@
 <?php 
+session_start();
+if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
+
     if(isset($_GET['id'])){
         $id = $_GET['id'];
         // $sp_name = $_GET['sp_name'];
@@ -19,7 +22,7 @@
     $pdo = null;
     $stmt = null;
 
-
+}
 require_once __DIR__ . '/vendor/autoload.php';
 
 use Monolog\Logger;
@@ -30,7 +33,7 @@ date_default_timezone_set("Asia/Tokyo");
 
 //ログファイルのパス
 $logging_path = __DIR__ . '/log/edit_log.log';
-$stream = new StreamHandler($logging_path, Logger::INFO);
+$stream = new StreamHandler($logging_path, Logger::DEBUG);
 //出力後、改行するために下記クラスを静止し、パラメーターとしてセットする。
 $formatter = new LineFormatter(null, null, true);
 $stream->setFormatter($formatter);
@@ -44,10 +47,10 @@ $logger->pushProcessor(function($record){
 });
 
 //$arrは出力したいデータ
-$logger->addInfo('$pbook:' . dumper($pbook));
-$logger->addDebug('$_POST:'.$_POST);
-$logger->warning('警告メッセージ');
-$logger->error('エラーメッセージ');
+@$logger->addInfo('$pbook:' . dumper($pbook));
+@$logger->addDebug('$_POST:'.$_POST);
+@$logger->warning('警告メッセージ');
+@$logger->error('エラーメッセージ');
 
 //var_dumpの結果を文字列として出力するために下記関数を追加
 function dumper($obj){
