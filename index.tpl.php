@@ -8,10 +8,8 @@
    
     <?php foreach($pbooks as $pbook): ?>
         <hr>
-        <?php var_dump($member); ?>
-        <?php var_dump($pbook['user_id']); ?>
 
-        <p><?=$member['nickname'] ;?>さんの投稿</p>
+        <p><?=$pbook['nickname'] ;?>さんの投稿</p>
         <p>[種名]:<?php h($pbook['sp_name']); ?><br></p>
         <p>[写真]:<img src="../files/<?php h($pbook['picture']); ?>" 
         width="300" height="300" alt="" />

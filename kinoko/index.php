@@ -50,7 +50,8 @@ session_start();
     
     
     require_once ('../db_connect.php');
-    $sql = 'SELECT * FROM picture WHERE team = "kinoko"';
+    $sql = 'SELECT * FROM picture INNER JOIN user 
+            ON picture.user_id = user.id WHERE picture.team = "kinoko"';
     $stmt = $pdo->prepare($sql);
     // $stmt->bindValue(':sp_name', $sp_name, PDO::PARAM_STR);
     // $stmt->bindValue(':description', $description, PDO::PARAM_STR);
@@ -61,16 +62,15 @@ session_start();
         $id = $row['user_id'];
     }
 
-    $sql = 'SELECT nickname FROM user INNER JOIN picture 
-    ON user.id = picture.user_id WHERE user.id = :id';
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':id', $id, PDO::PARAM_STR);
-    $stmt->execute();
-    $member = $stmt->fetch(PDO::FETCH_ASSOC);
-    //print_r($pbooks);
-   //var_dump($pbooks);
-    //var_dump($members);
-    var_dump($member);
+//     $sql = 'SELECT nickname FROM user INNER JOIN picture 
+//     ON user.id = picture.user_id WHERE user.id = :id';
+//     $stmt = $pdo->prepare($sql);
+//     $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+//     $stmt->execute();
+//     $member = $stmt->fetch(PDO::FETCH_ASSOC);
+//     //print_r($pbooks);
+//    //var_dump($pbooks);
+    
 
     $pdo = null;
     $stmt = null;
