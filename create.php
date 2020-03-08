@@ -116,9 +116,9 @@ $logger->pushProcessor(function($record){
 
 //$arrは出力したいデータ
 //if(!isset($pbook) || !isset($_POST)){
-$logger->addInfo('$_POSTの中身:' . dumper($_POST));
-$logger->addDebug('$_SESSIONの中身'.var_export($_SESSION, true));
-$logger->warning('$user_idの中身:'.$user_id);
+@$logger->addInfo('$_POSTの中身:' . dumper($_POST));
+@$logger->addDebug('$_SESSIONの中身'.var_export($_SESSION, true));
+@$logger->warning('$user_idの中身:'.$user_id);
 //}
 //$logger->error('$_FILES:'. var_export($_FILES['file']['tmp_name'], true));
 

@@ -109,11 +109,11 @@ if(isset($_POST['submit'])){
         
        // $sql = 'INSERT INTO user FROM pbooks'
     }
-    @var_dump($password);
-    echo "\n";
-    @var_export($matches);
-    echo "\n";
-    @var_dump($error);
+    // @var_dump($password);
+    // echo "\n";
+    // @var_export($matches);
+    // echo "\n";
+    // @var_dump($error);
 
 
 }
