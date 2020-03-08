@@ -66,10 +66,13 @@
 <p>＊正しいメールアドレスを登録してください*</p>
 <?php endif; ?>
 <p></p>
-<label>パスワード</label>
+<label>パスワード（＊大文字・小文字を含む8文字以上20文字以下の英数字で入力してください＊）</label>
 <input type="text" name="password">
 <?php if(isset($error['password']) && $error['password'] == 'blank'): ?>
 <p>＊パスワードを入力して下さい＊</p>
+<?php endif; ?>
+<?php if(isset($error['password']) && $error['password'] == 'illegal'): ?>
+<p>＊正しい形式でパスワードを入力して下さい＊</p>
 <?php endif; ?>
 <?php if(isset($error['password']) && $error['password'] == 'failed'): ?>
 <p>＊パスワードが一致しません＊</p>

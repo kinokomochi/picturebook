@@ -47,6 +47,10 @@ if(isset($_POST['submit'])){
     if($password == ''){
         $error['password'] = 'blank';
     }
+    //半角英小文字大文字数字をそれぞれ１種類以上含む８文字以上20文字以下
+    if(!preg_match("/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,20}+\z/", $password)){
+        $error['password'] = 'illegal';
+    }
     // if(count(mb_convert_kana($password)) > 0){
     //     $error['password'] = 'kana';
     // }
@@ -106,8 +110,10 @@ if(isset($_POST['submit'])){
        // $sql = 'INSERT INTO user FROM pbooks'
     }
     @var_dump($password);
-    @var_dump($password_re_enter);
-    //var_dump($error);
+    echo "\n";
+    @var_export($matches);
+    echo "\n";
+    @var_dump($error);
 
 
 }
@@ -140,9 +146,9 @@ $logger->pushProcessor(function($record){
 
 //$arrは出力したいデータ
 //if(!isset($pbook) || !isset($_POST)){
-@$logger->addInfo('$birthdayの中身:' . dumper(($_POST)));
+@$logger->addInfo('$birthdayの中身:' . dumper(($password)));
 @$logger->addDebug('$memberの中身'.var_export($member, true));
-@$logger->warning('$emailの中身:'.dumper($email));
+@$logger->warning('$emailの中身:'.dumper($matches));
 //}
 //$logger->error('$_FILES:'. var_export($_FILES['file']['tmp_name'], true));
 
