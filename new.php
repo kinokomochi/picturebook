@@ -1,5 +1,6 @@
 <?php 
 session_start();
+require_once('function.php');
 
 if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
 require_once ('db_connect.php');//DBに接続
@@ -51,7 +52,6 @@ $stmt = null;
 //     ob_end_clean();//バッファの内容を消去
 //     return $ret;
 // }
-var_dump($_SESSION);
 
     //$error = [];
     $message = "図鑑登録";

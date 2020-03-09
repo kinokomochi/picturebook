@@ -18,6 +18,7 @@ if(isset($_POST['submit'])){
     $password_re_enter = $_POST['password_re_enter'] ?? '';
    
     //validationチェック $errorにそれぞれのエラー内容の値を入れる
+    $error = [];
     if($name == ''){
         $error['name'] = 'blank';
     }
@@ -44,6 +45,21 @@ if(isset($_POST['submit'])){
     if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
         $error['email'] = 'failed';
     }
+    //IDの重複チェック
+    if($email != ''){
+        $sql = 'SELECT * FROM user WHERE email = :email';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->execute();
+        $member = $stmt->fetch();
+
+        $pdo = null;
+        $stmt = null;
+    
+        if(!empty($member)) {
+                $error['email'] = 'duplicate';
+            }
+    }
     if($password == ''){
         $error['password'] = 'blank';
     }
@@ -66,54 +82,27 @@ if(isset($_POST['submit'])){
   
     //$errorが空でなければsignup_check.tpl.phpを呼び出す
     //書き直しの場合はsignup.tpl.phpを呼び出す
-    if(isset($error)){
+    if(!empty($error)){
         $message = '入力内容に不備があります';
         require('signup.tpl.php');
     }
-    
-    if(!isset($error)){
-    //IDの重複チェック
-    if($email != ''){
-        $sql = 'SELECT * FROM user WHERE email = :email';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->execute();
-        $member = $stmt->fetch();
-
-        $pdo = null;
-        $stmt = null;
-        
-        if(!empty($member)) {
-            $message = "入力されたメールアドレスは既に登録されています。";
-            $error['email'] = 'duplicate';
-            require('signup.tpl.php');
-            exit();
-        }
-    }
+    if(empty($error)){
         $password = password_hash($password, PASSWORD_BCRYPT);
         $password_re_enter = password_hash($password_re_enter, PASSWORD_BCRYPT);
 
         $image = date('YmdHis') . $_FILES['image']['name'];
         move_uploaded_file($_FILES['image']['tmp_name'], '/Applications/XAMPP/xamppfiles/htdocs/pbook/files/'.$image);
-        // $_POST['name'] = $name;
-        // $_FILES['image']['name'] = $image;
-        // $_POST['birthday'] = $birthday ?? '';
-        // $_POST['team'] = $team;
-        // $_POST['email'] = $email;
-        // $_POST['password'] = $password;
-        // $_POST['password_re_enter'] = $password_re_enter;
-
         $message = '以下の内容で登録しますか？';
         require_once('signup_check.tpl.php');
 
-        
+    }  
        // $sql = 'INSERT INTO user FROM pbooks'
-    }
-    // @var_dump($password);
-    // echo "\n";
-    // @var_export($matches);
-    // echo "\n";
-    // @var_dump($error);
+    
+    //@var_dump($password);
+    echo "\n";
+    @var_export($member);
+    echo "\n";
+    @var_dump($error);
 
 
 }

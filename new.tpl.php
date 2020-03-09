@@ -2,7 +2,7 @@
 <html>
 <?php include('header_inc.php') ?>
 <body>
-<h2><?=$message ; ?></h2>
+<h2><?php h($message) ; ?></h2>
     <p></p>
  <!-- create.phpにpostメソッドで値を渡すフォーム   -->
 <form action="create.php" method="post" enctype="multipart/form-data">

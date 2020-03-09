@@ -1,4 +1,5 @@
 <?php
+require_once('../function.php');
 $message = "ログインフォーム";
 //require_once('login.tpl.php');
 //dbと接続する
@@ -11,7 +12,6 @@ $msg = "接続成功";
 }
 //セッション開始する
 session_start();
-var_dump($_SESSION);
 
 //ログインボタンが押された時の処理↓
 if(isset($_POST['submit'])){

@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <?php include('header_inc.php') ?>
-<?php require_once('function.php') ?>
 <body>
-<h2><?=$message ; ?></h2>
+<h2><?php h($message) ; ?></h2>
     <p></p>
 
     <p>[写真]:<img src="files/<?php h($pbook['picture']); ?>" 
@@ -13,7 +12,7 @@
     <input type="hidden" name="picture" value="files/<?php $pbook['picture'] ?>" > 
 
     <label>種名</label>
-    <input type="text" name="sp_name" value="<?php echo $pbook['sp_name']; ?>">
+    <input type="text" name="sp_name" value="<?php h($pbook['sp_name']); ?>">
     <?php if(isset($error['sp_name']) && $error['sp_name'] == 'blank'): ?>
     <p>*種名を登録してください*</p>
     <?php endif; ?>
@@ -33,7 +32,7 @@
     <?php endif; ?>
     <p></p>
     <label>説明</label>
-    <textarea name="description" cols="40" row="80"><?php echo $pbook['description']; ?></textarea>
+    <textarea name="description" cols="40" row="80"><?php h($pbook['description']); ?></textarea>
     <?php if(isset($error['description']) && $error['description'] == 'blank'): ?>
     <p>*説明を登録してください*</p>
     <?php endif; ?>

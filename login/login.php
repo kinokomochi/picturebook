@@ -1,5 +1,6 @@
 <?php
 $message = "ログインフォーム";
+require_once('../function.php');
 require_once('login.tpl.php');
 //dbと接続する
 require_once('../db_connect.php');

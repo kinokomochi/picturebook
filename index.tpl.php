@@ -2,14 +2,14 @@
 <html>
 <?php include('../header_inc.php') ?>
 <body>
-<h2><?=$message ; ?></h2>
+<h2><?php h($message) ; ?></h2>
     <p></p>
     
    
     <?php foreach($pbooks as $pbook): ?>
         <hr>
 
-        <p><?=$pbook['nickname'] ;?>さんの投稿</p>
+        <p><?php h($pbook['nickname']) ;?>さんの投稿</p>
         <p>[種名]:<?php h($pbook['sp_name']); ?><br></p>
         <p>[写真]:<img src="../files/<?php h($pbook['picture']); ?>" 
         width="300" height="300" alt="" />

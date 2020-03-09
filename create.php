@@ -1,6 +1,7 @@
 <?php 
 error_reporting(E_ALL);
 require_once ('db_connect.php');
+require_once('function.php');
 $message = "入力エラーがあります";
 
 //$file_path = 'files/'. $_FILES['picture']['name'];

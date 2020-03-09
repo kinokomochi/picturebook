@@ -2,7 +2,7 @@
 <html>
 <?php include('../header_inc.php') ?>
 <body>
-<h2><?=$message; ?></h2>
+<h2><?php h($message); ?></h2>
 <!-- <?php //var_dump($error); ?> -->
 <form action="signup_check.php" method="post" enctype="multipart/form-data">
 <label>名前</label>

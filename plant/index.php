@@ -2,7 +2,8 @@
 session_start();
     require_once ('../db_connect.php');
     require_once ('../function.php');
-    $sql = 'SELECT * FROM picture INNER JOIN user 
+    $sql = 'SELECT picture.id, picture.team, sp_name, picture, description, user_id, user.nickname  
+            FROM picture LEFT JOIN user 
             ON picture.user_id = user.id WHERE picture.team = "plant"';
     $stmt = $pdo->prepare($sql);
     // $stmt->bindValue(':sp_name', $sp_name, PDO::PARAM_STR);
@@ -11,7 +12,6 @@ session_start();
     $pbooks = [];
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $pbooks[] = $row;
-        $id = $row['user_id'];
     }
     $pdo = null;
     $stmt = null;

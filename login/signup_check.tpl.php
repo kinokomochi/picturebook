@@ -2,18 +2,18 @@
 <html>
 <?php include('../header_inc.php'); ?>
 <body>
-<h2><?=$message ;?></h2>
+<h2><?php h($message) ;?></h2>
 <p></p>
 <form action="signup_complete.php" method="post">
 <label>名前</label>
-<?php if(isset($name)){echo $name;}; ?>
+<?php if(isset($name)){ h($name);}; ?>
 <input type="hidden" name="name" value="<?=$name; ?>">
 <p></p>
 <label>プロフィール画像</label>
 <input type="hidden" name="image" value="<?=$image; ?>">
 <p></p>
 <?php if(isset($image)):?>
-<img src="../files/<?=$image; ?>" 
+<img src="../files/<?php h($image); ?>" 
 width="300" height="300" alt="" />
 <?php endif; ?>
 <p></p>
@@ -32,7 +32,7 @@ width="300" height="300" alt="" />
 <p></p>
 <label>ID(メールアドレス）</label>
 <input type="hidden" name="email" value="<?=$email; ?>">
-<?php if(isset($email)){echo $email;}; ?>
+<?php if(isset($email)){ h($email);}; ?>
 <p></p>
 <label>パスワード</label>
 <input type="hidden" name="password" value="<?=$password; ?>">
