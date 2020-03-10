@@ -23,6 +23,9 @@
 <input type="submit" name="submit" value="ログイン">
 <p></p>
 </form>
+<hr>
+<p><a href="../room.php">班一覧に戻る</a></p>
+
 
 
 <?php include('../footer_inc.php'); ?>

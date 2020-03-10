@@ -40,6 +40,8 @@ width="300" height="300" alt="" />
 <p></p>
 <input type="submit" name="submit" value="登録内容送信">
 </form>
+<hr>
+<p><a href="../room.php">班一覧に戻る</a></p>
 
 <p></p>
 
