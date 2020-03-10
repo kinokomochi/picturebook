@@ -6,7 +6,7 @@
 <!-- <?php //var_dump($error); ?> -->
 <form action="signup_check.php" method="post" enctype="multipart/form-data">
 <label>名前</label>
-<input type="text" name="name" value="<?php if(isset($name) && $name != ''){echo $name;} ?>">
+<input type="text" name="name" value="<?php if(isset($name)){echo $name;} ?>">
 <?php if(isset($error['name']) && $error['name'] == 'blank'): ?>
 <p>＊名前を入力して下さい＊</p>
 <?php endif; ?>
@@ -23,8 +23,15 @@
 <p>＊画像を登録して下さい＊</p>
 <?php endif; ?>
 <?php if(!isset($error['image']) && !empty($error)): ?>
-<p>*もう一度画像を登録してください*</p>
+<p>＊もう一度画像を登録してください＊</p>
 <?php endif; ?>
+<p></p>
+<label>自己紹介文</label>
+<textarea name="introduction" row="40" cols="80"><?php if(isset($introduction)){echo $introduction;} ?></textarea>
+<?php if(isset($error['introduction']) && $error['introduction'] == 'blank'): ?>
+<p>＊自己紹介文をを登録して下さい＊</p>
+<?php endif; ?>
+
 <p></p>
 <label>生年月日</label>
 <select name="year">
@@ -40,7 +47,15 @@
 <p>＊存在する生年月日を入力して下さい＊</p>
 <?php endif; ?>
 <?php if(!isset($error['birthday']) && !empty($error)): ?>
-<p>*もう一度生年月日をを登録してください*</p>
+<p>＊もう一度生年月日をを登録してください＊</p>
+<?php endif; ?>
+<p></p>
+<label>性別</label>
+<td>男<input type="radio" name="gender" value="male"<?php if(isset($gender) && $gender == 'male'){echo 'checked';}?>></td>
+<td>女<input type="radio" name="gender" value="female"<?php if(isset($gender) && $gender == 'female'){echo 'checked';}?>></td>
+<td>未選択<input type="radio" name="gender" value="unselected"<?php if(isset($gender) && $gender == 'unselected'){echo 'checked';}?>></td>
+<?php if(isset($error['gender']) && $error['gender'] == 'blank'): ?>
+<p>＊性別を選択して下さい＊</p>
 <?php endif; ?>
 <p></p>
 <label>班</label>
@@ -63,7 +78,7 @@
 <p>＊他のメールアドレスを登録してください*</p>
 <?php endif; ?>
 <?php if(isset($error['email']) && $error['email'] =='failed'): ?>
-<p>＊正しいメールアドレスを登録してください*</p>
+<p>＊正しいメールアドレスを登録してください＊</p>
 <?php endif; ?>
 <p></p>
 <label>パスワード（＊大文字・小文字を含む8文字以上20文字以下の英数字で入力してください＊）</label>

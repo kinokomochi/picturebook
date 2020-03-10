@@ -9,14 +9,15 @@ if(isset($_POST['submit'])){
     //同時に$_POSTに値がセットされているか確かめる。
     $name = $_POST['name'] ?? '';
     $image = $_FILES['name']['image'] ?? '';
+    $introduction = $_POST['introduction'] ?? '';
     $year = $_POST['year'] ?? '';
     $month = $_POST['month'] ?? '';
     $day = $_POST['day'] ?? '';
+    $gender = $_POST['gender'] ?? '';    
     $team = $_POST['team'] ?? '';
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'] ?? '';
     $password_re_enter = $_POST['password_re_enter'] ?? '';
-   
     //validationチェック $errorにそれぞれのエラー内容の値を入れる
     $error = [];
     if($name == ''){
@@ -36,13 +37,22 @@ if(isset($_POST['submit'])){
             $error = 'type';
         }
     }
+    if($introduction == ''){
+        $error['introduction'] = 'blank';
+    }
     if(checkdate(intval($month), intval($day), intval($year)) == false){
         $error['birthday'] = 'failed';
     }
+    if($gender == ''){
+        $error['gender'] = 'blank';
+    }
+    // if($male = '' && $female == '' && $unselected == ''){
+    //     $error['gender'] = 'blank';
+    // }
     if($email == ''){
         $error['email'] = 'blank';
     }
-    if(filter_var($email, FILTER_VALIDATE_EMAIL) === false){
+    if($email != '' && filter_var($email, FILTER_VALIDATE_EMAIL) === false){
         $error['email'] = 'failed';
     }
     //IDの重複チェック
@@ -64,7 +74,7 @@ if(isset($_POST['submit'])){
         $error['password'] = 'blank';
     }
     //半角英小文字大文字数字をそれぞれ１種類以上含む８文字以上20文字以下
-    if(!preg_match("/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,20}+\z/", $password)){
+    if((!preg_match("/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,20}+\z/", $password)) && $password != ''){
         $error['password'] = 'illegal';
     }
     // if(count(mb_convert_kana($password)) > 0){
@@ -98,7 +108,7 @@ if(isset($_POST['submit'])){
     }  
        // $sql = 'INSERT INTO user FROM pbooks'
     
-    //@var_dump($password);
+    @var_dump($_POST);
     echo "\n";
     @var_export($member);
     echo "\n";
