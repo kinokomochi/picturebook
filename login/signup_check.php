@@ -97,6 +97,8 @@ if(isset($_POST['submit'])){
         require('signup.tpl.php');
     }
     if(empty($error)){
+        session_start();
+        $_SESSION['join'] = $_POST;
         $password = password_hash($password, PASSWORD_BCRYPT);
         $password_re_enter = password_hash($password_re_enter, PASSWORD_BCRYPT);
 
@@ -110,7 +112,7 @@ if(isset($_POST['submit'])){
     
     @var_dump($_POST);
     echo "\n";
-    @var_export($member);
+    @var_export($_SESSION);
     echo "\n";
     @var_dump($error);
 
