@@ -17,12 +17,22 @@
 width="300" height="300" alt="" />
 <?php endif; ?>
 <p></p>
+<label>自己紹介文</label>
+<input type="hidden" name="introduction" value="<?=$introduction; ?>">
+<?php if(isset($introduction)){ h($introduction);}; ?>
+<p></p>
 <label>生年月日</label>
 <?php if(isset($year) && isset($month) && isset($day)): ?>
 <?php $birthday = $year . "-" . $month . "-" . $day; ?>
 <?=$birthday ; ?>
 <?php endif; ?>
 <input type="hidden" name="birthday" value="<?=$birthday; ?>">
+<p></p>
+<label>性別</label>
+<input type="hidden" name="gender" value="<?=$gender; ?>">
+<?php if(isset($gender) && $gender == 'male'){echo '男';}; ?>
+<?php if(isset($gender) && $gender == 'female'){echo '女';}; ?>
+<?php if(isset($gender) && $gender == 'unselected'){echo '未選択';}; ?>
 <p></p>
 <label>班</label>
 <input type="hidden" name="team" value="<?=$team; ?>">
