@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
     if(!empty($filename)){
         $ext = substr($filename, -3);
         if($ext != 'jpg' && $ext != 'JPG' && $ext != 'png' && $ext != 'PNG'){
-            $error = 'type';
+            $error['image'] = 'type';
         }
     }
     if($introduction == ''){

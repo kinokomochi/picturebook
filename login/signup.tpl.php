@@ -35,19 +35,16 @@
 <p></p>
 <label>生年月日</label>
 <select name="year">
-<?php optionLoop('1950', date('Y')); ?> 
+<?php optionLoop('1950', date('Y'), $year); ?> 
 </select>年
 <select name="month">
-<?php optionLoop('1', 12); ?> 
+<?php optionLoop('1', 12, $month); ?> 
 </select>月
 <select name="day">
-<?php optionLoop('1',31); ?> 
+<?php optionLoop('1',31, $day); ?> 
 </select>日
 <?php if(isset($error['birthday']) && $error['birthday'] == 'failed'): ?>
 <p>＊存在する生年月日を入力して下さい＊</p>
-<?php endif; ?>
-<?php if(!isset($error['birthday']) && !empty($error)): ?>
-<p>＊もう一度生年月日をを登録してください＊</p>
 <?php endif; ?>
 <p></p>
 <label>性別</label>
