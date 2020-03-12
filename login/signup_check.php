@@ -74,7 +74,17 @@ if(isset($_POST['submit'])){
         $error['password'] = 'blank';
     }
     //半角英小文字大文字数字をそれぞれ１種類以上含む８文字以上20文字以下
-    if((!preg_match("/\A(?=.*?[a-z])(?=.*?[A-Z])(?=.*?\d)[a-zA-Z\d]{8,20}+\z/", $password)) && $password != ''){
+    if(
+        (
+        !ctype_alnum($password) //全角、記号、半角カナが含まれていればエラー
+        || !preg_match('/[a-z]/', $password) //小文字が1文字以上含まれているか
+        || !preg_match('/[A-Z]/', $password) //大文字が1文字以上含まれているか
+        || !preg_match('/[0-9]/', $password) //半角数字が1文字以上含まれているか
+        || mb_strlen($password) < 8 //8文字以下ならエラー
+        || mb_strlen($password) > 20 //20文字以上ならエラー
+        )
+        && $password != '' //空欄ならば'blank'でエラーを出す
+        ){
         $error['password'] = 'illegal';
     }
     // if(count(mb_convert_kana($password)) > 0){
