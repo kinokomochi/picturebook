@@ -12,7 +12,9 @@ $msg = "接続成功";
 }
 //セッション開始する
 session_start();
-
+// var_dump($_SESSION['return_uri']);
+$uri = $_SESSION['return_uri'];
+unset($_SESSION['return_uri']);
 //ログインボタンが押された時の処理↓
 if(isset($_POST['submit'])){
 //バリデーションチェック用の$errorを使う
@@ -55,9 +57,13 @@ $password = $_POST['password'] ?? '';
             //$_SESSION['email'] = $member['email'];
             $_SESSION['id'] = $member['id'];
             $_SESSION['time'] = time();
-
             //元いたページにリダイレクトするか確認ページにリダイレクトする
-            require_once('login_check.tpl.php');
+                if(isset($uri)){
+                    unset($_SESSION['return_url']);
+                    header('Location:'.$uri);
+                }else{
+                    require_once('login_check.tpl.php');
+                }
             }else{
                 $error['login'] = 'failed';
                 require_once('login.tpl.php');

@@ -1,4 +1,7 @@
 <?php
+session_start();
+// var_dump($_SERVER['HTTP_REFERER']);
+// var_dump($_SESSION['return_uri']);
 $message = "ログインフォーム";
 require_once('../function.php');
 require_once('login.tpl.php');

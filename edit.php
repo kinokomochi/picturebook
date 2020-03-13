@@ -5,7 +5,6 @@ if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
 
     if(isset($_GET['id'])){
         $id = $_GET['id'];
-        var_dump($_GET);
         // $sp_name = $_GET['sp_name'];
         // $team = $_GET['team'];
         // $picture = $_GET['picture'];
@@ -24,6 +23,8 @@ if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
     $pdo = null;
     $stmt = null;
 
+}else{
+    header('Location: login/login.php');
 }
 require_once __DIR__ . '/vendor/autoload.php';
 

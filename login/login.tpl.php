@@ -23,6 +23,8 @@
 <input type="submit" name="submit" value="ログイン">
 <p></p>
 </form>
+<h4>メンバー登録がまだの方はこちら</h4>
+<p><a href="signup.php">メンバー登録</a></p>
 <hr>
 <p><a href="../room.php">班一覧に戻る</a></p>
 

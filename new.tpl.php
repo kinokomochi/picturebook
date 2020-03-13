@@ -2,7 +2,6 @@
 <html>
 <?php include('header_inc.php') ?>
 <body>
-<p><a href="login/logout.php">ログアウト</a></p>
 
 <h2><?php h($message) ; ?></h2>
     <p></p>

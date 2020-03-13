@@ -1,8 +1,7 @@
 <?php
 session_start();
 require_once('../db_connect.php');
-require_once('signup_complete.tpl.php');
-var_dump($_SESSION);
+// var_dump($_SESSION);
 
 if(isset($_POST['submit'])){
     $name = $_POST['name'] ?? '';
@@ -48,6 +47,13 @@ if(isset($_POST['submit'])){
     
         $pdo = null;
         $stmt = null;
+        if(isset($_SESSION['return_uri'])){
+            $uri = $_SESSION['return_uri'];
+            unset($_SESSION['return_uri']);
+            header('Location:'.$uri);
+        }else{
+            require_once('signup_complete.tpl.php');
+        }
 }else{
     header('Location:XAMPP/htdocs/pbook/room.php');
 }
