@@ -36,6 +36,6 @@ if(isset($_SESSION['id']) && ($_SESSION['time']+3600)>time()){
     header('Location:../room.php');
 }
 
-var_dump($pbooks);
-var_dump($member);
-var_dump($_SESSION);
+// var_dump($pbooks);
+// var_dump($member);
+// var_dump($_SESSION);
