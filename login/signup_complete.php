@@ -4,60 +4,62 @@ require_once('../db_connect.php');
 // var_dump($_SESSION);
 
 if(isset($_POST['submit'])){
-    $name = $_POST['name'] ?? '';
-    $image = $_FILES['name']['image'] ?? '';
-    $introduction = $_POST['introduction'] ?? '';
-    $birthday = $_POST['birthday'];
-    $team = $_POST['team'] ?? '';
-    $gender = $_POST['gender'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $password = $_POST['password'] ?? '';
-    //$password_re_enter = $_POST['password_re_enter'] ?? '';
-    
-    $sql = 'INSERT INTO user (nickname, image, introduction, team, email, birthday, gender,  password) 
-            VALUES (:nickname, :image, :introduction, :team, :email, :birthday, :gender, :password)';
-    
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':nickname', $name, PDO::PARAM_STR);
-    $stmt->bindValue(':image', $image, PDO::PARAM_STR);
-    $stmt->bindValue(':introduction', $introduction, PDO::PARAM_STR);
-    $stmt->bindValue(':team', $team, PDO::PARAM_STR);
-    $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-    $stmt->bindValue(':birthday', $birthday, PDO::PARAM_STR);
-    $stmt->bindValue(':gender', $gender, PDO::PARAM_STR);
-    $stmt->bindValue(':password', $password, PDO::PARAM_STR);
-    $stmt->execute();
-    // $ret = $stmt->execute();
-    // if ( $ret === false ) {
-    //     var_export($stmt->errorInfo());
-    //     exit;
-    // }
-    $sql = 'SELECT * FROM user  
-                WHERE email = :email';
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR_CHAR);
-        $stmt->execute();
-        $member = $stmt->fetch(PDO::FETCH_ASSOC);
-        $pdo = null;
-        $stmt = null;
-        //DBにレコードが存在しないつまりユーザーがいない場合はエラーを吐く
+    if(isset($_SESSION['token']) && isset($_POST['token'])
+    && $_SESSION['token'] == $_POST['token']){
+        $name = $_POST['name'] ?? '';
+        $image = $_FILES['name']['image'] ?? '';
+        $introduction = $_POST['introduction'] ?? '';
+        $birthday = $_POST['birthday'];
+        $team = $_POST['team'] ?? '';
+        $gender = $_POST['gender'] ?? '';
+        $email = $_POST['email'] ?? '';
+        $password = $_POST['password'] ?? '';
+        //$password_re_enter = $_POST['password_re_enter'] ?? '';
         
-        $_SESSION['id'] = $member['id'];
-        $_SESSION['time'] = time();
-    
-        $pdo = null;
-        $stmt = null;
-        if(isset($_SESSION['return_uri'])){
-            $uri = $_SESSION['return_uri'];
-            unset($_SESSION['return_uri']);
-            header('Location:'.$uri);
-        }else{
-            require_once('signup_complete.tpl.php');
-        }
-}else{
-    header('Location:XAMPP/htdocs/pbook/room.php');
+        $sql = 'INSERT INTO user (nickname, image, introduction, team, email, birthday, gender,  password) 
+                VALUES (:nickname, :image, :introduction, :team, :email, :birthday, :gender, :password)';
+        
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':nickname', $name, PDO::PARAM_STR);
+        $stmt->bindValue(':image', $image, PDO::PARAM_STR);
+        $stmt->bindValue(':introduction', $introduction, PDO::PARAM_STR);
+        $stmt->bindValue(':team', $team, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':birthday', $birthday, PDO::PARAM_STR);
+        $stmt->bindValue(':gender', $gender, PDO::PARAM_STR);
+        $stmt->bindValue(':password', $password, PDO::PARAM_STR);
+        $stmt->execute();
+        // $ret = $stmt->execute();
+        // if ( $ret === false ) {
+        //     var_export($stmt->errorInfo());
+        //     exit;
+        // }
+        $sql = 'SELECT * FROM user  
+                    WHERE email = :email';
+            $stmt = $pdo->prepare($sql);
+            $stmt->bindValue(':email', $email, PDO::PARAM_STR_CHAR);
+            $stmt->execute();
+            $member = $stmt->fetch(PDO::FETCH_ASSOC);
+            $pdo = null;
+            $stmt = null;
+            //DBにレコードが存在しないつまりユーザーがいない場合はエラーを吐く
+            
+            $_SESSION['id'] = $member['id'];
+            $_SESSION['time'] = time();
+        
+            $pdo = null;
+            $stmt = null;
+            if(isset($_SESSION['return_uri'])){
+                $uri = $_SESSION['return_uri'];
+                unset($_SESSION['return_uri']);
+                header('Location:'.$uri);
+            }else{
+                require_once('signup_complete.tpl.php');
+            }
+    }else{
+        header('Location:../room.php');
+    }
 }
-
 
 
 

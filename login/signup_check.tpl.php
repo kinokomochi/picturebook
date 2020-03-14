@@ -5,6 +5,7 @@
 <h2><?php h($message) ;?></h2>
 <p></p>
 <form action="signup_complete.php" method="post">
+<input type="hidden" name="token" value="<?=$token; ?>">
 <label>名前</label>
 <?php if(isset($name)){ h($name);}; ?>
 <input type="hidden" name="name" value="<?=$name; ?>">
