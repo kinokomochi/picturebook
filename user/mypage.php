@@ -2,6 +2,10 @@
 session_start();
 require_once('../function.php');
 
+if(!isset($_SESSION['id'])){
+    header('Location:../room.php');
+    exit;
+}
 if(isset($_SESSION['id']) && ($_SESSION['time']+3600)>time()){
     //DB接続
     require_once('../db_connect.php');
@@ -27,10 +31,6 @@ if(isset($_SESSION['id']) && ($_SESSION['time']+3600)>time()){
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
         $pbooks[] = $row;
     }
-
-
     $message = $member['nickname'].'さんのマイページ';
     require_once('mypage.tpl.php');
-}else{
-    header('Location:../room.php');
 }

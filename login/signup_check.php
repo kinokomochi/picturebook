@@ -3,6 +3,11 @@ session_start();
 require_once('../db_connect.php');
 require_once('../function.php');
 
+if(!isset($_POST['submit'])){
+        header('Location:../room.php');
+        exit;
+}
+
 //signup.phpから値を受とる
 //「登録確認画面へ」が押されていたら、値を変数に渡す
 if(isset($_POST['submit'])){
@@ -46,9 +51,6 @@ if(isset($_POST['submit'])){
         if($gender == ''){
             $error['gender'] = 'blank';
         }
-        // if($male = '' && $female == '' && $unselected == ''){
-        //     $error['gender'] = 'blank';
-        // }
         if($email == ''){
             $error['email'] = 'blank';
         }
@@ -72,30 +74,20 @@ if(isset($_POST['submit'])){
         }
         if($password == ''){
             $error['password'] = 'blank';
-        }
         //半角英小文字大文字数字をそれぞれ１種類以上含む８文字以上20文字以下
-        if(
-            (
-            !ctype_alnum($password) //全角、記号、半角カナが含まれていればエラー
-            || !preg_match('/[a-z]/', $password) //小文字が1文字以上含まれているか
-            || !preg_match('/[A-Z]/', $password) //大文字が1文字以上含まれているか
-            || !preg_match('/[0-9]/', $password) //半角数字が1文字以上含まれているか
-            || mb_strlen($password) < 8 //8文字以下ならエラー
-            || mb_strlen($password) > 20 //20文字以上ならエラー
-            )
-            && $password != '' //空欄ならば'blank'でエラーを出す
+        //全角、記号、半角カナが含まれていればエラー
+            }else if( !ctype_alnum($password)
+                || !preg_match('/[a-z]/', $password) //小文字が1文字以上含まれているか
+                || !preg_match('/[A-Z]/', $password) //大文字が1文字以上含まれているか
+                || !preg_match('/[0-9]/', $password) //半角数字が1文字以上含まれているか
+                || mb_strlen($password) < 8 //8文字以下ならエラー
+                || mb_strlen($password) > 20 //20文字以上ならエラー
             ){
-            $error['password'] = 'illegal';
+        $error['password'] = 'illegal';
         }
-        // if(count(mb_convert_kana($password)) > 0){
-        //     $error['password'] = 'kana';
-        // }
         if($password_re_enter == ''){
             $error['password_re_enter'] = 'blank';
         } 
-        // if(count(mb_convert_kana($password_re_enter)) > 0){
-        //     $error['password_re_enter'] = 'kana';
-        // }
         if($password != $password_re_enter){
             $error['password'] = 'failed';
         }
@@ -125,9 +117,6 @@ if(isset($_POST['submit'])){
         // @var_export($_SESSION);
         // echo "\n";
         // @var_dump($token);
-    }else{
-        header('Location:../room.php');
-        exit;
     }
 
 

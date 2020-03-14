@@ -1,6 +1,10 @@
 <?php 
 session_start();
 require_once('function.php');
+if(!isset($_SESSION['id'])){
+    header('Location: login/login.php');
+    exit;
+}
 if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
 
     if(isset($_GET['id'])){
@@ -23,8 +27,6 @@ if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
     $pdo = null;
     $stmt = null;
 
-}else{
-    header('Location: login/login.php');
 }
 require_once __DIR__ . '/vendor/autoload.php';
 

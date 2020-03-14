@@ -11,10 +11,17 @@ $msg = "接続成功";
     $msg = "接続失敗";
 }
 //セッション開始する
+$uri = null;
 session_start();
 // var_dump($_SESSION['return_uri']);
+if(isset($_SESSION['return_uri'])){
 $uri = $_SESSION['return_uri'];
 unset($_SESSION['return_uri']);
+}
+if(!isset($_POST['submit'])){
+    header('Location:../room.php');
+    exit;
+}
 //ログインボタンが押された時の処理↓
 if(isset($_POST['submit'])){
 //バリデーションチェック用の$errorを使う
@@ -47,8 +54,9 @@ $password = $_POST['password'] ?? '';
         $pdo = null;
         $stmt = null;
         //DBにレコードが存在しないつまりユーザーがいない場合はエラーを吐く
-        if(!$member){
-            $error['email'] = 'empty';
+        if(!isset($member)){
+            $error['login'] = 'failed';
+            require_once('login.tpl.php');
         }
         //DBに検索したレコードが存在したら、PWが一致するか調べる
         if(isset($member) && $member != ''){
@@ -68,13 +76,8 @@ $password = $_POST['password'] ?? '';
                 $error['login'] = 'failed';
                 require_once('login.tpl.php');
             }
-        }else{
-            $error['login'] = 'failed';
-            require_once('login.tpl.php');
         }
     }
-}else{
-    header('Location:../room.php');
 }
     
     
@@ -116,8 +119,8 @@ $logger->pushProcessor(function($record){
 });
 
 //$arrは出力したいデータ
-$logger->addInfo('request_info ' . dumper($_POST));
-$logger->Debug('$member'.dumper($member));
+@$logger->addInfo('request_info ' . dumper($_POST));
+@$logger->Debug('$member'.dumper($member));
 //if(isset($error)){
 $logger->warning('$_SESSIONの値'.dumper($_SESSION));
 //}

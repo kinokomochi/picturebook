@@ -8,7 +8,6 @@
     <p><a href="../login/login.php">ログイン</a></p> 
     <p><a href="../login/signup.php">メンバー登録</a></p> 
     <?php endif; ?>
-    <?php var_dump($_SESSION); ?>
 <h2><?php h($message) ; ?></h2>
     <p></p>
     

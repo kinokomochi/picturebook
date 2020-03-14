@@ -2,6 +2,12 @@
 session_start();
 require_once('function.php');
 // var_dump($_SESSION);
+if(!isset($_SESSION['id'])){
+    $_SESSION['return_uri'] =  "http://localhost/pbook/new.php";
+    header('Location:login/login.php');
+    exit;
+}
+
 if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
 require_once ('db_connect.php');//DBに接続
 $id = $_SESSION['id'];
@@ -55,11 +61,5 @@ $stmt = null;
 
     //$error = [];
     $message = "図鑑登録";
-
-
-
     require_once ('new.tpl.php');
-}else{
-    $_SESSION['return_uri'] =  "http://localhost/pbook/new.php";
-    header('Location:login/login.php');
 }

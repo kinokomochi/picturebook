@@ -2,7 +2,10 @@
 session_start();
 require_once('../db_connect.php');
 // var_dump($_SESSION);
-
+if(!isset($_POST['submit'])){
+    header('Location:../room.php');
+    exit;
+}
 if(isset($_POST['submit'])){
     if(isset($_SESSION['token']) && isset($_POST['token'])
     && $_SESSION['token'] == $_POST['token']){
@@ -29,13 +32,8 @@ if(isset($_POST['submit'])){
         $stmt->bindValue(':gender', $gender, PDO::PARAM_STR);
         $stmt->bindValue(':password', $password, PDO::PARAM_STR);
         $stmt->execute();
-        // $ret = $stmt->execute();
-        // if ( $ret === false ) {
-        //     var_export($stmt->errorInfo());
-        //     exit;
-        // }
         $sql = 'SELECT * FROM user  
-                    WHERE email = :email';
+                WHERE email = :email';
             $stmt = $pdo->prepare($sql);
             $stmt->bindValue(':email', $email, PDO::PARAM_STR_CHAR);
             $stmt->execute();
@@ -43,10 +41,9 @@ if(isset($_POST['submit'])){
             $pdo = null;
             $stmt = null;
             //DBにレコードが存在しないつまりユーザーがいない場合はエラーを吐く
-            
             $_SESSION['id'] = $member['id'];
             $_SESSION['time'] = time();
-        
+            $_SESSION['token'] = null;
             $pdo = null;
             $stmt = null;
             if(isset($_SESSION['return_uri'])){
@@ -56,8 +53,6 @@ if(isset($_POST['submit'])){
             }else{
                 require_once('signup_complete.tpl.php');
             }
-    }else{
-        header('Location:../room.php');
     }
 }
 
