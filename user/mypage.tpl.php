@@ -33,6 +33,7 @@ width="300" height="300" alt="" />
 <?php h($member['email']); ?>
 <p></p>
 <h2>投稿一覧</h2>
+<?php if(isset($pbook) && $pbook !== null): ?>
 <?php foreach($pbooks as $pbook): ?>
         <hr>
         <p>[種名]:<?php h($pbook['sp_name']); ?><br></p>
@@ -45,6 +46,10 @@ width="300" height="300" alt="" />
         <p><a href='../delete_check.php?id=<?=$pbook['id']; ?>&team=<?=$pbook['team']?>'>投稿を削除</a></p>
     <?php endif; ?>
     <?php endforeach; ?>
+<?php else:?>
+<h4>まだ投稿がありません</h4>
+<p><a href="../new.php">投稿する</a></p>
+<?php endif; ?>
 
 <p></p>
 <hr>

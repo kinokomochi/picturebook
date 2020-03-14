@@ -16,8 +16,7 @@ if(isset($_SESSION['id']) && ($_SESSION['time']+3600)>time()){
     $stmt->execute();
     $member = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $sql = 'SELECT user.id, nickname, image, introduction, birthday, 
-    gender, user.team, email, picture.id, sp_name, picture, 
+    $sql = 'SELECT picture.id, sp_name, picture, 
     description, picture.team, user_id
     FROM user LEFT JOIN picture 
     ON user.id = picture.user_id WHERE user.id = :id';
@@ -35,7 +34,3 @@ if(isset($_SESSION['id']) && ($_SESSION['time']+3600)>time()){
 }else{
     header('Location:../room.php');
 }
-
-// var_dump($pbooks);
-// var_dump($member);
-// var_dump($_SESSION);
