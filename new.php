@@ -10,16 +10,18 @@ if(!isset($_SESSION['id'])){
 
 if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
 require_once ('db_connect.php');//DBに接続
-$id = $_SESSION['id'];
 //DBからログインしているメンバーのuser.idを取得してpicture.user_idと紐付けたい。　
 $sql = 'SELECT * FROM user WHERE id = :id';
 $stmt = $pdo->prepare($sql);
-$stmt->bindValue(':id', $id, PDO::PARAM_INT);
+$stmt->bindValue(':id', $_SESSION['id'], PDO::PARAM_INT);
 $stmt->execute();
-$member = $stmt->fetch();
+$member = $stmt->fetch(PDO::FETCH_ASSOC);
 $pdo = null;
 $stmt = null;
 
+$message = "図鑑登録";
+require_once ('new.tpl.php');
+var_dump($member);
 // require_once __DIR__ . '/vendor/autoload.php';
 // use Monolog\Logger;
 // use Monolog\Handler\StreamHandler;
@@ -60,6 +62,5 @@ $stmt = null;
 // }
 
     //$error = [];
-    $message = "図鑑登録";
-    require_once ('new.tpl.php');
+    
 }
