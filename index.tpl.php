@@ -2,6 +2,7 @@
 <html>
 <?php include('../header_inc.php') ?>
 <body>
+<?php var_dump($_SESSION); ?>
 <?php if(isset($_SESSION['id']) && $_SESSION['time']+3600 > time()):?>
         <p><a href='../login/logout.php'>ログアウト</a></p>
     <?php else: ?>
