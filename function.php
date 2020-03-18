@@ -37,7 +37,7 @@ function assignmentPost(){
     return $pbook;
 }
 //
-function validatePbook($error){
+function validatePbook($pbook){
     $error = emptyError();
     // $pbook = $_POST;
     // $pbook = assignmentPost();
