@@ -11,3 +11,5 @@ log/signup_complete_log.log
 log/signup_check_log.log
 signup_check_log.log
 files
+log/
+log/debug.log
