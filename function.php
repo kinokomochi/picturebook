@@ -15,6 +15,19 @@ function optionLoop($start, $end, $selection=''){
         echo "<option value=\"{$i}\" $selected>{$i}</option>";
     }
 }
+
+function emptyError(){
+    $error = ['sp_name'=>'', 'team'=>'', 'picture'=>'', 'description'=>''];
+    return $error;
+}
+
+function hasError($error) {
+    return $error['sp_name'] != ''
+        || $error['team'] != ''
+        || $error['picture'] != ''
+        || $error['description'] != '';
+}
+
 function assignmentPost(){
     $pbook['user_id'] = $_POST['user_id'] ?? '';
     $pbook['sp_name'] = $_POST['sp_name'] ?? '';
@@ -23,7 +36,11 @@ function assignmentPost(){
     $pbook['description'] = $_POST['description'] ?? '';
     return $pbook;
 }
-function validatePbook(){
+//
+function validatePbook($error){
+    $error = emptyError();
+    // $pbook = $_POST;
+    // $pbook = assignmentPost();
     if(isset($pbook['sp_name']) == ''){
         $error['sp_name'] = 'blank';
     }elseif(mb_strlen($pbook['sp_name']) > 50){
@@ -34,17 +51,24 @@ function validatePbook(){
     }
     if(isset($pbook['picture']) == ''){
         $error['picture'] = 'blank';
-    }
-    $filename = $_FILES['picture']['name'];
-    if(!empty($filename)){
-        $ext = substr($filename, -3);
-        if($ext != 'jpg' && $ext != 'JPG' && $ext != 'png'){
-            $error['picture'] = 'type';
+    }else{
+    $filename = $pbook['picture'];
+        if(!empty($filename)){
+            $ext = substr($filename, -3);
+            if($ext != 'jpg' && $ext != 'JPG' && $ext != 'png'){
+                $error['picture'] = 'type';
+            }
         }
     }
     if(isset($pbook['description']) == ''){
         $error['description'] = 'blank';
     }
     return $error;
+    // var_dump($pbook);
+    // die();
+
 }
 
+function savePbook($pdo, $pbook){
+    $newPbook = $pbook['id'] == '';
+}

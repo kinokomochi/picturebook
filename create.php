@@ -1,19 +1,33 @@
 <?php 
 session_start();
+require_once __DIR__ . '/vendor/autoload.php';
 error_reporting(E_ALL);
 require_once ('db_connect.php');
 require_once('function.php');
+require_once('init.php');
 $message = "入力エラーがあります";
+// var_dump($member);
+// var_dump($_SESSION);
 
     if($_SERVER['REQUEST_METHOD'] != 'POST'){
         header('Location:room.php');
         exit;
     }
     $pbook = assignmentPost();
-    $error = validatePbook();
-        if(isset($error)){
-            require_once ('new.tpl.php');
-        }
+    var_dump($pbook);
+    $error = validatePbook($pbook);
+    //var_dump($_POST);
+
+    if($_SESSION['id'] != '' || hasError($error)){
+        logD($pbook, 'pbook');
+        logD($error, 'error');
+        require_once('new.tpl.php');
+        exit;
+    }
+    // var_dump($error);
+    //     if(isset($error)){
+    //         require_once ('new.tpl.php');
+    //     }
         //$errorに値が一つも入っていなければDBに接続する
         if(!isset($error)){
             $picture = date('YmdHis') . $_FILES['picture']['name'];
@@ -34,51 +48,10 @@ $message = "入力エラーがあります";
         //print_r($_FILES);
         $pdo = null;
         $stmt = null;
+
+        $team = $pbook['team'];
+        $url = "{$team}/index.php";
+        header('Location:'.$url);
+        exit();
         }
     
-    require_once __DIR__ . '/vendor/autoload.php';
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-use Monolog\Formatter\LineFormatter;
-
-date_default_timezone_set("Asia/Tokyo");
-
-//ログファイルのパス
-$logging_path = __DIR__ . '/log/create_log.log';
-$stream = new StreamHandler($logging_path, Logger::DEBUG);
-//出力後、改行するために下記クラスを静止し、パラメーターとしてセットする。
-$formatter = new LineFormatter(null, null, true);
-$stream->setFormatter($formatter);
-$logger = new Logger('pbook/create.php');
-$logger->pushHandler($stream);
-
-//下記のようにしないと配列などの値が出力されない
-$logger->pushProcessor(function($record){
-    $record['extra']['dummy'] = '';
-    return $record;
-});
-
-//$arrは出力したいデータ
-//if(!isset($pbook) || !isset($_POST)){
-@$logger->addInfo('$pbookの中身:' . dumper($_POST));
-@$logger->addDebug('$errorの中身'.var_export($error, true));
-//@$logger->warning('$user_idの中身:'.$user_id);
-//}
-//$logger->error('$_FILES:'. var_export($_FILES['file']['tmp_name'], true));
-
-//var_dumpの結果を文字列として出力するために下記関数を追加
-function dumper($obj){
-    ob_start();//関数の出力のバッファリングをオンにする　？
-    var_dump($obj);
-    $ret = ob_get_contents();//文字列変数にバッファした内容をコピー
-    ob_end_clean();//バッファの内容を消去
-    return $ret;
-}
-
-if(empty($error)){   
-    $url = "{$team}/index.php";
-    header('Location:'.$url);
-    exit();
-}
-
-    //require_once ('new.tpl.php');

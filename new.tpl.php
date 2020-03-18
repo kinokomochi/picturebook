@@ -7,7 +7,7 @@
     <p></p>
  <!-- create.phpにpostメソッドで値を渡すフォーム   -->
 <form action="create.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="user_id" value="<?=$member['id']; ?>">
+    <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
     <label>種名</label>
     <!-- name属性は$_POSTのキーとなる。$_POST['sp_name'] -->
     <input type="text" name="sp_name" value="<?php if(isset($pbook['sp_name'])){ echo $pbook['sp_name'];}?>">
