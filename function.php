@@ -29,6 +29,7 @@ function hasError($error) {
 }
 
 function assignmentPost(){
+    $pbook['id'] = $_POST['id'] ?? '';
     $pbook['user_id'] = $_POST['user_id'] ?? '';
     $pbook['sp_name'] = $_POST['sp_name'] ?? '';
     $pbook['team'] = $_POST['team'] ?? '';
@@ -36,20 +37,18 @@ function assignmentPost(){
     $pbook['description'] = $_POST['description'] ?? '';
     return $pbook;
 }
-//
+
 function validatePbook($pbook){
     $error = emptyError();
-    // $pbook = $_POST;
-    // $pbook = assignmentPost();
-    if(isset($pbook['sp_name']) == ''){
+    if($pbook['sp_name'] == ''){
         $error['sp_name'] = 'blank';
     }elseif(mb_strlen($pbook['sp_name']) > 50){
         $error['sp_name'] = 'length';
     }
-    if(isset($pbook['team']) == ''){
+    if($pbook['team'] == ''){
         $error['team'] = 'blank';
     }
-    if(isset($pbook['picture']) == ''){
+    if($pbook['picture'] == ''){
         $error['picture'] = 'blank';
     }else{
     $filename = $pbook['picture'];
@@ -60,15 +59,36 @@ function validatePbook($pbook){
             }
         }
     }
-    if(isset($pbook['description']) == ''){
+    if($pbook['description'] == ''){
         $error['description'] = 'blank';
     }
     return $error;
-    // var_dump($pbook);
-    // die();
 
 }
 
 function savePbook($pdo, $pbook){
+    //$newPbookが空(つまりpicture.idが空)だったら新規投稿する 
+    //空じゃなかったら更新する
     $newPbook = $pbook['id'] == '';
+    if( $newPbook ){
+        $sql = 'INSERT INTO picture (sp_name, team, picture, description, user_id)
+                VALUES (:sp_name, :team, :picture, :description, :user_id)';
+    }else{
+        $sql = 'UPDATE picture 
+                SET sp_name = :sp_name, team = :team, description = :description
+                WHERE picture.id = :id';
+    }
+//logI($sql, 'SQL');
+    $stmt = $pdo->prepare($sql);
+    if( !$newPbook ){
+        $stmt->bindValue(':id', $pbook['id'], PDO::PARAM_INT);
+    }
+    $stmt->bindValue(':sp_name', $pbook['sp_name'], PDO::PARAM_STR);
+    $stmt->bindValue(':team', $pbook['team'], PDO::PARAM_STR);
+    $stmt->bindValue(':picture', $pbook['picture'], PDO::PARAM_STR);
+    $stmt->bindValue(':description', $pbook['description'], PDO::PARAM_STR);
+    $stmt->bindValue(':user_id', $pbook['user_id'], PDO::PARAM_INT);
+    $stmt->execute();
+
+    return $pbook;
 }
