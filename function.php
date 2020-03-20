@@ -92,3 +92,16 @@ function savePbook($pdo, $pbook){
 
     return $pbook;
 }
+
+function findAllPbook ($pdo, $team) {
+    $sql = 'SELECT picture.id, picture.team, sp_name, picture, description, user_id, user.nickname  
+    FROM picture LEFT JOIN user 
+    ON picture.user_id = user.id WHERE picture.team = :team
+    ORDER BY picture.id DESC';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':team', $team, PDO::PARAM_STR);
+    $stmt->execute();
+    $pbooks = [];
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+}
