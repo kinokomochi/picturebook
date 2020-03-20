@@ -11,9 +11,9 @@
 
 
     <h1>オリジナル図鑑</h1>
-<p><a href="kinoko/index.php">きのこの部屋</a></p>
-<p><a href="plant/index.php">植物の部屋</a></p>
-<p><a href="sea/index.php">海の部屋</a></p>
+<p><a href="index.php?team=kinoko">きのこの部屋</a></p>
+<p><a href="index.php?team=plant">植物の部屋</a></p>
+<p><a href="index.php?team=sea">海の部屋</a></p>
 
 
 <?php 
