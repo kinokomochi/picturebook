@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location:room.php');
     exit;
     }
-$pbook = assignmentPost();
+$pbook = assignmentPost($pbook);
 $error = validatePbook($pbook);
 var_dump($pbook);
 
@@ -32,5 +32,5 @@ if(hasError($error)){
         $url = "index.php?team=".$team;
         header('Location:'.$url);
         exit();
-        }
+    }
     

@@ -114,6 +114,7 @@ function findAllPbook ($pdo, $team) {
     $stmt->execute();
     $pbooks = [];
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 
 function lookUpPbook($pdo, $id) {
     $sql = 'SELECT picture.id, sp_name, team, picture, description FROM picture WHERE picture.id = :id';

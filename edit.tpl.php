@@ -11,8 +11,8 @@
     <p>[写真]:<img src="files/<?php h($pbook['picture']); ?>" 
         width="300" height="300" alt="" /> <br></p>  
 <form action="update.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="<?=$id ?>" > 
-    <input type="hidden" name="picture" value="files/<?php $pbook['picture'] ?>" > 
+    <input type="hidden" name="id" value="<?=$pbook['id']; ?>" > 
+    <input type="hidden" name="picture" value="<?php h($pbook['picture']); ?>" > 
 
     <label>種名</label>
     <input type="text" name="sp_name" value="<?php h($pbook['sp_name']); ?>">
@@ -41,7 +41,7 @@
     <?php endif; ?>
     <p></p>
     <input type="submit" name="submit" value="更新する">
-    </form>
+</form>
     <p><a href="room.php">班一覧に戻る</a></p>
 
 <?php include('footer_inc.php') ?>
