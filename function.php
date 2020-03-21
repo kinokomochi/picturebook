@@ -29,12 +29,19 @@ function hasError($error) {
 }
 
 function assignmentPost(){
-    $pbook['id'] = $_POST['id'] ?? '';
-    $pbook['user_id'] = $_POST['user_id'] ?? '';
-    $pbook['sp_name'] = $_POST['sp_name'] ?? '';
-    $pbook['team'] = $_POST['team'] ?? '';
-    $pbook['picture'] = $_FILES['picture']['name'] ?? '';
-    $pbook['description'] = $_POST['description'] ?? '';
+    if(!$_POST['id']){
+        $pbook['user_id'] = $_POST['user_id'] ?? '';
+        $pbook['sp_name'] = $_POST['sp_name'] ?? '';
+        $pbook['team'] = $_POST['team'] ?? '';
+        $pbook['picture'] = $_FILES['picture']['name'] ?? '';
+        $pbook['description'] = $_POST['description'] ?? '';
+    }elseif($_POST['id']){
+        $pbook['id'] = $_POST['id'];
+        $pbook['sp_name'] = $_POST['sp_name'] ?? '';
+        $pbook['team'] = $_POST['team'] ?? '';
+        $pbook['description'] = $_POST['description'] ?? '';
+        $pbook['picture'] = $_POST['picture'];
+    }
     return $pbook;
 }
 
@@ -80,16 +87,20 @@ function savePbook($pdo, $pbook){
     }
 //logI($sql, 'SQL');
     $stmt = $pdo->prepare($sql);
-    if( !$newPbook ){
+    if( $newPbook ){ //newする時
+        $stmt->bindValue(':user_id', $pbook['user_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':picture', $pbook['picture'], PDO::PARAM_STR);
         $stmt->bindValue(':id', $pbook['id'], PDO::PARAM_INT);
+        $stmt->bindValue(':sp_name', $pbook['sp_name'], PDO::PARAM_STR);
+        $stmt->bindValue(':team', $pbook['team'], PDO::PARAM_STR);
+        $stmt->bindValue(':description', $pbook['description'], PDO::PARAM_STR);
+    }elseif( !$newPbook ){
+        $stmt->bindValue(':id', $pbook['id'], PDO::PARAM_INT);
+        $stmt->bindValue(':sp_name', $pbook['sp_name'], PDO::PARAM_STR);
+        $stmt->bindValue(':team', $pbook['team'], PDO::PARAM_STR);
+        $stmt->bindValue(':description', $pbook['description'], PDO::PARAM_STR);
     }
-    $stmt->bindValue(':sp_name', $pbook['sp_name'], PDO::PARAM_STR);
-    $stmt->bindValue(':team', $pbook['team'], PDO::PARAM_STR);
-    $stmt->bindValue(':picture', $pbook['picture'], PDO::PARAM_STR);
-    $stmt->bindValue(':description', $pbook['description'], PDO::PARAM_STR);
-    $stmt->bindValue(':user_id', $pbook['user_id'], PDO::PARAM_INT);
     $stmt->execute();
-
     return $pbook;
 }
 
@@ -103,5 +114,11 @@ function findAllPbook ($pdo, $team) {
     $stmt->execute();
     $pbooks = [];
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
+function lookUpPbook($pdo, $id) {
+    $sql = 'SELECT picture.id, sp_name, team, picture, description FROM picture WHERE picture.id = :id';
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);    
+    $stmt->execute();
+    return $stmt->fetch(PDO::FETCH_ASSOC);
 }
