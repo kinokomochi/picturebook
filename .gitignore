@@ -13,3 +13,4 @@ signup_check_log.log
 files
 log/
 log/debug.log
+config.php
