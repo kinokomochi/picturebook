@@ -123,3 +123,12 @@ function lookUpPbook($pdo, $id) {
     $stmt->execute();
     return $stmt->fetch(PDO::FETCH_ASSOC);
 }
+
+function deletePbook($pdo, $id){
+    $sql = 'DELETE FROM picture WHERE id = :id';
+    logD($sql, 'SQL');
+    $stmt = $pdo->prepare($sql);
+    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+    $stmt->execute();
+
+}
