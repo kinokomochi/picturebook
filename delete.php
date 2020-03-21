@@ -20,7 +20,7 @@
     
 
     //echo $team;
-    $url = "{$team}/index.php";
+    $url = "index.php".$team;
     header('Location:'.$url);
     exit();
 

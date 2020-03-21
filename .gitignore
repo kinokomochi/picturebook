@@ -1,16 +1,3 @@
-db_connect.php
-log/create_log.log
-log/delete_check_log.log
-log/edit_log.log
-log/index_log.log
-log/new_log.log
-log/update_log.log
-log/login_check_log.log
-log/login_log.log
-log/signup_complete_log.log
-log/signup_check_log.log
-signup_check_log.log
 files
 log/
-log/debug.log
 config.php
