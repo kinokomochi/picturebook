@@ -3,6 +3,7 @@
 //システム初期化、及び共通関数
 require_once('config.php');
 require_once('function.php');
+require_once('login_function.php');
 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;//シンプルなファイル出力用ハンドラー
