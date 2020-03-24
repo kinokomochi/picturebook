@@ -29,13 +29,13 @@ function hasError($error) {
 }
 
 function assignmentPost(){
-    if(!$_POST['id']){
+    if(!isset($_POST['id'])){
         $pbook['user_id'] = $_POST['user_id'] ?? '';
         $pbook['sp_name'] = $_POST['sp_name'] ?? '';
         $pbook['team'] = $_POST['team'] ?? '';
         $pbook['picture'] = $_FILES['picture']['name'] ?? '';
         $pbook['description'] = $_POST['description'] ?? '';
-    }elseif($_POST['id']){
+    }elseif(isset($_POST['id'])){
         $pbook['id'] = $_POST['id'];
         $pbook['sp_name'] = $_POST['sp_name'] ?? '';
         $pbook['team'] = $_POST['team'] ?? '';
@@ -90,7 +90,7 @@ function savePbook($pdo, $pbook){
     if( $newPbook ){ //newする時
         $stmt->bindValue(':user_id', $pbook['user_id'], PDO::PARAM_INT);
         $stmt->bindValue(':picture', $pbook['picture'], PDO::PARAM_STR);
-        $stmt->bindValue(':id', $pbook['id'], PDO::PARAM_INT);
+        //$stmt->bindValue(':id', $pbook['id'], PDO::PARAM_INT);
         $stmt->bindValue(':sp_name', $pbook['sp_name'], PDO::PARAM_STR);
         $stmt->bindValue(':team', $pbook['team'], PDO::PARAM_STR);
         $stmt->bindValue(':description', $pbook['description'], PDO::PARAM_STR);
@@ -130,5 +130,4 @@ function deletePbook($pdo, $id){
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
-
 }

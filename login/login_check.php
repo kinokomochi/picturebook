@@ -9,8 +9,8 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location:room.php');
     exit;
 }
-$user = makeUserFromPost();
-$error = validateUser($user);
+$user = makeLoginUserFromPost();
+$error = validateLoginUser($user);
 if(loginHasError($error)){
     logD($user, 'user');
     logD($error, 'error');
@@ -40,16 +40,18 @@ if(!loginHasError($error)){
     //レコードが存在して、パスワードが一致する場合
         elseif(password_verify($user['password'], $member['password']) == true){
         session_start();
-        $_SESSION['id'] = $member['id'];
-        $_SESSION['time'] = time();
-        logD($_SESSION, '$_SESSION');
-        //元いたページにリダイレクトするか確認ページにリダイレクトする
-            if(isset($_SESSION['return_uri'])){
-                $uri = $_SESSION['return_uri'];
-                unset($_SESSION['return_url']);
-                header('Location:'.$uri);
-            }else{
-                require('login_check.tpl.php');
-            }
+        $uri = 'login_check.tpl.php';
+        $transition = returnOrMovePage($member['id'], $uri);
+    //     $_SESSION['id'] = $member['id'];
+    //     $_SESSION['time'] = time();
+    //     logD($_SESSION, '$_SESSION');
+    //     //元いたページにリダイレクトするか確認ページにリダイレクトする
+    //         if(isset($_SESSION['return_uri'])){
+    //             $uri = $_SESSION['return_uri'];
+    //             unset($_SESSION['return_url']);
+    //             header('Location:'.$uri);
+    //         }else{
+    //             require('login_check.tpl.php');
+    //         }
        }
     }

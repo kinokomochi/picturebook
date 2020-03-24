@@ -14,5 +14,5 @@ if($_GET['team'] == "kinoko"){
     $message = "植物の部屋";
 }
 require_once('index.tpl.php');
-// /var_dump($_GET);
+var_dump($_SESSION);
 //var_dump($pbook);
