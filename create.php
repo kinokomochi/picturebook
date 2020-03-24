@@ -1,11 +1,11 @@
 <?php 
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
-error_reporting(E_ALL);
 require_once('init.php');
 $message = "入力エラーがあります";
-// var_dump($member);
-
+$pbook = ['id'=>'', 'sp_name'=>'', 'picture'=>'', 'description'=>'',
+          'team'=>'', 'user_id'=>''];
+var_dump($_POST);
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location:room.php');
     exit;
