@@ -9,25 +9,25 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 }
 
 //signup.phpから値を受とる
-var_dump($_POST);
+// var_dump($_POST);
 $user = makeSignupUserFromPost();
-var_dump($user);
+var_dump($user['image']);
 $pdo = connectDB();
-$error = signupEmptyError();
 $error = validateSignupUser($pdo, $user);
+$passwordError = validatePW($user);
+logD($passwordError, '$passwordError');
 logD($error, '$error');
-var_dump($error);
 
 //$errorが空でなければsignup_check.tpl.phpを呼び出す
 //書き直しの場合はsignup.tpl.phpを呼び出す
-if(signupHasError($error)){
+if((signupHasError($error)) || (signupHasPasswordError($passwordError))){
     logD($user, 'user');
     logD($error, 'error');
     $message = '入力内容に不備があります';
     require('signup.tpl.php');
     exit;
 }
-if(!signupHasError($error)){
+if((!signupHasError($error)) && (!signupHasPasswordError($passwordError))){
     $_SESSION['join'] = $_POST;
     $_SESSION['token'] = $token = mt_rand();
     $user['password'] = password_hash($user['password'], PASSWORD_BCRYPT);

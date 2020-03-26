@@ -85,7 +85,7 @@ function savePbook($pdo, $pbook){
                 SET sp_name = :sp_name, team = :team, description = :description
                 WHERE picture.id = :id';
     }
-//logI($sql, 'SQL');
+logI($sql, 'SQL');
     $stmt = $pdo->prepare($sql);
     if( $newPbook ){ //newする時
         $stmt->bindValue(':user_id', $pbook['user_id'], PDO::PARAM_INT);

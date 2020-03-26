@@ -80,20 +80,20 @@
 <label>パスワード</label>
 <p>（＊大文字・小文字を含む8文字以上20文字以下の英数字で入力してください＊）</p>
 <input type="text" name="password">
-<?php if(isset($error['password']) && $error['password'] == 'blank'): ?>
+<?php if(isset($passwordError['password']) && $passwordError['password'] == 'blank'): ?>
 <p>＊パスワードを入力して下さい＊</p>
 <?php endif; ?>
-<?php if(isset($error['password']) && $error['password'] == 'illegal'): ?>
+<?php if(isset($passwordError['password']) && $passwordError['password'] == 'illegal'): ?>
 <p>＊正しい形式でパスワードを入力して下さい＊</p>
 <?php endif; ?>
-<?php if(isset($error['password']) && $error['password'] == 'failed'): ?>
+<?php if(isset($passwordError['password']) && $passwordError['password'] == 'failed'): ?>
 <p>＊パスワードが一致しません＊</p>
 <?php endif; ?>
 <p></p>
 <label>パスワード(再入力）</label>
 <p></p>
 <input type="text" name="password_re_enter">
-<?php if(isset($error['password_re_enter']) && $error['password_re_enter'] == 'blank'): ?>
+<?php if(isset($passwordError['password_re_enter']) && $passwordError['password_re_enter'] == 'blank'): ?>
 <p>＊パスワードを再入力して下さい＊</p>
 <?php endif; ?>
 <p></p>
