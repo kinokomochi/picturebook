@@ -10,11 +10,6 @@
 <p><a href="index.php?team=plant">植物の部屋</a></p>
 <p><a href="index.php?team=sea">海の部屋</a></p>
 
-
-<?php 
-   
-
-?>
 <?php include('footer_inc.php') ?>
 </body>
 </html>
