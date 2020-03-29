@@ -1,4 +1,22 @@
 <?php
+function checkLoginStatus(){
+    if(isset($_SESSION['id']) && $_SESSION['time'] < time()){
+        echo  "ようこそ！" . $_SESSION['name'] . "さん！\n<br>";
+        return true;
+    }else{
+        echo "ログインして図鑑を投稿してね！";
+        return false;
+    }
+}
+function displayLink($login){
+    if($login == true){
+        echo  "<a href=\"http://localhost/pbook/new.php\">写真投稿</a>\n<br>";
+        echo "<p><a href=\"http://localhost/pbook/login/logout.php\">ログアウト</a></p>";
+    }elseif($login == false){
+        echo "<p><a href=\"login/login.php\">ログイン</a></p>";
+        echo "<p><a href=\"login/signup.php\">メンバー登録</a></p>";
+    }
+}
 function loginEmptyError(){
     $error = ['email'=>'', 'password'=>'', 'login'=>''];
     return $error;
@@ -27,7 +45,7 @@ function validateLoginUser($user){
     return $error;
 }
 function lookUpUser($pdo, $email){
-    $sql = 'SELECT id, email, password FROM user  
+    $sql = 'SELECT id, nickname, email, password FROM user  
             WHERE email = :email';
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':email', $email, PDO::PARAM_STR);
@@ -80,10 +98,9 @@ function validateSignupUser($pdo, $user){
     if(mb_strlen($user['name']) > 20){
         $error['name'] = 'length';
     }
-    if($user['image'] = ''){
+    if($user['image'] == ''){
         $error['image'] = 'blank';
-    }
-    if($user['image']){
+    }elseif($user['image']){
         $ext = substr($user['image'], -3);
         if($ext != 'jpg' && $ext != 'JPG' && $ext != 'png' && $ext != 'PNG'){
             $error['image'] = 'type';
@@ -109,13 +126,17 @@ function validateSignupUser($pdo, $user){
     }
     
     //IDの重複チェック
-    $sql = 'SELECT email FROM user WHERE email = :email';
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':email', $user['email'], PDO::PARAM_STR);
-    $stmt->execute();
-    $e = $stmt->fetch();
-    if(!empty($e)){
-         $error['email'] = 'duplicate';
+    if($error['email'] == ''){
+        $sql = 'SELECT email FROM user WHERE email = :email';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(':email', $user['email'], PDO::PARAM_STR);
+        $stmt->execute();
+        $e = $stmt->fetch();
+        if(!empty($e)){
+            $error['email'] = 'duplicate';
+        }else{
+            $error['email'] = '';
+        }
     }
     return $error;
 }
@@ -164,8 +185,9 @@ function saveUser($pdo, $user){
     return $user;
 }
 
-function returnOrMovePage($id, $moveUri){
+function returnOrMovePage($id, $name, $moveUri){
     $_SESSION['id'] = $id;
+    $_SESSION['name'] = $name;
     $_SESSION['time'] = time();
     $_SESSION['token'] = null;
     if(isset($_SESSION['return_uri'])){

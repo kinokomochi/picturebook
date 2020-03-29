@@ -2,12 +2,6 @@
 <html>
 <?php include('header_inc.php') ?>
 <body>
-<?php if(isset($_SESSION['id']) && $_SESSION['time']+3600 > time()):?>
-        <p><a href='login/logout.php'>ログアウト</a></p>
-    <?php else: ?>
-    <p><a href="login/login.php">ログイン</a></p> 
-    <p><a href="login/signup.php">メンバー登録</a></p> 
-    <?php endif; ?>
 <h2><?php h($message) ; ?></h2>
     <p></p>
     <?php foreach($pbooks as $pbook): ?>
