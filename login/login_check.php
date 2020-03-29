@@ -1,10 +1,10 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
-
+session_start();
 require_once('../init.php');
 $message = "ログインフォーム";
 $uri = null;
-$member = ['id'=>'', 'email'=>'', 'password'=>''];
+$member = ['id'=>'','nickname'=>'', 'email'=>'', 'password'=>''];
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location:room.php');
     exit;
@@ -39,19 +39,7 @@ if(!loginHasError($error)){
         }
     //レコードが存在して、パスワードが一致する場合
         elseif(password_verify($user['password'], $member['password']) == true){
-        session_start();
         $uri = 'login_check.tpl.php';
-        $transition = returnOrMovePage($member['id'], $uri);
-    //     $_SESSION['id'] = $member['id'];
-    //     $_SESSION['time'] = time();
-    //     logD($_SESSION, '$_SESSION');
-    //     //元いたページにリダイレクトするか確認ページにリダイレクトする
-    //         if(isset($_SESSION['return_uri'])){
-    //             $uri = $_SESSION['return_uri'];
-    //             unset($_SESSION['return_url']);
-    //             header('Location:'.$uri);
-    //         }else{
-    //             require('login_check.tpl.php');
-    //         }
+        $transition = returnOrMovePage($member['id'], $member['nickname'],  $uri);
        }
     }

@@ -2,6 +2,8 @@
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 require_once('init.php');
+$login = checkLoginStatus();
+displayLink($login);
 if(!isset($_SESSION['id']) || ($_SESSION['time'] + 3600) <= time()){
     $_SESSION['return_uri'] =  "http://localhost/pbook/new.php";
     header('Location:login/login.php');

@@ -2,6 +2,8 @@
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 require_once('init.php');
+$login = checkLoginStatus();
+displayLink($login);
 if(!isset($_SESSION['id'])){
     header('Location: login/login.php');
     exit;

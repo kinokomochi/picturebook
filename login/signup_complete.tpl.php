@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<p><a href='logout.php'>ログアウト</a></p>
 <?php include('../header_inc.php'); ?>
 <body>
 <h2>登録が完了しました。</h2>

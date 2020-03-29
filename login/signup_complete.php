@@ -9,10 +9,11 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 }
 if(isset($_SESSION['token']) && isset($_POST['token'])
 && $_SESSION['token'] == $_POST['token']){
+    $member = ['id'=>'','nickname'=>'', 'email'=>'', 'password'=>''];
     $user = makeSignupUserFromPost();
     $pdo = connectDB();
     $user = saveUser($pdo, $user);
-    $member = lookUpUser($pdo, $user['email']);
+    $member = lookUpUser($pdo,  $user['email']);
     $uri = 'signup_complete.tpl.php';
-    $transition = returnOrMovePage($member['id'], $uri);
+    $transition = returnOrMovePage($member['id'], $member['nickname'],  $uri);
 }
