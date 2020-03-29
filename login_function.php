@@ -1,6 +1,6 @@
 <?php
 function checkLoginStatus(){
-    if(isset($_SESSION['id']) && $_SESSION['time'] < time()){
+    if(isset($_SESSION['id']) && ($_SESSION['time'] + 3600)  > time()){
         echo  "ようこそ！" . $_SESSION['name'] . "さん！\n<br>";
         return true;
     }else{
