@@ -2,16 +2,7 @@
     "require": {
         "monolog/monolog": "^1.25"
     },
-    "name": "hogehoge/fugafuga",
-    "autoload": {
-        "psr-4": {
-            "PictureBook\\": "PHPUnitCourse/src/app"
-        }
-    },
-    "require": {
-    },
     "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "phake/phake": "2.*"
+        "phpunit/phpunit": "^9.0"
     }
 }
