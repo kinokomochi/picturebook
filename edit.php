@@ -8,7 +8,7 @@ if(!isset($_SESSION['id'])){
     header('Location: login/login.php');
     exit;
 }
-if(($_SESSION['id']) && ($_SESSION['time']) + 3600 > time()){
+if($login == true){
 
     if(isset($_GET['id'])){
         $pbook['id'] = $_GET['id'];

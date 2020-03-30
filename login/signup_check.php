@@ -8,10 +8,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     exit;
 }
 
-//signup.phpから値を受とる
-// var_dump($_POST);
 $user = makeSignupUserFromPost();
-var_dump($user['image']);
 $pdo = connectDB();
 $error = validateSignupUser($pdo, $user);
 $passwordError = validatePW($user);

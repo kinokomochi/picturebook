@@ -47,9 +47,6 @@
     <input type="submit" name="submit" value="登録する">
 </form>
     <p><a href="room.php">班一覧に戻る</a></p>
-    <?php if(isset($_SESSION)): ?>
-    <p><a href="login/logout.php">ログアウトする</a></p>
-    <?php endif; ?>
 
 <?php include('footer_inc.php') ?>
 </body>

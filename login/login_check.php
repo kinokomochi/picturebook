@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 session_start();
-require_once('http://localhost/pbook/init.php');
+require_once('../init.php');
 $message = "ログインフォーム";
 $uri = null;
 $member = ['id'=>'','nickname'=>'', 'email'=>'', 'password'=>''];
