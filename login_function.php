@@ -4,6 +4,18 @@ function checkLoginStatus(){
         echo  "ようこそ！" . $_SESSION['name'] . "さん！\n<br>";
         return true;
     }else{
+        $_SESSION = array();
+        if(ini_get("session.use_cookies")){
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000, 
+            $params['path'], $params['domain'],
+            $params['secure'], $params['httponly']
+        );
+        }
+        session_destroy();
+        setcookie('password', '', time()-3600);
+        setcookie('id', '', time()-3600);
+        
         echo "ログインして図鑑を投稿してね！";
         return false;
     }
