@@ -1,5 +1,5 @@
 <?php
-require_once('./../vendor/autoload.php');
+require_once('vendor/autoload.php');
 
 class PictureBookTest extends PHPUnit\Framework\TestCase {
     public function test_add() {
