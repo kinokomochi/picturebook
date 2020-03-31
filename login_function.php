@@ -21,10 +21,10 @@ function checkLoginStatus(){
     }
 }
 function displayLink($login){
-    if($login == true){
+    if($login){
         echo  "<p><a href=\"http://localhost/pbook/new.php\">写真投稿</a></p>";
         echo "<p><a href=\"http://localhost/pbook/login/logout.php\">ログアウト</a></p>";
-    }elseif($login == false){
+    }elseif(!$login){
         echo "<p><a href=\"http://localhost/pbook/login/login.php\">ログイン</a></p>";
         echo "<p><a href=\"http://localhost/pbook/login/signup.php\">メンバー登録</a></p>";
     }
