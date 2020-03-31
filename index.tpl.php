@@ -12,11 +12,20 @@
         width="300" height="300" alt="" />
         <br></p>
         <p>[説明]:<br><?php hbr($pbook['description']); ?><br></p>
-        <?php if(((isset($_SESSION['id']))&&($_SESSION['time']+3600)>time()) && $_SESSION['id'] == $pbook['user_id']):?>
+        <?php if($login && $_SESSION['id'] == $pbook['user_id']):?>
         <p><a href='edit.php?id=<?=$pbook['id']; ?>'>投稿を編集</a></p>
         <p><a href='delete_check.php?id=<?=$pbook['id']; ?>&team=<?=$pbook['team']?>'>投稿を削除</a></p>
     <?php endif; ?>
     <?php endforeach; ?>
+    
+    <?php for($i=1; $i < $pages; $i++) : ?>
+    <?php if($_GET['page'] == $i): ?>
+    <?=$_GET['page'] .'ページなう'; ?>
+    <?php else: ?>
+    <?php printf("<a href='?page=%d&team=%s'>%dページへ</a><br />\n", $i, $_GET['team'], $i); ?>
+    <?php endif; ?>
+    <?php endfor; ?>
+
     <hr>
     <p><a href="room.php">班一覧に戻る</a></p>
         <p><a href="new.php"> 写真登録</a></p>

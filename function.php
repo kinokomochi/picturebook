@@ -104,16 +104,25 @@ logI($sql, 'SQL');
     return $pbook;
 }
 
-function findAllPbook ($pdo, $team) {
-    $sql = 'SELECT picture.id, picture.team, sp_name, picture, description, user_id, user.nickname  
-    FROM picture LEFT JOIN user 
-    ON picture.user_id = user.id WHERE picture.team = :team
-    ORDER BY picture.id DESC';
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':team', $team, PDO::PARAM_STR);
-    $stmt->execute();
+function findAllPbook ($pdo, $team, $start) {
+    $csql = "SELECT COUNT(*) as 'cnt' FROM picture WHERE team=:team";
+    $ssql = "SELECT picture.id, picture.team, sp_name, picture, description, user_id, user.nickname  
+    FROM picture LEFT JOIN user ON picture.user_id = user.id 
+    WHERE picture.team = :team
+    ORDER BY picture.id DESC LIMIT :start, 5 ";
+    $sstmt = $pdo->prepare($ssql);
+    $sstmt->bindValue(':team', $team, PDO::PARAM_STR);
+    $sstmt->bindValue(':start', $start * 5, PDO::PARAM_INT);
+    $sstmt->execute();
     $pbooks = [];
-    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $pbooks = $sstmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $cstmt = $pdo->prepare($csql);
+    $cstmt->bindValue(":team", $team, PDO::PARAM_STR);
+    $cstmt->execute();
+    $total = $cstmt->fetchColumn();
+    $pages = ceil($total / 5);
+    return [$pbooks, $pages];
 }
 
 function lookUpPbook($pdo, $id) {

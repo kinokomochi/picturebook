@@ -6,7 +6,11 @@ require_once('init.php');
 $login = checkLoginStatus();
 displayLink($login);
 $pdo = connectDB();
-$pbooks = findAllPbook($pdo,$_GET['team']);
+list($pbooks, $pages) = findAllPbook($pdo, $_GET['team'], $_GET['page']);
+//var_dump($pbooks);
+var_dump($pages);
+//var_dump($_GET);
+
 logD(count($pbooks), 'index');
 if($_GET['team'] == "kinoko"){
     $message = "きのこの部屋";
