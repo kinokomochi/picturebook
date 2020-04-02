@@ -4,12 +4,11 @@ require_once __DIR__ . '/vendor/autoload.php';
 require_once('init.php');
 $login = checkLoginStatus();
 displayLink($login);
-if(!isset($_SESSION['id'])){
+if(!$login){
     header('Location: login/login.php');
     exit;
 }
-if($login == true){
-
+if($login){
     if(isset($_GET['id'])){
         $pbook['id'] = $_GET['id'];
         logD($pbook['id']);
