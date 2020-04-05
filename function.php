@@ -90,7 +90,6 @@ logI($sql, 'SQL');
     if( $newPbook ){ //newする時
         $stmt->bindValue(':user_id', $pbook['user_id'], PDO::PARAM_INT);
         $stmt->bindValue(':picture', $pbook['picture'], PDO::PARAM_STR);
-        //$stmt->bindValue(':id', $pbook['id'], PDO::PARAM_INT);
         $stmt->bindValue(':sp_name', $pbook['sp_name'], PDO::PARAM_STR);
         $stmt->bindValue(':team', $pbook['team'], PDO::PARAM_STR);
         $stmt->bindValue(':description', $pbook['description'], PDO::PARAM_STR);
@@ -139,4 +138,45 @@ function deletePbook($pdo, $id){
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
+}
+
+function assignmentKeyword(){
+    if(isset($_POST['submit'])){
+        $keyword = $_POST['keyword'];
+        return $keyword;
+    }
+}
+
+function searchPbook($pdo, $keyword, $start){
+    $csql = "SELECT COUNT(*) as 'cnt' FROM picture WHERE sp_name LIKE ?";
+    $ssql = "SELECT picture.id, sp_name, picture.team, picture, description, user_id, user.nickname
+            FROM picture LEFT JOIN user ON picture.user_id = user.id
+            WHERE sp_name LIKE ? ORDER BY picture.id DESC LIMIT ?, 5 ";
+    logD($ssql, 'SQL');
+    $sstmt = $pdo->prepare($ssql);
+    $sstmt->bindValue(1, '%' . addcslashes($keyword, '\_%') . '%',  PDO::PARAM_STR);
+    $sstmt->bindValue(2, $start * 5, PDO::PARAM_INT);
+    $sstmt->execute();
+    $pbooks = $sstmt->fetchAll(PDO::FETCH_ASSOC);
+    logD($keyword, 'keyword');
+    $cstmt = $pdo->prepare($csql);
+    $cstmt->bindValue(1, '%' . addcslashes($keyword, '\_%') . '%',  PDO::PARAM_STR);
+    $cstmt->execute();
+    $total = $cstmt->fetchColumn();
+    logD($total, 'total');
+
+    $pages = ceil($total / 5);
+    logD($pages, 'count page');
+
+    return [$pbooks, $pages, $total];
+}
+
+function echoSearchResult($total){
+    if($total == 0){
+        echo "検索結果は０件でした。";
+    }elseif($total == 1){
+        echo "検索結果は１件でした。";
+    }else{
+        echo "検索結果は". $total."件でした。";
+    }
 }

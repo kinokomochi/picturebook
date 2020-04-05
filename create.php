@@ -29,7 +29,7 @@ if(!hasError($error)){
     logD($pbook, 'create a new pbook');
     
     $team = $pbook['team'];
-    $url = "index.php?team=".$team;
+    $url = "index.php?page=0&team=".$team;
     header('Location:'.$url);
     exit();
     }

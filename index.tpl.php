@@ -2,6 +2,13 @@
 <html>
 <?php include('header_inc.php') ?>
 <body>
+<label>種名検索</label>
+<p></p>
+<form action="search.php?page=0">
+<input type="hidden" name="page" value="0">
+<input type="text" name="keyword">
+<input type="submit" name="submit" value="検索する">
+<form>
 <h2><?php h($message) ; ?></h2>
     <p></p>
     <?php foreach($pbooks as $pbook): ?>
@@ -18,11 +25,11 @@
     <?php endif; ?>
     <?php endforeach; ?>
     
-    <?php for($i=1; $i < $pages; $i++) : ?>
+    <?php for($i=0; $i < $pages; $i++) : ?>
     <?php if($_GET['page'] == $i): ?>
-    <?=$_GET['page'] .'ページなう'; ?>
+    <?=$_GET['page']+1 .'ページ'; ?>
     <?php else: ?>
-    <?php printf("<a href='?page=%d&team=%s'>%dページへ</a><br />\n", $i, $_GET['team'], $i); ?>
+    <?php printf("<a href='?page=%d&team=%s'>%dページへ</a><br />\n", $i, $_GET['team'], $i+1); ?>
     <?php endif; ?>
     <?php endfor; ?>
 
