@@ -67,13 +67,13 @@
 <p></p>
 <label>ID(メールアドレス）</label>
 <input type="text" name="email" value="<?php if(isset($user['email']) && $user['email'] != ''){echo $user['email'];} ?>">
-<?php if(isset($error['email']) && $error['email'] == 'blank'): ?>
+<?php if(isset($emailError['email']) && $emailError['email'] == 'blank'): ?>
 <p>＊ID（メールアドレス）を入力して下さい＊</p>
 <?php endif; ?>
-<?php if(isset($error['email']) && $error['email'] =='failed'): ?>
+<?php if(isset($emailError['email']) && $emailError['email'] =='failed'): ?>
 <p>＊正しいメールアドレスを登録してください＊</p>
 <?php endif; ?>
-<?php if(isset($error['email']) && $error['email'] == 'duplicate'): ?>
+<?php if(isset($emailError['email']) && $emailError['email'] == 'duplicate'): ?>
 <p>＊他のメールアドレスを登録してください*</p>
 <?php endif; ?>
 <p></p>

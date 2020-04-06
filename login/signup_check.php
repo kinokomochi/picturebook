@@ -10,14 +10,18 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 
 $user = makeSignupUserFromPost();
 $pdo = connectDB();
-$error = validateSignupUser($pdo, $user);
+$error = validateSignupUser($user);
+logD($user, '$user');
+
+$emailError = validateEmail($pdo, $user);
 $passwordError = validatePW($user);
 logD($passwordError, '$passwordError');
 logD($error, '$error');
+logD($emailError, '$emailError');
 
 //$errorが空でなければsignup_check.tpl.phpを呼び出す
 //書き直しの場合はsignup.tpl.phpを呼び出す
-if((signupHasError($error)) || (signupHasPasswordError($passwordError))){
+if((signupHasError($error)) || (signupEmailError($emailError)) || (signupHasPasswordError($passwordError))){
     logD($user, 'user');
     logD($error, 'error');
     $message = '入力内容に不備があります';

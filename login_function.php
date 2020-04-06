@@ -67,11 +67,12 @@ function lookUpUser($pdo, $email){
 
 function signupEmptyError(){
     $error = ['name'=>'', 'image'=>'', 'introduction'=>'', 'birthday'=>'',
-             'gender'=>'', 'team'=>'', 'email'=>''];
+             'gender'=>'', 'team'=>''];
              return $error;
 }
 function signupEmptyPasswordError(){
     $passwordError = ['password'=>'', 'password_re_enter'=>''];
+    return $passwordError;
 }
 function signupHasError($error){
     return $error['name'] != ''
@@ -81,6 +82,10 @@ function signupHasError($error){
         || $error['gender'] != ''
         || $error['team'] != ''
         || $error['email'] != '';
+}
+
+function signupHasEmailError($emailError){
+    return $emailError['email'] != '';
 }
 function signupHasPasswordError($passwordError){
     return $passwordError['password'] != ''
@@ -102,12 +107,11 @@ function makeSignupUserFromPost(){
     return $user;
 }
 
-function validateSignupUser($pdo, $user){
+function validateSignupUser($user){
     $error = signupEmptyError();
     if($user['name'] == ''){
         $error['name'] = 'blank';
-    }
-    if(mb_strlen($user['name']) > 20){
+    }elseif(mb_strlen($user['name']) > 20){
         $error['name'] = 'length';
     }
     if($user['image'] == ''){
@@ -130,29 +134,33 @@ function validateSignupUser($pdo, $user){
     if($user['team'] == ''){
         $error['team'] = 'blank';
     }
+    return $error;
+}
+
+function validateEmail($pdo, $user){
+    $emailError = ['email'=>''];
+
     if($user['email'] == ''){
-        $error['email'] = 'blank';
+        $emailError['email'] = 'blank';
     }
     if($user['email'] != '' && filter_var($user['email'], FILTER_VALIDATE_EMAIL) === false){
-        $error['email'] = 'failed';
+        $emailError['email'] = 'failed';
     }
     
     //IDの重複チェック
-    if($error['email'] == ''){
+    if($emailError['email'] == ''){
         $sql = 'SELECT email FROM user WHERE email = :email';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':email', $user['email'], PDO::PARAM_STR);
         $stmt->execute();
         $e = $stmt->fetch();
         if(!empty($e)){
-            $error['email'] = 'duplicate';
-        }else{
-            $error['email'] = '';
+            $emailError['email'] = 'duplicate';
         }
+        
     }
-    return $error;
+    return $emailError;
 }
-
 function validatePW($user){
     $passwordError = signupEmptyPasswordError();
     if($user['password'] == ''){
