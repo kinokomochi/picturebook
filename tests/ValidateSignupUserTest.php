@@ -11,6 +11,7 @@ class ValidateSignupUserTest extends TestCase
             'name' => '',
             'image' => '',
             'introduction' => '',
+            'birthday'=>'',
             'gender' => '',
             'team' => ''
         ];
@@ -21,9 +22,10 @@ class ValidateSignupUserTest extends TestCase
         $this->assertSame('', $error['name']);
         $this->assertSame('', $error['image']);
         $this->assertSame('', $error['introduction']);
+        $this->assertSame('', $error['birthday']);
         $this->assertSame('', $error['gender']);
         $this->assertSame('', $error['team']);
-        $this->assertEquals(5, count(array_keys($error)));
+        $this->assertEquals(6, count(array_keys($error)));
     }
 
     //blankエラーテスト
@@ -39,9 +41,10 @@ class ValidateSignupUserTest extends TestCase
         $this->assertEquals('blank', $error['name']);
         $this->assertEquals('blank', $error['image']);
         $this->assertEquals('blank', $error['introduction']);
+        $this->assertEquals('failed', $error['birthday']);
         $this->assertEquals('blank', $error['gender']);
         $this->assertEquals('blank', $error['team']);
-        $this->assertEquals(5, count(array_keys($error)));
+        $this->assertEquals(6, count(array_keys($error)));
     }
 
     //Lengthエラーのテスト
