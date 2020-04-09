@@ -30,14 +30,13 @@ function displayLink($login){
     }
 }
 function loginEmptyError(){
-    $error = ['email'=>'', 'password'=>'', 'login'=>''];
+    $error = ['email'=>'', 'password'=>''];
     return $error;
 }
 
 function loginHasError($error){
     return $error['email'] != ''
-        || $error['password'] != ''
-        || $error['login'] != '';
+        || $error['password'] != '';
 }
 
 function makeLoginUserFromPost(){
@@ -173,8 +172,8 @@ function validatePW($user){
         || !preg_match('/[a-z]/', $user['password']) //小文字が1文字以上含まれているか
         || !preg_match('/[A-Z]/', $user['password']) //大文字が1文字以上含まれているか
         || !preg_match('/[0-9]/', $user['password']) //半角数字が1文字以上含まれているか
-        || mb_strlen($user['password']) < 8 //8文字以下ならエラー
-        || mb_strlen($user['password']) > 20 //20文字以上ならエラー
+        || mb_strlen($user['password']) < 8 //8文字未満ならエラー
+        || mb_strlen($user['password']) > 20 //20文字より大きいならエラー
         )
     {
         $passwordError['password'] = 'illegal';
