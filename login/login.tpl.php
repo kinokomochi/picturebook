@@ -3,7 +3,6 @@
 <?php include('../header_inc.php'); ?>
 <body>
 <h2><?php h($message); ?></h2>
-<!-- <p><?=$msg; ?> -->
 <form action="login_check.php" method="post">
 <?php if(isset($error['login']) && $error['login'] == 'failed'): ?>
 <p>＊ID(メールアドレス)・パスワードいずれかの認証に失敗しました＊</p>

@@ -25,12 +25,12 @@ if(!loginHasError($error)){
     logD($user, 'login user');
 }
 //レコードが存在しない場合
-    if($member == false){
+    if(!$member){
         $error['login'] = 'failed';
         require('login.tpl.php');
         exit;
     }
-    if($member == true){
+    if($member){
         //レコードが存在して、パスワードが一致しない場合
         if(password_verify($user['password'], $member['password']) == false){
             $error['login'] = 'failed';
