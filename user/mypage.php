@@ -1,36 +1,29 @@
 <?php
 session_start();
-require_once('../function.php');
+require_once __DIR__ . './../vendor/autoload.php';
+require_once './../init.php';
+require_once('mypage_class.php');
 
-if(!isset($_SESSION['id'])){
-    header('Location:../room.php');
-    exit;
-}
-if(isset($_SESSION['id']) && ($_SESSION['time']+3600)>time()){
+$login = new Mypage;
+$login->checkLoginStatus();
+if($login){
     //DB接続
-    require_once('../db_connect.php');
-    //ログインしているメンバーのidに一致するレコードをDBからとってくる
-    $sql = 'SELECT user.id, nickname, image, introduction, birthday, 
-            gender, user.team, email, picture.id, sp_name, picture, 
-            description, picture.team, user_id
-            FROM user LEFT JOIN picture 
-            ON user.id = picture.user_id WHERE user.id = :id';
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':id', $_SESSION['id'], PDO::PARAM_STR);
-    $stmt->execute();
-    $member = $stmt->fetch(PDO::FETCH_ASSOC);
+    require_once('./../init.php');
 
-    $sql = 'SELECT picture.id, sp_name, picture, 
-    description, picture.team, user_id
-    FROM user LEFT JOIN picture 
-    ON user.id = picture.user_id WHERE user.id = :id';
-    $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':id', $_SESSION['id'], PDO::PARAM_STR);
-    $stmt->execute();
-    $pbooks = [];
-    while($row = $stmt->fetch(PDO::FETCH_ASSOC)){
-        $pbooks[] = $row;
-    }
-    $message = $member['nickname'].'さんのマイページ';
+    $pdo = new Mypage;
+    $pdo = $pdo->connectDB();
+    //ログインしているメンバーのidに一致するレコードをDBからとってくる
+    $user = new Mypage;
+    $user = $user->findUser($pdo, $_SESSION['id']);
+
+    $post = new Mypage;
+    $pbooks = ['picture.id'=>'', 'sp_name'=>'', 'picture'=>'', 
+              'description'=>'', 'picture.team'=>'', 'user_id'=>''];
+    $pbooks = $post->findPbooks($pdo, $_SESSION['id']);
+    logD($pbooks, 'mypage:$pbooks');
+    logD($_SESSION, 'mypage:$_session');
+
+    $message = $user['nickname'].'さんのマイページ';
     require_once('mypage.tpl.php');
+
 }

@@ -4,17 +4,17 @@
 <body>
 <h2><?php h($message) ;?></h2>
 <p></p>
-<form action="signup_complete.php" method="post">
+<form action="signup_complete.php" method="post"　enctype="multipart/form-data">
 <input type="hidden" name="token" value="<?=$token; ?>">
 <label>名前</label>
 <?php if(isset($user['name'])){ h($user['name']);}; ?>
 <input type="hidden" name="name" value="<?=$user['name']; ?>">
 <p></p>
 <label>プロフィール画像</label>
-<input type="hidden" name="image" value="<?=$image; ?>">
+<input type="hidden" name="image" value="<?=$user['image']; ?>">
 <p></p>
 <?php if(isset($user['image'])):?>
-<img src="../files/<?php h($image); ?>" 
+<img src="../files/<?php h($user['image']); ?>" 
 width="300" height="300" alt="" />
 <?php endif; ?>
 <p></p>

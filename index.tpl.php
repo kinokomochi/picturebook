@@ -8,7 +8,7 @@
 <input type="hidden" name="page" value="0">
 <input type="text" name="keyword">
 <input type="submit" name="submit" value="検索する">
-<form>
+</form>
 <h2><?php h($message) ; ?></h2>
     <p></p>
     <?php foreach($pbooks as $pbook): ?>

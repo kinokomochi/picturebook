@@ -15,13 +15,12 @@ logD($user, '$user');
 
 $emailError = validateEmail($pdo, $user);
 $passwordError = validatePW($user);
-logD($passwordError, '$passwordError');
-logD($error, '$error');
-logD($emailError, '$emailError');
+logD($_POST, '$post');
+
 
 //$errorが空でなければsignup_check.tpl.phpを呼び出す
 //書き直しの場合はsignup.tpl.phpを呼び出す
-if((signupHasError($error)) || (signupEmailError($emailError)) || (signupHasPasswordError($passwordError))){
+if((signupHasError($error)) || (signupHasEmailError($emailError)) || (signupHasPasswordError($passwordError))){
     logD($user, 'user');
     logD($error, 'error');
     $message = '入力内容に不備があります';
@@ -33,11 +32,9 @@ if((!signupHasError($error)) && (!signupHasPasswordError($passwordError))){
     $_SESSION['token'] = $token = mt_rand();
     $user['password'] = password_hash($user['password'], PASSWORD_BCRYPT);
     $user['password_re_enter'] = password_hash($user['password_re_enter'], PASSWORD_BCRYPT);
+    $user['image'] = date('YmdHis') . $user['image'];
+    move_uploaded_file($_FILES['image']['tmp_name'], '/Applications/XAMPP/xamppfiles/htdocs/pbook/files/'.$user['image']);
 
-    $image = date('YmdHis') . $user['image'];
-    move_uploaded_file($_FILES['image']['tmp_name'], '/Applications/XAMPP/xamppfiles/htdocs/pbook/files/'.$image);
-    logD($user, 'signup new user');
-    logD($image, 'user image');
 
     $message = '以下の内容で登録しますか？';
     require_once('signup_check.tpl.php');

@@ -60,9 +60,9 @@ function validatePbook($pbook){
     }else{
     $filename = $pbook['picture'];
         if(!empty($filename)){
-            $ext = substr($filename, -3);
-            if($ext != 'jpg' && $ext != 'JPG' && $ext != 'png'){
-                $error['picture'] = 'type';
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+            if($ext != 'jpg' && $ext != 'JPG' && $ext != 'jpeg' && $ext != 'JPEG' && $ext != 'png' && $ext != 'PNG'){
+                    $error['picture'] = 'type';
             }
         }
     }
@@ -138,13 +138,6 @@ function deletePbook($pdo, $id){
     $stmt = $pdo->prepare($sql);
     $stmt->bindValue(':id', $id, PDO::PARAM_INT);
     $stmt->execute();
-}
-
-function assignmentKeyword(){
-    if(isset($_POST['submit'])){
-        $keyword = $_POST['keyword'];
-        return $keyword;
-    }
 }
 
 function searchPbook($pdo, $keyword, $start){

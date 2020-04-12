@@ -8,7 +8,7 @@ if(isset($_GET['id'])){
 }
 $pdo = connectDB();
 $pbook = deletePbook($pdo, $id);
-$url = "index.php?team=".$team;
+$url = "index.php?page=0&team=".$team;
 header('Location:'.$url);
 exit();
 

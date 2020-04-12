@@ -1,7 +1,7 @@
 <?php
 function checkLoginStatus(){
     if(isset($_SESSION['id']) && ($_SESSION['time'] + 3600)  > time()){
-        echo  "ようこそ！" . $_SESSION['name'] . "さん！\n<br>";
+        echo  "ようこそ！<a href=\"user/mypage.php\">" . $_SESSION['name'] . "さん</a>!\n<br>";
         return true;
     }else{
         $_SESSION = array();
@@ -79,8 +79,7 @@ function signupHasError($error){
         || $error['introduction'] != ''
         || $error['birthday'] != ''
         || $error['gender'] != ''
-        || $error['team'] != ''
-        || $error['email'] != '';
+        || $error['team'] != '';
 }
 
 function signupHasEmailError($emailError){
@@ -91,8 +90,12 @@ function signupHasPasswordError($passwordError){
     || $passwordError['password_re_enter'] != '';
 }
 function makeSignupUserFromPost(){
+    if(isset($_POST['image'])){
+        $user['image'] = $_POST['image'] ?? '';
+    }else{
+        $user['image'] = $_FILES['image']['name'] ?? '';
+    }
     $user['name'] = $_POST['name'] ?? '';
-    $user['image'] = $_FILES['image']['name'] ?? '';
     $user['introduction'] = $_POST['introduction'] ?? '';
     $user['year'] = $_POST['year'] ?? '';
     $user['month'] = $_POST['month'] ?? '';
@@ -116,8 +119,8 @@ function validateSignupUser($user){
     if($user['image'] == ''){
         $error['image'] = 'blank';
     }elseif($user['image']){
-        $ext = substr($user['image'], -3);
-        if($ext != 'jpg' && $ext != 'JPG' && $ext != 'png' && $ext != 'PNG'){
+        $ext = pathinfo($user['image'], PATHINFO_EXTENSION);
+        if($ext != 'jpg' && $ext != 'JPG' && $ext != 'jpeg' && $ext != 'JPEG' && $ext != 'png' && $ext != 'PNG'){
             $error['image'] = 'type';
         }
     }

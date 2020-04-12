@@ -16,12 +16,12 @@
 <label>プロフィール画像</label>
 <input type="file" name="image">
 <?php if(isset($error['image']) && $error['image'] == 'type'): ?>
-<p>＊画像は「gif」または「png」形式で登録して下さい＊</p>
+<p>＊画像は「jpg」または「png」形式で登録して下さい＊</p>
 <?php endif; ?>
 <?php if(isset($error['image']) && $error['image'] == 'blank'): ?>
 <p>＊画像を登録して下さい＊</p>
 <?php endif; ?>
-<?php if(!isset($error['image']) && !empty($error)): ?>
+<?php if(!isset($error['image']) && (!empty($error)) || !empty($emailError) || !empty($passwordError)): ?>
 <p>＊もう一度画像を登録してください＊</p>
 <?php endif; ?>
 <p></p>
