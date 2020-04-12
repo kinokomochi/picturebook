@@ -82,7 +82,7 @@ class ValidateSignupUserTest extends TestCase
         $error = validateSignupUser($user);
         $this->assertEquals('type', $error['image']);
 
-        $user['image'] = 'img.jpeg';
+        $user['image'] = 'img.gif';
         $error = validateSignupUser($user);
         $this->assertEquals('type', $error['image']);
 

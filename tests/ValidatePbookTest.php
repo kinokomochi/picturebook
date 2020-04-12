@@ -65,7 +65,7 @@ class ValidatePbookTest extends TestCase
         $error = validatePbook($pbook);
         $this->assertEquals('type', $error['picture']);
 
-        $pbook['picture'] = 'pic.jpeg';
+        $pbook['picture'] = 'pic.txt';
         $error = validatePbook($pbook);
         $this->assertEquals('type', $error['picture']);
 
