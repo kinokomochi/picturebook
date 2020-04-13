@@ -4,6 +4,7 @@
 require_once('config.php');
 require_once('function.php');
 require_once('login_function.php');
+require_once('mypage_function.php');
 require_once('url_root.php');
 
 use Monolog\Logger;
