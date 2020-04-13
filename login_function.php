@@ -1,7 +1,7 @@
 <?php
 function checkLoginStatus(){
     if(isset($_SESSION['id']) && ($_SESSION['time'] + 3600)  > time()){
-        echo  "ようこそ！<a href=\"user/mypage.php\">" . $_SESSION['name'] . "さん</a>!\n<br>";
+        echo  "ようこそ！<a href=\"". URL_ROOT. "user/mypage.php\">" . $_SESSION['name'] . "さん</a>!\n<br>";
         return true;
     }else{
         $_SESSION = array();
@@ -15,18 +15,19 @@ function checkLoginStatus(){
         session_destroy();
         setcookie('password', '', time()-3600);
         setcookie('id', '', time()-3600);
-        
+        session_start();
+
         echo "ログインして図鑑を投稿してね！";
         return false;
     }
 }
 function displayLink($login){
     if($login){
-        echo  "<p><a href=\"http://localhost/pbook/new.php\">写真投稿</a></p>";
-        echo "<p><a href=\"http://localhost/pbook/login/logout.php\">ログアウト</a></p>";
+        echo  "<p><a href=\"".URL_ROOT."new.php\">写真投稿</a></p>";
+        echo "<p><a href=\"".URL_ROOT."login/logout.php\">ログアウト</a></p>";
     }elseif(!$login){
-        echo "<p><a href=\"http://localhost/pbook/login/login.php\">ログイン</a></p>";
-        echo "<p><a href=\"http://localhost/pbook/login/signup.php\">メンバー登録</a></p>";
+        echo "<p><a href=\"".URL_ROOT."login/login.php\">ログイン</a></p>";
+        echo "<p><a href=\"".URL_ROOT."login/signup.php\">メンバー登録</a></p>";
     }
 }
 function loginEmptyError(){

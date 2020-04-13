@@ -8,10 +8,9 @@ use PHPUnit\Framework\TestCase;
 //2つが一致しなかったら'failed'
 class ValidatePWTest extends TestCase
 {
-    //privateにする意味が説明できない
     private function emptyPW()
     {
-        $user = ['passeord'=>'', 'password_re_enter'=>''];
+        $user = ['password'=>'', 'password_re_enter'=>''];
     }
     
     private function assertNoError($passwordError)
@@ -43,12 +42,12 @@ class ValidatePWTest extends TestCase
         $this->assertEquals('illegal', $passwordError['password']);        
     }
 
-    public function testSmallCharacter()
+    public function testLowerCharacter()
     {
         $user = 
         [
-            'password'=>'ABCDEFGH',
-            'password_re_enter'=> 'ABCDEFGH'
+            'password'=>'ABCD1234',
+            'password_re_enter'=> 'ABCD1234'
         ];
         $passwordError = validatePW($user);
         $this->assertEquals('illegal', $passwordError['password']);        
@@ -57,8 +56,8 @@ class ValidatePWTest extends TestCase
     {
         $user = 
         [
-            'password'=>'abcdefgh',
-            'password_re_enter'=> 'abcdefgh'
+            'password'=>'abcd1234',
+            'password_re_enter'=> 'abcd1234'
         ];
 
         $passwordError = validatePW($user);
@@ -68,8 +67,8 @@ class ValidatePWTest extends TestCase
     {
         $user = 
         [
-            'password'=>'ABCDEFGH',
-            'password_re_enter'=> 'ABCDEFGH'
+            'password'=>'ABCDefgh',
+            'password_re_enter'=> 'ABCDefgh'
         ];
         $passwordError = validatePW($user);
         $this->assertEquals('illegal', $passwordError['password']);        

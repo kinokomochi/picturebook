@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 require_once ('init.php');
 if(isset($_GET['id'])){
@@ -8,7 +9,7 @@ if(isset($_GET['id'])){
 }
 $pdo = connectDB();
 $pbook = deletePbook($pdo, $id);
-$url = "index.php?page=0&team=".$team;
+$url = $_SESSION['uri'];
 header('Location:'.$url);
 exit();
 

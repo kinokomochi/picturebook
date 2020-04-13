@@ -11,9 +11,8 @@ if(!$login){
 if($login){
     if(isset($_GET['id'])){
         $pbook['id'] = $_GET['id'];
+        $_SESSION['uri'] = $_SERVER['HTTP_REFERER'];
         logD($pbook['id']);
-    }else{
-        header('Location: room.php');
     }
     
     $pdo = connectDB();

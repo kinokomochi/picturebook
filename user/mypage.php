@@ -4,26 +4,19 @@ require_once __DIR__ . './../vendor/autoload.php';
 require_once './../init.php';
 require_once('mypage_class.php');
 
-$login = new Mypage;
-$login->checkLoginStatus();
+$login = checkLoginStatus();
+if(!$login){
+    header('Location:./../login/login.php');
+}
+displayLink($login);
 if($login){
-    //DB接続
-    require_once('./../init.php');
-
-    $pdo = new Mypage;
-    $pdo = $pdo->connectDB();
-    //ログインしているメンバーのidに一致するレコードをDBからとってくる
-    $user = new Mypage;
+    $pdo =connectDB();
+    $user = new Mypage($pdo, $_SESSION['id']);
     $user = $user->findUser($pdo, $_SESSION['id']);
 
-    $post = new Mypage;
-    $pbooks = ['picture.id'=>'', 'sp_name'=>'', 'picture'=>'', 
-              'description'=>'', 'picture.team'=>'', 'user_id'=>''];
+    $post = new Mypage();
     $pbooks = $post->findPbooks($pdo, $_SESSION['id']);
-    logD($pbooks, 'mypage:$pbooks');
-    logD($_SESSION, 'mypage:$_session');
 
     $message = $user['nickname'].'さんのマイページ';
     require_once('mypage.tpl.php');
-
 }

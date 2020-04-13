@@ -6,10 +6,11 @@ $login = checkLoginStatus();
 displayLink($login);
 if(isset($_GET['id'])){
     $id = $_GET['id'];
-    $team = $_GET['team'];
+    $_SESSION['uri'] = $_SERVER['HTTP_REFERER'];
+}else{
+    header('Location:'.$_SERVER['HTTP_REFERER']);
 }
 $pdo = connectDB();
 $pbook = lookUpPbook($pdo, $id);   
-
 $message = "この投稿を削除しますか？";    
 require_once ('delete_check.tpl.php');

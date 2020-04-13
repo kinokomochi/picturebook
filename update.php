@@ -24,7 +24,7 @@ if(!hasError($error)){
     logD($pbook, 'update a pbook');
 
     $team = $pbook['team'];
-    $url = "index.php?page=0&team=".$team;
+    $url = $_SESSION['uri'];
     header('Location:'.$url);
     exit();
 }
