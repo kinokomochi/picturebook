@@ -98,9 +98,9 @@
 <?php endif; ?>
 <p></p>
 <input type="submit" name="submit" value="登録確認画面へ">
+</form>
 <hr>
 <p><a href="../room.php">班一覧に戻る</a></p>
 
 
-</form>
 <?php include('../footer_inc.php') ?>
