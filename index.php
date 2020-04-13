@@ -9,7 +9,7 @@ displayLink($login);
 $pdo = connectDB();
 $pages = '';
 list($pbooks, $pages) = findAllPbook($pdo, $_GET['team'], $_GET['page']);
-logD($pbooks, 'index');
+logD(count($pbooks), 'index');
 
 if($_GET['team'] == "kinoko"){
     $message = "きのこの部屋";
