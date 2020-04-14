@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 
-require_once('init.php');
 $login = checkLoginStatus();
 displayLink($login);
 

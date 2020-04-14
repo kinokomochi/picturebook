@@ -2,7 +2,6 @@
 <body>
 <?php session_start(); ?>
 <?php require_once __DIR__ . '/vendor/autoload.php'; ?>
-<?php require_once 'init.php'; ?>
 <?php $login = checkLoginStatus(); ?>
 <?php displayLink($login); ?>
     <h1>オリジナル図鑑</h1>

@@ -52,7 +52,7 @@ class ValidatePWTest extends TestCase
         $passwordError = validatePW($user);
         $this->assertEquals('illegal', $passwordError['password']);        
     }
-    public function testCapitalCharacter()
+    public function testUpperCharacter()
     {
         $user = 
         [

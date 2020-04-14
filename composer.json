@@ -1,4 +1,10 @@
 {
+    "autoload": {
+        "files": [
+            "init.php"
+        ]
+    },
+    
     "require": {
         "monolog/monolog": "^1.25"
     },
