@@ -9,15 +9,12 @@
 <form action="myimg_check.php" method="post" enctype="multipart/form-data">
 <label>新しいプロフィール画像</label>
 <p></p>
-<input type="file" name="image">
-<?php if(isset($error['image']) && $error['image'] == 'type'): ?>
+<input type="file" name="newImage">
+<?php if(isset($error['newImage']) && $error['newImage'] == 'type'): ?>
 <p>＊画像は「jpg」または「png」形式で登録して下さい＊</p>
 <?php endif; ?>
-<?php if(isset($error['image']) && $error['image'] == 'blank'): ?>
+<?php if(isset($error['newImage']) && $error['newImage'] == 'blank'): ?>
 <p>＊画像を登録して下さい＊</p>
-<?php endif; ?>
-<?php if(!isset($error['image']) && (!empty($error)) || !empty($emailError) || !empty($passwordError)): ?>
-<p>＊もう一度画像を登録してください＊</p>
 <?php endif; ?>
 <p></p>
 <input type="submit" name="submit" value="登録確認画面へ">

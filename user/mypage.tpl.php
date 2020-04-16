@@ -32,6 +32,12 @@ width="300" height="300" alt="" />
 <label>ID(メールアドレス）</label>
 <?php h($user['email']); ?>
 <p></p>
+<tr>
+<p><a href="myimg_edit.php">画像編集</a>
+<a href="myprofile_edit.php">プロフィール編集</a>
+<a href="myemail_edit.php">Email編集</a>
+<a href="myPassword_edit.php">PW編集</p></a>
+</tr>
 <h2><?=$user['nickname']; ?>さんの投稿一覧</h2>
 <?php if(isset($pbooks[0]['id']) != null): ?>
 <?php foreach($pbooks as $pbook): ?>
@@ -55,6 +61,7 @@ width="300" height="300" alt="" />
 <p></p>
 <hr>
 <p><a href="../room.php">班一覧に戻る</a></p>
+<p><a href="delete_user.php">退会する</a></p>
 
 <p></p>
 
