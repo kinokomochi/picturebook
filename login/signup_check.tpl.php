@@ -4,11 +4,11 @@
 <body>
 <h2><?php h($message) ;?></h2>
 <p></p>
-<form action="signup_complete.php" method="post"　enctype="multipart/form-data">
+<form action="signup_complete.php" method="post" enctype="multipart/form-data">
 <input type="hidden" name="token" value="<?=$token; ?>">
 <label>名前</label>
-<?php if(isset($user['name'])){ h($user['name']);}; ?>
-<input type="hidden" name="name" value="<?=$user['name']; ?>">
+<?php if(isset($user['nickname'])){ h($user['nickname']);}; ?>
+<input type="hidden" name="nickname" value="<?=$user['nickname']; ?>">
 <p></p>
 <label>プロフィール画像</label>
 <input type="hidden" name="image" value="<?=$user['image']; ?>">

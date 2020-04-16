@@ -19,7 +19,7 @@ session_destroy();
 //Cookie情報も削除
 setcookie('password', '', time()-3600);
 setcookie('id', '', time()-3600);
-
+session_start();
 header('Location:../room.php');
 exit();
 
