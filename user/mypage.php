@@ -15,5 +15,7 @@ if($_GET['user_id'] == $_SESSION['id']){
     $user = findUserInfo($pdo, $_GET['user_id']);
     list($pbooks, $pages) = findUserPost($pdo, $_GET['user_id'], $_GET['page']);
 }
+$_SESSION['new'] = 'mypage';
+$_SESSION['edit'] = 'mypage';
 $message = $user['nickname'].'さんのマイページ';
 require_once('mypage.tpl.php');

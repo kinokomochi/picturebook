@@ -8,7 +8,7 @@ if(!$login){
     exit;
 }
 
-if($login){
+$_SESSION['return_uri'] = $_SERVER['HTTP_REFERER'];
 $message = "図鑑登録";
 require_once ('new.tpl.php');
-}
+

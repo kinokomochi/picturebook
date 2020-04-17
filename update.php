@@ -22,10 +22,16 @@ if(!hasError($error)){
     $pbook = savePbook($pdo, $pbook);
     logD($pbook, 'update a pbook');
 
-    $team = $pbook['team'];
-    $url = $_SESSION['uri'];
-    header('Location:'.$url);
-    exit();
+    if($_SESSION['edit'] == 'mypage'){
+        $url = $_SESSION['return_uri'];
+        header('Location:'.$url);
+        exit;    
+    }elseif($_SESSION['edit'] == 'index'){
+        $team = $pbook['team'];
+        $url = "index.php?page=0&team=".$team;
+        header('Location:'.$url);
+        exit;
+    }
 }
 
     

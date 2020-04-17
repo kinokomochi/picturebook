@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 $login = checkLoginStatus();
-displayLink($login);
 if(isset($_GET['id'])){
     $id = $_GET['id'];
     $_SESSION['uri'] = $_SERVER['HTTP_REFERER'];

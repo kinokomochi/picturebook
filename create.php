@@ -26,10 +26,17 @@ if(!hasError($error)){
     $pdo = connectDB();
     $pbook = savePbook($pdo, $pbook);
     logD($pbook, 'create a new pbook');
-    
-    $team = $pbook['team'];
-    $url = "index.php?page=0&team=".$team;
-    header('Location:'.$url);
-    exit();
+    logD($_GET, 'create a new pbook');
+
+    if($_SESSION['new'] == 'mypage'){
+        $url = $_SESSION['return_uri'];
+        header('Location:'.$url);
+        exit;    
+    }elseif($_SESSION['new'] == 'index'){
+        $team = $pbook['team'];
+        $url = "index.php?page=0&team=".$team;
+        header('Location:'.$url);
+        exit;
     }
+}
     

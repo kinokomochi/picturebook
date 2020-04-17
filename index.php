@@ -16,4 +16,6 @@ if($_GET['team'] == "kinoko"){
 }elseif($_GET['team'] == "plant"){
     $message = "植物の部屋";
 }
+$_SESSION['new'] = 'index';
+$_SESSION['edit'] = 'index';
 require_once('index.tpl.php');
