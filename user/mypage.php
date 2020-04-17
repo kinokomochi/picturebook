@@ -11,7 +11,7 @@ if($login){
     $pdo =connectDB();
     $user = findUserInfo($pdo, $_SESSION['id']);
 
-    $pbooks = findUserPost($pdo, $_SESSION['id']);
+    list($pbooks, $pages) = findUserPost($pdo, $_SESSION['id'], $_GET['page']);
 
     $message = $user['nickname'].'さんのマイページ';
     require_once('mypage.tpl.php');

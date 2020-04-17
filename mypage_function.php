@@ -12,15 +12,26 @@
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    function findUserPost($pdo, $id){
+    function findUserPost($pdo, $id, $start){
+        $csql = "SELECT COUNT(*) as 'cnt' FROM picture WHERE user_id=:id";
         $sql = 'SELECT picture.id, sp_name, picture, 
         description, picture.team, user_id
         FROM user LEFT JOIN picture 
-        ON user.id = picture.user_id WHERE user.id = :id';
+        ON user.id = picture.user_id WHERE user.id = :id
+        ORDER BY picture.id DESC LIMIT :start, 5 ';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_STR);
+        $stmt->bindValue(':start', $start * 5, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $pbooks = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $cstmt = $pdo->prepare($csql);
+        $cstmt->bindValue(":id", $id, PDO::PARAM_STR);
+        $cstmt->execute();
+        $total = $cstmt->fetchColumn();
+        $pages = ceil($total / 5);
+        return [$pbooks, $pages];
+    
     }
 
     function makeUserImageFromPost(){

@@ -58,6 +58,15 @@ width="300" height="300" alt="" />
 <p><a href="../new.php">投稿する</a></p>
 <?php endif; ?>
 
+<?php for($i=0; $i < $pages; $i++) : ?>
+    <?php if($_GET['page'] == $i): ?>
+        <?=$_GET['page']+1 .'ページ'; ?>
+        <?php else: ?>
+        <?php printf("<a href='?page=%d'>%dページへ</a><br />\n", $i, $i+1); ?>
+    <?php endif; ?>
+ <?php endfor; ?>
+
+
 <p></p>
 <hr>
 <p><a href="../room.php">班一覧に戻る</a></p>
