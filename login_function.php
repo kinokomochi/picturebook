@@ -1,7 +1,7 @@
 <?php
 function checkLoginStatus(){
     if(isset($_SESSION['id']) && ($_SESSION['time'] + 3600)  > time()){
-        echo  "ようこそ！<a href=\"". URL_ROOT. "user/mypage.php?page=0\">" . $_SESSION['name'] . "さん</a>!\n<br>";
+        echo  "ようこそ！<a href=\"". URL_ROOT. "user/mypage.php?page=0&user_id=" . $_SESSION['id'] . "\">" . $_SESSION['name'] . "さん</a>!\n<br>";
         return true;
     }else{
         $_SESSION = array();

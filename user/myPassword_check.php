@@ -33,6 +33,6 @@ if(!HasPasswordError($cerror, $error)){
 
     $pdo = connectDB();
     updatePW($pdo, $_SESSION['id'], $newPass);
-    header('Location:mypage.php');
+    header('Location:mypage.php?page=0&user_id='.$_SESSION['id']);
     exit;
 }

@@ -17,7 +17,6 @@ $user = makeNewProfileFromPost();
 $error = validateNewProfile($user);
 logD($error, '$myimgerror');
 $_SESSION['rewrite'] = $user;
-var_dump($_SESSION);
 if(profileHasError($error)){
     $message = '入力内容に不備があります';
     require_once 'myprofile_edit.tpl.php';
@@ -27,6 +26,5 @@ if(!profileHasError($error)){
     logD($user, 'check user');
     $message = 'この内容で更新してよろしいですか？';
     $rewrite = makeNewProfileFromPost();
-    var_dump($rewrite);
     require_once 'myprofile_check.tpl.php';
 }

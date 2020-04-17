@@ -16,5 +16,5 @@ $pdo = connectDB();
 updateEmail($pdo, $_SESSION['id'], $user['email']);
 logD($user['email'], 'update a myemail');
 
-header('Location:mypage.php');
+header('Location:mypage.php?page=0&user_id='.$_SESSION['id']);
 

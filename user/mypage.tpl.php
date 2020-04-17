@@ -28,7 +28,7 @@ width="300" height="300" alt="" />
 <?php if($user['team'] == 'kinoko'){echo 'きのこ';} ;?>
 <?php if($user['team'] == 'plant'){echo '植物';} ;?>
 <p></p>
-
+<?php if($_GET['user_id'] == $_SESSION['id']): ?>
 <label>ID(メールアドレス）</label>
 <?php h($user['email']); ?>
 <p></p>
@@ -38,6 +38,7 @@ width="300" height="300" alt="" />
 <a href="myemail_edit.php">Email編集</a>
 <a href="myPassword_edit.php">PW編集</p></a>
 </tr>
+<?php endif; ?>
 <h2><?=$user['nickname']; ?>さんの投稿一覧</h2>
 <?php if(isset($pbooks[0]['id']) != null): ?>
 <?php foreach($pbooks as $pbook): ?>
@@ -62,7 +63,7 @@ width="300" height="300" alt="" />
     <?php if($_GET['page'] == $i): ?>
         <?=$_GET['page']+1 .'ページ'; ?>
         <?php else: ?>
-        <?php printf("<a href='?page=%d'>%dページへ</a><br />\n", $i, $i+1); ?>
+        <?php printf("<a href='?page=%d&user_id=%s'>%dページへ</a><br />\n", $i,$_GET['user_id'], $i+1); ?>
     <?php endif; ?>
  <?php endfor; ?>
 

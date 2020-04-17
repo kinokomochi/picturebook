@@ -16,5 +16,5 @@ $pdo = connectDB();
 updateProfile($pdo, $_SESSION['id'], $user);
 logD($user, 'update a myprof');
 
-header('Location:mypage.php');
+header('Location:mypage.php?page=0&user_id='.$_SESSION['id']);
 

@@ -9,10 +9,13 @@ if(!$login){
 }
 if($login){
     $pdo =connectDB();
+    if($_GET['user_id'] == $_SESSION['id']){
     $user = findUserInfo($pdo, $_SESSION['id']);
-
     list($pbooks, $pages) = findUserPost($pdo, $_SESSION['id'], $_GET['page']);
-
+    }elseif($_GET['user_id'] != $_SESSION['id']){
+        $user = findUserInfo($pdo, $_GET['user_id']);
+        list($pbooks, $pages) = findUserPost($pdo, $_GET['user_id'], $_GET['page']);
+    }
     $message = $user['nickname'].'さんのマイページ';
     require_once('mypage.tpl.php');
 }

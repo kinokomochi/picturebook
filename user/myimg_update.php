@@ -16,5 +16,5 @@ $pdo = connectDB();
 updateNewImage($pdo, $_SESSION['id'], $newImage);
 logD($newImage, 'update a myimg');
 
-header('Location:mypage.php');
+header('Location:mypage.php?page=0&user_id='.$_SESSION['id']);
 
