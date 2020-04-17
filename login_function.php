@@ -1,7 +1,7 @@
 <?php
 function checkLoginStatus(){
     if(isset($_SESSION['id']) && ($_SESSION['time'] + 3600)  > time()){
-        echo  "ようこそ！<a href=\"". URL_ROOT. "user/mypage.php?page=0&user_id=" . $_SESSION['id'] . "\">" . $_SESSION['name'] . "さん</a>!\n<br>";
+        echo  "ようこそ！<a href=\"". URL_ROOT. "user/mypage.php?page=0&user_id=" . $_SESSION['id'] . "\">" . $_SESSION['nickname'] . "さん</a>!\n<br>";
         return true;
     }else{
         $_SESSION = array();
@@ -66,7 +66,7 @@ function lookUpUser($pdo, $email){
 }
 
 function signupEmptyError(){
-    $error = ['name'=>'', 'image'=>'', 'introduction'=>'', 'birthday'=>'',
+    $error = ['nickname'=>'', 'image'=>'', 'introduction'=>'', 'birthday'=>'',
              'gender'=>'', 'team'=>''];
              return $error;
 }
@@ -75,7 +75,7 @@ function signupEmptyPasswordError(){
     return $passwordError;
 }
 function signupHasError($error){
-    return $error['name'] != ''
+    return $error['nickname'] != ''
         || $error['image'] != ''
         || $error['introduction'] != ''
         || $error['birthday'] != ''
@@ -96,7 +96,7 @@ function makeSignupUserFromPost(){
     }else{
         $user['image'] = $_FILES['image']['name'] ?? '';
     }
-    $user['name'] = $_POST['name'] ?? '';
+    $user['nickname'] = $_POST['nickname'] ?? '';
     $user['introduction'] = $_POST['introduction'] ?? '';
     $user['year'] = $_POST['year'] ?? '';
     $user['month'] = $_POST['month'] ?? '';
@@ -112,10 +112,10 @@ function makeSignupUserFromPost(){
 
 function validateSignupUser($user){
     $error = signupEmptyError();
-    if($user['name'] == ''){
-        $error['name'] = 'blank';
-    }elseif(mb_strlen($user['name']) > 20){
-        $error['name'] = 'length';
+    if($user['nickname'] == ''){
+        $error['nickname'] = 'blank';
+    }elseif(mb_strlen($user['nickname']) > 20){
+        $error['nickname'] = 'length';
     }
     if($user['image'] == ''){
         $error['image'] = 'blank';
@@ -196,7 +196,7 @@ function saveUser($pdo, $user){
     VALUES (:nickname, :image, :introduction, :team, :email, :birthday, :gender, :password)';
 
     $stmt = $pdo->prepare($sql);
-    $stmt->bindValue(':nickname', $user['name'], PDO::PARAM_STR);
+    $stmt->bindValue(':nickname', $user['nickname'], PDO::PARAM_STR);
     $stmt->bindValue(':image', $user['image'], PDO::PARAM_STR);
     $stmt->bindValue(':introduction', $user['introduction'], PDO::PARAM_STR);
     $stmt->bindValue(':team', $user['team'], PDO::PARAM_STR);
@@ -210,7 +210,7 @@ function saveUser($pdo, $user){
 
 function returnOrMovePage($id, $name, $moveUri){
     $_SESSION['id'] = $id;
-    $_SESSION['name'] = $name;
+    $_SESSION['nickname'] = $name;
     $_SESSION['time'] = time();
     $_SESSION['token'] = null;
     if(isset($_SESSION['return_uri'])){

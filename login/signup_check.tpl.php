@@ -51,6 +51,8 @@ width="300" height="300" alt="" />
 <p></p>
 <input type="submit" name="submit" value="登録内容送信">
 </form>
+<a href="signup.php?action=rewrite"><p>編集し直す</p></a>
+
 <hr>
 <p><a href="../room.php">班一覧に戻る</a></p>
 

@@ -15,6 +15,7 @@ logD($user, '$user');
 $emailError = validateEmail($pdo, $user);
 $passwordError = validatePW($user);
 logD($_POST, '$post');
+$_SESSION['rewrite'] = $user;
 
 
 //$errorが空でなければsignup_check.tpl.phpを呼び出す
@@ -27,13 +28,12 @@ if((signupHasError($error)) || (signupHasEmailError($emailError)) || (signupHasP
     exit;
 }
 if((!signupHasError($error)) && (!signupHasPasswordError($passwordError))){
-    $_SESSION['join'] = $_POST;
     $_SESSION['token'] = $token = mt_rand();
     $user['password'] = password_hash($user['password'], PASSWORD_BCRYPT);
     $user['password_re_enter'] = password_hash($user['password_re_enter'], PASSWORD_BCRYPT);
     $user['image'] = date('YmdHis') . $user['image'];
     move_uploaded_file($_FILES['image']['tmp_name'], '/Applications/XAMPP/xamppfiles/htdocs/pbook/files/'.$user['image']);
-
+    $_SESSION['image'] = $user['image'];
 
     $message = '以下の内容で登録しますか？';
     require_once('signup_check.tpl.php');

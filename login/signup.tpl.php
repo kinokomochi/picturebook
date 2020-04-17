@@ -5,11 +5,11 @@
 <h2><?php h($message); ?></h2>
 <form action="signup_check.php" method="post" enctype="multipart/form-data">
 <label>名前</label>
-<input type="text" name="name" value="<?php if(isset($user['name'])){echo $user['name'];} ?>">
-<?php if(isset($error['name']) && $error['name'] == 'blank'): ?>
+<input type="text" name="nickname" value="<?php if(isset($user['nickname'])){echo $user['nickname'];} ?>">
+<?php if(isset($error['nickname']) && $error['nickname'] == 'blank'): ?>
 <p>＊名前を入力して下さい＊</p>
 <?php endif; ?>
-<?php if(isset($error['name']) && $error['name'] == 'length'): ?>
+<?php if(isset($error['nickname']) && $error['nickname'] == 'length'): ?>
 <p>＊名前は20文字以内で入力して下さい＊</p>
 <?php endif; ?>
 <p></p>

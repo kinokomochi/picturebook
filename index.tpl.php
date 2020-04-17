@@ -13,7 +13,15 @@
     <p></p>
     <?php foreach($pbooks as $pbook): ?>
         <hr>
-        <a href="user/mypage.php?page=0&user_id=<?=$pbook['user_id'];?>"><p><?php h($pbook['nickname']) ;?></a>さんの投稿</p>
+        <?php if($login):?>
+        <a href="user/mypage.php?page=0&user_id=<?=$pbook['user_id'];?>">
+        <?php endif; ?>
+        <p><?php h($pbook['nickname']) ;?>
+        <?php if($login):?>
+        </a>
+        <?php endif; ?>
+        さんの投稿</p>
+        
         <p>[種名]:<?php h($pbook['sp_name']); ?><br></p>
         <p>[写真]:<img src="files/<?php h($pbook['picture']); ?>" 
         width="300" height="300" alt="" />

@@ -6,7 +6,7 @@
 <p>※投稿したデータも全て失われますがよろしいですか？</p>
 <p></p>
 <a href="delete_user_complete.php"><p>削除する</p></a>
-<a href="mypage.php"><p>マイページに戻る</p></a>
+<a href="mypage.php?page=0&user_id=<?=$_SESSION['id']; ?>"><p>マイページに戻る</p></a>
 
 <hr>
 <p><a href="../room.php">班一覧に戻る</a></p>
