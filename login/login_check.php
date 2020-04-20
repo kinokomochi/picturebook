@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 session_start();
+var_dump($_COOKIE);
 $message = "ログインフォーム";
 $uri = null;
 $member = ['id'=>'','nickname'=>'', 'email'=>'', 'password'=>''];
@@ -39,6 +40,6 @@ if(!loginHasError($error)){
     //レコードが存在して、パスワードが一致する場合
         elseif(password_verify($user['password'], $member['password']) == true){
         $uri = 'login_check.tpl.php';
-        $transition = returnOrMovePage($member['id'], $member['nickname'],  $uri);
+        returnOrMovePage($member['id'], $member['nickname'],  $uri);
        }
     }

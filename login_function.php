@@ -23,7 +23,7 @@ function checkLoginStatus(){
 }
 function displayLink($login){
     if($login){
-        echo  "<p><a href=\"".URL_ROOT."new.php\">写真投稿</a></p>";
+        echo "<p><a href=\"".URL_ROOT."new.php\">写真投稿</a></p>";
         echo "<p><a href=\"".URL_ROOT."login/logout.php\">ログアウト</a></p>";
     }elseif(!$login){
         echo "<p><a href=\"".URL_ROOT."login/login.php\">ログイン</a></p>";
@@ -209,6 +209,11 @@ function saveUser($pdo, $user){
 }
 
 function returnOrMovePage($id, $name, $moveUri){
+    if($_POST['save'] == 'on'){
+        setcookie('email', $_POST['email'], time()+60*60*24*7);
+        setcookie('password', $_POST['password'], time()+60*60*24*7);
+        $_SESSION['save'] = 'on';
+    }
     $_SESSION['id'] = $id;
     $_SESSION['nickname'] = $name;
     $_SESSION['time'] = time();

@@ -8,16 +8,16 @@
 <p>＊ID(メールアドレス)・パスワードいずれかの認証に失敗しました＊</p>
 <?php endif; ?>
 <label>ID(メールアドレス)</label>
-<?php if(isset($error['login']) && $error['login'] == 'failed'): ?>
-<p>＊正しいID(メールアドレス)を入力してください＊</p>
-<?php endif; ?>
 <input type="text" name="email" value="<?php if(isset($user['email'])){echo $user['email'];}?>">
 <?php if(isset($error['email']) && $error['email'] == 'blank'): ?>
 <p>＊ID(メールアドレス)が入力されていません＊</p>
 <?php endif; ?>
+<?php if(isset($error['login']) && $error['login'] == 'failed'): ?>
+<p>＊正しいID(メールアドレス)を入力してください＊</p>
+<?php endif; ?>
 <p></p>
 <label>パスワード<label>
-<input type="text" name="password">
+<input type="text" name="password" value="<?php if(isset($user['password'])){echo $user['password'];}?>">
 <?php if(isset($error['password']) && $error['password'] == 'blank'): ?>
 <p>＊パスワードが入力されていません*</p>
 <?php endif; ?>
@@ -27,6 +27,8 @@
 <p></p>
 <input type="submit" name="submit" value="ログイン">
 <p></p>
+<input type="checkbox" name="save" value="on">
+<label>ログイン情報を保存する</label>
 </form>
 <h4>メンバー登録がまだの方はこちら</h4>
 <p><a href="signup.php">メンバー登録</a></p>

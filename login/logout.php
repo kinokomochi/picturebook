@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION['save'])){
+$save = $_SESSION['save'];
+}
 //セッションを破棄する
 //セッション変数を全て解除する
 $_SESSION = array();
@@ -15,11 +18,13 @@ if(ini_get("session.use_cookies")){
 
 //最終的にセッションを破壊する
 session_destroy();
-
 //Cookie情報も削除
+if(!isset($save)){
 setcookie('password', '', time()-3600);
 setcookie('id', '', time()-3600);
+}
 session_start();
 header('Location:../room.php');
-exit();
+exit;
+
 
