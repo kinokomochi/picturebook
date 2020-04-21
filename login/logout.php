@@ -1,28 +1,22 @@
 <?php
-session_start();
-if(isset($_SESSION['save'])){
-$save = $_SESSION['save'];
-}
-//セッションを破棄する
-//セッション変数を全て解除する
-$_SESSION = array();
-//ログイン情報を記憶しているCookieを削除する
-//Note: セッション情報だけでなくセッションを破壊する
-if(ini_get("session.use_cookies")){
-    $params = session_get_cookie_params();
-    setcookie(session_name(), '', time() - 42000, 
-    $params['path'], $params['domain'],
-    $params['secure'], $params['httponly']
-);
-}
+require_once __DIR__ . '/../vendor/autoload.php';
 
-//最終的にセッションを破壊する
-session_destroy();
-//Cookie情報も削除
-if(!isset($save)){
-setcookie('password', '', time()-3600);
-setcookie('id', '', time()-3600);
+session_start();
+$save = $_SESSION['save'];
+
+var_dump($_SESSION);
+$_SESSION = array();
+if(ini_get("session.use_cookies") && $save == 'off'){
+    $params = session_get_cookie_params();
+    setcookie('str', '', time() - 6050000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+    unset($_COOKIE['str']);
+    unset($_COOKIE);
+    logD($_COOKIE['str'], 'logout cookie');
 }
+var_dump($_COOKIE);
+exit;
+
+session_destroy();
 session_start();
 header('Location:../room.php');
 exit;

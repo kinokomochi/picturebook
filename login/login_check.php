@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 session_start();
-var_dump($_COOKIE);
 $message = "ログインフォーム";
 $uri = null;
 $member = ['id'=>'','nickname'=>'', 'email'=>'', 'password'=>''];
@@ -11,6 +10,8 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 }
 $user = makeLoginUserFromPost();
 $error = validateLoginUser($user);
+//echo $user['password'];
+
 if(loginHasError($error)){
     logD($user, 'user');
     logD($error, 'error');
@@ -34,12 +35,16 @@ if(!loginHasError($error)){
         //レコードが存在して、パスワードが一致しない場合
         if(password_verify($user['password'], $member['password']) == false){
             $error['login'] = 'failed';
+            echo $user['password'];
+            echo $member['password'];
+            exit;
             require('login.tpl.php'); 
             exit;
         }
     //レコードが存在して、パスワードが一致する場合
         elseif(password_verify($user['password'], $member['password']) == true){
         $uri = 'login_check.tpl.php';
-        returnOrMovePage($member['id'], $member['nickname'],  $uri);
+        setCookieAndSession($member['id'], $member['nickname']);
+        returnOrMovePage($uri);
        }
     }

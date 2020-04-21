@@ -1,23 +1,19 @@
 <?php
 function checkLoginStatus(){
     if(isset($_SESSION['id']) && ($_SESSION['time'] + 3600)  > time()){
-        echo  "ようこそ！<a href=\"". URL_ROOT. "user/mypage.php?page=0&user_id=" . $_SESSION['id'] . "\">" . $_SESSION['nickname'] . "さん</a>!\n<br>";
         return true;
     }else{
         $_SESSION = array();
         if(ini_get("session.use_cookies")){
             $params = session_get_cookie_params();
-            setcookie(session_name(), '', time() - 42000, 
+            setcookie('str', '', time() - 6050000, 
             $params['path'], $params['domain'],
             $params['secure'], $params['httponly']
         );
         }
         session_destroy();
-        setcookie('password', '', time()-3600);
-        setcookie('id', '', time()-3600);
         session_start();
 
-        echo "ログインして図鑑を投稿してね！";
         return false;
     }
 }
@@ -208,16 +204,23 @@ function saveUser($pdo, $user){
     return $user;
 }
 
-function returnOrMovePage($id, $name, $moveUri){
-    if($_POST['save'] == 'on'){
-        setcookie('email', $_POST['email'], time()+60*60*24*7);
-        setcookie('password', $_POST['password'], time()+60*60*24*7);
+function setCookieAndSession($id, $name){
+    if(!isset($_POST['save'])){
+        $_SESSION['save'] = 'off';
+    }
+    elseif(isset($_POST['save']) && $_POST['save'] == 'on'){
+        $str = $_POST['email'] . '<<>>' . $_POST['password'];
+        $str = base64_encode($str);
+        setcookie('str', $str, time()+60*60*24*7, '/pbook', 'localhost', false, true);
         $_SESSION['save'] = 'on';
+        logD($str, 'password encode');
     }
     $_SESSION['id'] = $id;
     $_SESSION['nickname'] = $name;
     $_SESSION['time'] = time();
     $_SESSION['token'] = null;
+}
+function returnOrMovePage($moveUri){
     if(isset($_SESSION['return_uri'])){
         $returnUri = $_SESSION['return_uri'];
         unset($_SESSION['return_uri']);
@@ -225,5 +228,4 @@ function returnOrMovePage($id, $name, $moveUri){
     }else{
         return require_once($moveUri);
     }
-
 }
