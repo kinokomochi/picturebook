@@ -37,6 +37,8 @@ if(!hasError($error)){
         $url = "index.php?page=0&team=".$team;
         header('Location:'.$url);
         exit;
+    }else{
+        header('Location:index.php?page=0&team='.$team);
     }
 }
     

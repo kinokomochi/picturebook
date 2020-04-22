@@ -108,10 +108,10 @@ function findAllPbook ($pdo, $team, $start) {
     $ssql = "SELECT picture.id, picture.team, sp_name, picture, description, user_id, user.nickname  
     FROM picture LEFT JOIN user ON picture.user_id = user.id 
     WHERE picture.team = :team
-    ORDER BY picture.id DESC LIMIT :start, 5 ";
+    ORDER BY picture.id DESC LIMIT :start, 6 ";
     $sstmt = $pdo->prepare($ssql);
     $sstmt->bindValue(':team', $team, PDO::PARAM_STR);
-    $sstmt->bindValue(':start', $start * 5, PDO::PARAM_INT);
+    $sstmt->bindValue(':start', $start * 6, PDO::PARAM_INT);
     $sstmt->execute();
     $pbooks = [];
     $pbooks = $sstmt->fetchAll(PDO::FETCH_ASSOC);
@@ -120,7 +120,7 @@ function findAllPbook ($pdo, $team, $start) {
     $cstmt->bindValue(":team", $team, PDO::PARAM_STR);
     $cstmt->execute();
     $total = $cstmt->fetchColumn();
-    $pages = ceil($total / 5);
+    $pages = ceil($total / 6);
     return [$pbooks, $pages];
 }
 
@@ -144,11 +144,11 @@ function searchPbook($pdo, $keyword, $start){
     $csql = "SELECT COUNT(*) as 'cnt' FROM picture WHERE sp_name LIKE ?";
     $ssql = "SELECT picture.id, sp_name, picture.team, picture, description, user_id, user.nickname
             FROM picture LEFT JOIN user ON picture.user_id = user.id
-            WHERE sp_name LIKE ? ORDER BY picture.id DESC LIMIT ?, 5 ";
+            WHERE sp_name LIKE ? ORDER BY picture.id DESC LIMIT ?, 6 ";
     logD($ssql, 'SQL');
     $sstmt = $pdo->prepare($ssql);
     $sstmt->bindValue(1, '%' . addcslashes($keyword, '\_%') . '%',  PDO::PARAM_STR);
-    $sstmt->bindValue(2, $start * 5, PDO::PARAM_INT);
+    $sstmt->bindValue(2, $start * 6, PDO::PARAM_INT);
     $sstmt->execute();
     $pbooks = $sstmt->fetchAll(PDO::FETCH_ASSOC);
     logD($keyword, 'keyword');
@@ -158,7 +158,7 @@ function searchPbook($pdo, $keyword, $start){
     $total = $cstmt->fetchColumn();
     logD($total, 'total');
 
-    $pages = ceil($total / 5);
+    $pages = ceil($total / 6);
     logD($pages, 'count page');
 
     return [$pbooks, $pages, $total];
