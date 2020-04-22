@@ -35,9 +35,6 @@ if(!loginHasError($error)){
         //レコードが存在して、パスワードが一致しない場合
         if(password_verify($user['password'], $member['password']) == false){
             $error['login'] = 'failed';
-            echo $user['password'];
-            echo $member['password'];
-            exit;
             require('login.tpl.php'); 
             exit;
         }

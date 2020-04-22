@@ -6,7 +6,8 @@
     },
     
     "require": {
-        "monolog/monolog": "^1.25"
+        "monolog/monolog": "^1.25",
+        "twbs/bootstrap": "4.4.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.0"

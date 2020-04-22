@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 $login = checkLoginStatus();
-displayLink($login);
 
 //index.phpからpostされてきた値を受け取る
 //$keyword = assignmentKeyword();
