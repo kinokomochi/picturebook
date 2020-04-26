@@ -1,0 +1,40 @@
+
+.login_container {
+    max-width:550px;
+    padding:15px;
+    margin-right:auto;
+    margin-left:auto;
+}
+.login_title {
+    text-align:center;
+    padding:20px;
+    font-size:1.75rem;
+}
+.login_check_container {
+    text-align:center;
+}
+.signup_container {
+    max-width:650px;
+    padding:15px;
+    margin-right:auto;
+    margin-left:auto;
+}
+.signup_text {
+    text-align:center;
+    padding:20px;
+    font-size:1.75rem;
+}
+.signup_container_main {
+    max-width:650px;
+    margin-right: auto;
+    margin-left : auto;
+    text-align:center;
+}
+.signupcmp_container {
+    text-align:center;
+    max-width:650px;
+    padding:15px;
+    margin-right:auto;
+    margin-left:auto;
+}
+

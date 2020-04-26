@@ -18,7 +18,6 @@ $pdo = connectDB();
 $error = validateNewEmail($pdo, $user);
 logD($error, '$myemail error');
 $_SESSION['rewrite'] = $user;
-var_dump($_SESSION);
 if(!empty($error['email'])){
     $message = '入力内容に不備があります';
     require_once 'myemail_edit.tpl.php';

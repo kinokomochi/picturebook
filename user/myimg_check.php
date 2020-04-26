@@ -13,11 +13,9 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     exit;
 }
 $user = makeUserImageFromPost();
-var_dump($user['newImage']);
 //エラーチェック
 $error = validateMyImage($user);
 logD($error, '$myimgerror');
-var_dump($error);
 //エラーがあればmyimg_edit.tplを呼び出す
 if($error['newImage']){
     require_once 'myimg_edit.tpl.php';

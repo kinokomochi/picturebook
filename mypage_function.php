@@ -18,10 +18,10 @@
         description, picture.team, user_id
         FROM user LEFT JOIN picture 
         ON user.id = picture.user_id WHERE user.id = :id
-        ORDER BY picture.id DESC LIMIT :start, 5 ';
+        ORDER BY picture.id DESC LIMIT :start, 6 ';
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':id', $id, PDO::PARAM_STR);
-        $stmt->bindValue(':start', $start * 5, PDO::PARAM_INT);
+        $stmt->bindValue(':start', $start * 6, PDO::PARAM_INT);
         $stmt->execute();
         $pbooks = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -29,7 +29,7 @@
         $cstmt->bindValue(":id", $id, PDO::PARAM_STR);
         $cstmt->execute();
         $total = $cstmt->fetchColumn();
-        $pages = ceil($total / 5);
+        $pages = ceil($total / 6);
         return [$pbooks, $pages];
     
     }

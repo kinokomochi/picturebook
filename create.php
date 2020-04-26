@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 $login = checkLoginStatus();
-displayLink($login);
 
 $message = "入力エラーがあります";
 $pbook = ['id'=>'', 'sp_name'=>'', 'picture'=>'', 'description'=>'',
@@ -38,6 +37,7 @@ if(!hasError($error)){
         header('Location:'.$url);
         exit;
     }else{
+        $team = $pbook['team'];
         header('Location:index.php?page=0&team='.$team);
     }
 }

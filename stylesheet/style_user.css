@@ -1,0 +1,55 @@
+.profile_title {
+    text-align: center;
+    padding: 30px;
+}
+.profile_list, .profile_text {
+    font-size: 1.3rem;
+    padding-left: 10px;
+}
+.profile_edit {
+    padding: 20px 7px;
+}
+.mypage_post {
+    text-align: center;
+}
+.post_container {
+    text-align:center;
+    padding:7px;
+}
+.newpost_link {
+    text-align: left;
+    padding-left: 7px;
+}
+.row-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.myimg_image, .myimg_title, .image_form, 
+.myimg_check_title, .prof_edit_title, 
+.myprof_check_container, .user_delete_container {
+    text-align: center;
+}
+.button {
+    text-align: left;
+}
+#form_button {
+    display: none;
+}
+.bottun {
+    border: 5px solid #ccc;
+    background-color:#d3d3d3;
+    padding: 6px;
+    border-radius: 8px;
+}
+.prof_edit_container, .email_check_container,
+.email_edit_container, .pw_edit_container{
+    max-width:650px;
+    padding:15px;
+    margin-right:auto;
+    margin-left:auto;
+}
+.newpost_link {
+    text-align: left;
+}

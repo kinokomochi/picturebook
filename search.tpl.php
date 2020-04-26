@@ -2,26 +2,28 @@
 <html>
 <?php include('header_inc.php') ?>
 <body>
-<div class="header navbar navbar-dark bg-dark shadow-sm">    
-    <div class="header_logo">PictureBook</div>
-    <div class="header_list">
-        <?php if($login): ?>
-            <ul>
-                <li>ようこそ！<a href="<?php URL_ROOT ?>user/mypage.php?page=0&user_id=<?=$_SESSION['id']?>"><?=$_SESSION['nickname']?>さん</a>!</li>
-                <li><a href="<?php URL_ROOT ?>new.php"> 写真投稿 </li>
-                <li><a href="<?php URL_ROOT ?>login/logout.php">ログアウト </a></li>
-            <ul>
-        <?php elseif(!$login): ?>
-            <ul>
-                <li>ログインして図鑑を投稿してね！</li>
-                <li><a href="<?php URL_ROOT ?>login/login.php">ログイン </a></li>
-                <li><a href="<?php URL_ROOT ?>login/signup.php">メンバー登録 </a></li>
-            </ul>
-        <?php endif ;?>
+<div class="fixed-top">
+    <div class="header navbar navbar-dark bg-dark shadow-sm">    
+        <div class="header_logo">PictureBook</div>
+        <div class="header_list">
+            <?php if($login): ?>
+                <ul>
+                    <li>ようこそ！<a href="<?php URL_ROOT ?>user/mypage.php?page=0&user_id=<?=$_SESSION['id']?>"><?=$_SESSION['nickname']?>さん</a>!</li>
+                    <li><a href="<?php URL_ROOT ?>new.php"> 写真投稿 </li>
+                    <li><a href="<?php URL_ROOT ?>login/logout.php">ログアウト </a></li>
+                <ul>
+            <?php elseif(!$login): ?>
+                <ul>
+                    <li>ログインして図鑑を投稿してね！</li>
+                    <li><a href="<?php URL_ROOT ?>login/login.php">ログイン </a></li>
+                    <li><a href="<?php URL_ROOT ?>login/signup.php">メンバー登録 </a></li>
+                </ul>
+            <?php endif ;?>
+        </div>
     </div>
 </div>
 <br>
-<div class="search">
+<div class="search_container">
     <label>種名検索</label>
     <form action="search.php?page=0">
     <input type="hidden" name="page" value="0">
@@ -36,8 +38,8 @@
             <h3><?php echoSearchResult($total) ?></h3>
         </div>
     </div>    
-<hr>
-    <div class="main_row">
+    <hr>
+    <div class="search_result_container">
         <div class="row">
             <?php foreach($pbooks as $pbook): ?>
             <div class="col-md-4">
@@ -50,9 +52,9 @@
                 <?php endif; ?>
                     さんの投稿</p>
 
-                <p><?php h($pbook['sp_name']); ?><br></p>
+                <p class="sp_name"><?php h($pbook['sp_name']); ?><br></p>
                 <div class="index_picture_container">
-                    <div class="index_picture_<?=$_GET['team'] ?>">
+                    <div class="search_picture">
                         <img src="files/<?php h($pbook['picture']); ?>" 
                         width="300" height="300" alt="" />
                     </div>
@@ -68,9 +70,9 @@
             <hr>
         </div>
     </div>
-    <div class="main_pagination">
+    <div class="pagination_container">
         <?php for($i=0; $i < $pages; $i++) : ?>
-            <div class="main_pagination_display">
+            <div class="pagination_display">
                 <?php if($_GET['page'] == $i): ?>
                     <?=$_GET['page']+1  .'ページ'; ?>
                     <?php else: ?>
@@ -87,9 +89,9 @@
         <a href="room.php">班一覧に戻る</a>
         <a href="new.php"> 写真登録</a>
     </p>
+    <?php include('footer_inc.php') ?>
 </div>
 
-<?php include('footer_inc.php') ?>
 
 </body>
 </html>
