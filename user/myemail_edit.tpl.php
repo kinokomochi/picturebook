@@ -24,7 +24,7 @@
     <form action="myemail_check.php" method="post">
         <div class="form-group">
             <label>ID(メールアドレス）</label>
-            <input type="text" name="email" class="form-control"  value="<?php if(isset($user['email']) && $user['email'] != ''){echo $user['email'];} ?>">
+            <input type="text" name="email" class="form-control"  value="<?php if(isset($user['email']) && $user['email'] != ''){h($user['email']);} ?>">
             <?php if(isset($error['email']) && $error['email'] == 'blank'): ?>
             <p class="error">＊ID（メールアドレス）を入力して下さい＊</p>
             <?php endif; ?>

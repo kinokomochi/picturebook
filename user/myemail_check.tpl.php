@@ -17,7 +17,7 @@
     </div>
 </div>
 <div class="email_check_container">
-    <h3><?=$message; ?></h3>
+    <h3><?php h($message); ?></h3>
     <form action="myemail_update.php" method="post">
     <p></p>
     <label>ID(メールアドレス）</label>

@@ -55,7 +55,7 @@
             <div class="col-md-4">
                 <div class="profile_text">
                     <label>自己紹介文</label>
-                    <?php  h($user['introduction']); ?>
+                    <?php  hbr($user['introduction']); ?>
                     <p></p>
                 </div>
             </div>

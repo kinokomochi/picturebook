@@ -24,7 +24,7 @@
         <p></p>
     </div>
     <div class="prof_edit_title">
-        <h3><?=$message ;?></h3>
+        <h3><?php h($message) ;?></h3>
     </div>
     <div class="prof_edit_container">
         <form action="myprofile_check.php" method="post">

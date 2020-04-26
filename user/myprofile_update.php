@@ -14,6 +14,7 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 $user = makeNewProfileFromPost();
 $pdo = connectDB();
 updateProfile($pdo, $_SESSION['id'], $user);
+$_SESSION['nickname'] = $user['nickname'];
 logD($user, 'update a myprof');
 
 header('Location:mypage.php?page=0&user_id='.$_SESSION['id']);

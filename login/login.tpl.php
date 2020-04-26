@@ -11,7 +11,7 @@
         <div class="form-group">
             <label>ID(メールアドレス)</label>
             <input type="text" name="email" class="form-control"　
-            value="<?php if(isset($user['email'])){h($user['email']);}?>">
+            value="<?php if(isset($user['email'])){echo $user['email'];}?>">
             <?php if(isset($error['login']) && $error['login'] == 'failed'): ?>
             <p class="error">＊ID(メールアドレス)・パスワードいずれかの認証に失敗しました＊</p>
             <?php endif; ?>
@@ -25,7 +25,7 @@
         <div class="form-group">
             <label>パスワード</label>
             <input type="password" name="password" class="form-control" 
-            value="<?php if(isset($user['password'])){h($user['password']);}?>">
+            value="<?php if(isset($user['password'])){echo $user['password'];}?>">
             <?php if(isset($error['password']) && $error['password'] == 'blank'): ?>
             <p class="error">＊パスワードが入力されていません＊</p>
             <?php endif; ?>

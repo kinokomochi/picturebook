@@ -10,7 +10,6 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
 }
 $user = makeLoginUserFromPost();
 $error = validateLoginUser($user);
-//echo $user['password'];
 
 if(loginHasError($error)){
     logD($user, 'user');

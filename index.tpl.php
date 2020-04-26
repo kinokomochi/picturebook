@@ -4,12 +4,13 @@
 <body>
 <div class="fixed-top">
     <div class="header navbar navbar-dark bg-dark shadow-sm">    
-        <div class="header_logo">PictureBook</div>
+        <div class="header_logo"><a id="header_title" href="<?php URL_ROOT ?>room.php">PictureBook</a></div>
         <div class="header_list">
             <?php if($login): ?>
                 <ul>
                     <li>ようこそ！<a href="<?php URL_ROOT ?>user/mypage.php?page=0&user_id=<?=$_SESSION['id']?>"><?=$_SESSION['nickname']?>さん</a>!</li>
                     <li><a href="<?php URL_ROOT ?>new.php"> 写真投稿 </li>
+                    <li><a href="<?php URL_ROOT ?>room.php"> 班一覧 </li>
                     <li><a href="<?php URL_ROOT ?>login/logout.php">ログアウト </a></li>
                 <ul>
             <?php elseif(!$login): ?>
@@ -25,7 +26,7 @@
 <br>
 
 <div class="search_container">
-    <label>種名検索o</label>
+    <label>種名検索</label>
     <form action="search.php?page=0">
         <input type="hidden" name="page" value="0">
         <input type="text" name="keyword">

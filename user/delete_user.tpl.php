@@ -18,7 +18,7 @@
 </div>
 <div class="user_delete_container">
     <p></p>
-    <h3><?=$user['nickname']; ?>のユーザー情報を削除しますか？</h3>
+    <h3><?php h($user['nickname']); ?>のユーザー情報を削除しますか？</h3>
     <p>※投稿したデータも全て失われますがよろしいですか？</p>
     <p></p>
     <a href="delete_user_complete.php"><p>削除する</p></a>

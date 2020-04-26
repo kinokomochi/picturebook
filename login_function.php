@@ -212,7 +212,7 @@ function setCookieAndSession($id, $name){
         $str = $_POST['email'] . '<<>>' . $_POST['password'];
         $str = openssl_encrypt($str, 'aes-256-ecb', 'engWe99r41');
         $str = base64_encode($str);
-        setcookie('str', $str, time()+60*60*24*7, '/', COOKIE_DOMAIN, false, true);
+        setcookie('str', $str, time()+60*60*24*7, COOKIE_PATH, COOKIE_DOMAIN, false, true);
         $_SESSION['save'] = 'on';
     }
     $_SESSION['id'] = $id;

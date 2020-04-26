@@ -7,9 +7,7 @@ $save = $_SESSION['save'];
 $_SESSION = array();
 if(ini_get("session.use_cookies") && $save == 'off'){
     $params = session_get_cookie_params();
-    setcookie('str', '', time() - 6050000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
-    // unset($_COOKIE['str']);
-    // unset($_COOKIE);
+    setcookie('str', '', time() - 6050000, COOKIE_PATH, $params['domain'], $params['secure'], $params['httponly']);
     logD($_COOKIE['str'], 'logout cookie');
 }
 
