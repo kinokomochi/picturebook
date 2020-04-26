@@ -8,7 +8,7 @@ class ValidateSignupUserTest extends TestCase
     //空っぽのuserエンティティを返す、ヘルパーメソッド
     private function emptySignupUser(){
         return[
-            'name' => '',
+            'nickname' => '',
             'image' => '',
             'introduction' => '',
             'birthday'=>'',
@@ -19,7 +19,7 @@ class ValidateSignupUserTest extends TestCase
 
     //バリデーションエラーがないことを確認する、ヘルパーメソッド
     private function assertNoError($error){
-        $this->assertSame('', $error['name']);
+        $this->assertSame('', $error['nickname']);
         $this->assertSame('', $error['image']);
         $this->assertSame('', $error['introduction']);
         $this->assertSame('', $error['birthday']);
@@ -38,7 +38,7 @@ class ValidateSignupUserTest extends TestCase
         $error = validateSignupUser($user);
 
         //結果チェック
-        $this->assertEquals('blank', $error['name']);
+        $this->assertEquals('blank', $error['nickname']);
         $this->assertEquals('blank', $error['image']);
         $this->assertEquals('blank', $error['introduction']);
         $this->assertEquals('failed', $error['birthday']);
@@ -52,13 +52,13 @@ class ValidateSignupUserTest extends TestCase
     {
         //データ準備
         $user = $this->emptySignupUser();
-        $user['name'] = str_repeat('A', 21);
+        $user['nickname'] = str_repeat('A', 21);
 
         //呼び出し
         $error = validateSignupUser($user);
 
         //結果チェック
-        $this->assertEquals('length',$error['name']);
+        $this->assertEquals('length',$error['nickname']);
     }
 
     public function testFailed()
@@ -95,7 +95,7 @@ class ValidateSignupUserTest extends TestCase
     public function testNoError()
     {
         $user = [
-            'name' => 'a',
+            'nickname' => 'a',
             'image' => 'b.jpg',
             'introduction' => 'c',
             'month'=>'01',
@@ -108,7 +108,7 @@ class ValidateSignupUserTest extends TestCase
         $error = validateSignupUser($user);
         $this->assertNoError($error);
 
-        $user['name'] = str_repeat('A', 20);
+        $user['nickname'] = str_repeat('A', 20);
         $error = validateSignupUser($user);
         $this->assertNoError($error);
 
