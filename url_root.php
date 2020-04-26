@@ -1,6 +1,16 @@
 <?php
-const URL_ROOT = 'http://localhost/pbook/'; //開発用
-//const URL_ROOT = 'https://picturebook.com/'; //本番用
+//開発用
+const URL_SCHEME = 'http';
+const URL_HOST = 'localhost';
+const URL_PATH = '/pbook';
 
-const COOKIE_DOMAIN = 'localhost'; //開発用
-//const COOKIE_DOMAIN = ''; //本番用
+//本番用
+//const URL_SCHEME = 'https';
+// const URL_HOST = 'www.picturebook.com';
+// const URL_PATH = '/';
+
+//共通
+const URL_ROOT = URL_SCHEME.'://'. URL_HOST.URL_PATH.'/';
+const COOKIE_PATH = URL_PATH;
+const COOKIE_DOMAIN = URL_HOST;
+
