@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include('header_inc.php') ?>
-<body>
+<body class="pbook pbook_<?=$_GET['team'] ?>">
 <div class="fixed-top">
     <div class="header navbar navbar-dark bg-dark shadow-sm">    
         <div class="header_logo"><a id="header_title" href="<?php URL_ROOT ?>room.php">PictureBook</a></div>
@@ -35,8 +35,8 @@
 </div>
 <br>
 <div class="index_<?=$_GET['team'] ?>">
-    <div class="jumbotron text-center">
-        <div class="col-md-12">
+    <div class="index_title jumbotron text-center">
+        <div class="index_title col-md-12">
             <h2><?php h($message) ; ?></h2>
         </div>
     </div>

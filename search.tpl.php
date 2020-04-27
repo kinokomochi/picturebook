@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include('header_inc.php') ?>
-<body>
+<body class="pbook">
 <div class="fixed-top">
     <div class="header navbar navbar-dark bg-dark shadow-sm">    
         <div class="header_logo">PictureBook</div>

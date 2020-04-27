@@ -1,15 +1,17 @@
 html {
     font-size: 16px;
 } 
-body {
-    background-color:red; 
+body.pbook {
+    background-image: url("./../files/25914_1azisai.jpg") ;
+    background-size: cover;
     padding-top: 140px;
 } 
+
 .navbar {
     opacity: 0.9;
 }
 .error {
-    font-weight:bold;
+    font-weight: bold;
 } 
 .img {
     display: inline-block;
@@ -74,6 +76,9 @@ body {
 }
 .search_container {
     padding-left:7px;
+}
+.index_title {
+    opacity: 0.7;
 }
 .index_container {
     text-align:center;

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include('header_inc.php') ?>
-<body>
+<body class="pbook">
 <div class="fixed-top">
     <div class="header navbar navbar-dark bg-dark shadow-sm">    
         <div class="header_logo">PictureBook</div>
@@ -22,6 +22,7 @@
 </div>
 <div class="new_container">
     <form action="create.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
         <input type="hidden" name="user_id" value="<?php echo $_SESSION['id']; ?>">
         <div class="form-group">
             <label>種名</label>

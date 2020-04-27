@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include('header_inc.php') ?>
-<body>
+<body class="pbook">
 <div class="signup_text">
     <h2><?php h($message); ?></h2>
 </div>

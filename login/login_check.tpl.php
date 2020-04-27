@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include('header_inc.php'); ?>
-<body>
+<body class="pbook">
 <div class="login_check_container">
     <h2>ログインに成功しました！</h2>
     <p></p>

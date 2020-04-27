@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include('header_inc.php'); ?>
-<body>
+<body class="pbook">
 <div class="signupcmp_container">
 <h2>登録が完了しました。</h2>
 <hr>

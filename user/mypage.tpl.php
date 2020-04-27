@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php include('header_inc.php'); ?>
-<body>
+<body class="pbook">
 <div class="fixed-top">
     <div class="header navbar navbar-dark bg-dark shadow-sm">    
         <div class="header_logo">PictureBook</div>
@@ -54,7 +54,7 @@
             </div>
             <div class="col-md-4">
                 <div class="profile_text">
-                    <label>自己紹介文</label>
+                    <label>自己紹介文</label><br>
                     <?php  hbr($user['introduction']); ?>
                     <p></p>
                 </div>
