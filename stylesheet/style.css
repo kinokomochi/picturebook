@@ -1,7 +1,7 @@
 html {
     font-size: 16px;
 } 
-body.pbook {
+body {
     background-image: url("./../files/25914_1azisai.jpg") ;
     background-size: cover;
     padding-top: 140px;
