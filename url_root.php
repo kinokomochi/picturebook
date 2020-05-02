@@ -14,3 +14,5 @@ const URL_ROOT = URL_SCHEME.'://'. URL_HOST.URL_PATH.'/';
 const COOKIE_PATH = URL_PATH;
 const COOKIE_DOMAIN = URL_HOST;
 
+//開発用
+const IMAGE_URL = '/Applications/XAMPP/xamppfiles/htdocs/pbook/files/';

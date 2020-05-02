@@ -26,7 +26,7 @@ if(hasError($error)){
 }
 if(!hasError($error)){
     $pbook['picture'] = date('YmdHis') . $pbook['picture'];
-    move_uploaded_file($_FILES['picture']['tmp_name'], '/Applications/XAMPP/xamppfiles/htdocs/pbook/files/'.$pbook['picture']);
+    move_uploaded_file($_FILES['picture']['tmp_name'], IMAGE_URL.$pbook['picture']);
     $pdo = connectDB();
     $pbook = savePbook($pdo, $pbook);
     logD($pbook, 'create a new pbook');

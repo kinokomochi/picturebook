@@ -54,8 +54,7 @@
         </div>
         <div class="form-group">
             <label>説明</label>
-            <textarea name="description" cols="40" row="80" class="form-control"><?php h($pbook['description']); ?></textarea>
-            <?php if(isset($error['description']) && $error['description'] == 'blank'): ?>
+            <textarea name="description" cols="40" row="80" class="form-control"><?php h($pbook['description']); ?></textarea><?php if(isset($error['description']) && $error['description'] == 'blank'): ?>
             <p class="error">*説明を登録してください*</p>
             <?php endif; ?>
             <p></p>
