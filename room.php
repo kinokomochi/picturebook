@@ -38,7 +38,7 @@ $login = checkLoginStatus();
             <p>きのこの部屋</p>
             <div class="image_kinoko">
                 <a href="index.php?page=0&team=kinoko">
-                <img src="files/kinoko.png" 
+                <img src="image/kinoko.png" 
                             width="200" height="200" alt="" /></a>
             </div>
         </div>
@@ -46,7 +46,7 @@ $login = checkLoginStatus();
         <p>海の部屋</p>
             <a href="index.php?page=0&team=sea">
             <div class="image_sea">
-                <img class="img_sea" src="files/fish_minokasago.png" 
+                <img class="img_sea" src="image/fish_nishikianago_swim.png" 
                             width="200" height="200" alt="" /></a>
             </div>
         </div>
@@ -54,7 +54,7 @@ $login = checkLoginStatus();
         <p>植物の部屋</p>
             <a href="index.php?page=0&team=plant">
             <div class="image_plant">
-                <img class="img_plant" src="files/flower_gettou.png" 
+                <img class="img_plant" src="image/plant_haetorigusa.png" 
                             width="200" height="200" alt="" /></a>
             </div>
         </div>
