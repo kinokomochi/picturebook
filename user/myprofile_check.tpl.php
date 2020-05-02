@@ -23,6 +23,7 @@
     <p></p>
     <h3><?=$message; ?></h3>
     <form action="myprofile_update.php" method="post">
+    <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
     <label>名前:</label>
     <?php if(isset($user['nickname'])){ h($user['nickname']);}; ?>
     <input type="hidden" name="nickname" value="<?=$user['nickname']; ?>">

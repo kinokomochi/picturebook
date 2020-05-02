@@ -8,7 +8,7 @@
 <div class="signup_container">
     <div class="signup_container_main">
         <form action="signup_complete.php" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="token" value="<?=$token; ?>">
+        <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
         <div class="form_group">
             <label>名前: </label>
             <?php if(isset($user['nickname'])){ h($user['nickname']);}; ?>

@@ -12,6 +12,12 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     exit;
 }
 
+if(!CsrfValidator::validate(filter_input(INPUT_POST, 'token'))){
+    header('Content-type: text/plain; charset=UTF-8', true, 400);
+    die('CSRF validation failed.');
+}
+
+
 $user = makeNewProfileFromPost();
 //エラーチェック
 $error = validateNewProfile($user);

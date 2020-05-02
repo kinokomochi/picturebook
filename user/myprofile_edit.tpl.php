@@ -28,6 +28,7 @@
     </div>
     <div class="prof_edit_container">
         <form action="myprofile_check.php" method="post">
+        <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
         <input type="hidden" name="image" value="<?php h($user['image']); ?>">
             <div class="form_group">
                 <label>名前</label>

@@ -22,6 +22,7 @@
     <h2><?php h($message); ?></h2>
     <?php endif; ?>
     <form action="myemail_check.php" method="post">
+    <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
         <div class="form-group">
             <label>ID(メールアドレス）</label>
             <input type="text" name="email" class="form-control"  value="<?php if(isset($user['email']) && $user['email'] != ''){h($user['email']);} ?>">

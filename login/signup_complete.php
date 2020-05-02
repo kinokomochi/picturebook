@@ -6,9 +6,9 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location:../room.php');
     exit;
 }
-if(!isset($_SESSION['token']) || !isset($_POST['token'])
-|| $_SESSION['token'] != $_POST['token']){
-    header('Location:../room.php');
+if(!CsrfValidator::validate(filter_input(INPUT_POST, 'token'))){
+    header('Content-type: text/plain; charset=UTF-8', true, 400);
+    die('CSRF validation failed.');
 }
 
 $member = ['id'=>'','nickname'=>'', 'email'=>'', 'password'=>''];

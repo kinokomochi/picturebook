@@ -236,7 +236,7 @@ class CsrfValidator {
 
     public static function generate()
     {
-        if(session_status() === PHP_SESSION_NONE) {
+        if(session_status() === PHP_SESSION_NONE && session_start() === PHP_SESSION_DISABLED) {
             throw new \BadMethodCallException('Session id not active.');
         }
 

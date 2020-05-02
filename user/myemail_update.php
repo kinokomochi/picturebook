@@ -11,6 +11,12 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location:room.php');
     exit;
 }
+
+if(!CsrfValidator::validate(filter_input(INPUT_POST, 'token'))){
+    header('Content-type: text/plain; charset=UTF-8', true, 400);
+    die('CSRF validation failed.');
+}
+
 $user = makeNewEmailFromPost();
 $pdo = connectDB();
 updateEmail($pdo, $_SESSION['id'], $user['email']);

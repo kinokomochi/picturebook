@@ -8,6 +8,12 @@ if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location:room.php');
     exit;
 }
+
+if(!CsrfValidator::validate(filter_input(INPUT_POST, 'token'))){
+    header('Content-type: text/plain; charset=UTF-8', true, 400);
+    die('CSRF validation failed.');
+}
+
 $user = makeLoginUserFromPost();
 $error = validateLoginUser($user);
 
@@ -17,27 +23,26 @@ if(loginHasError($error)){
     require('login.tpl.php');
     exit;
 }
-//$errorが空であれば、IDがDBに登録された情報と一致するか認証する
-//つまり、DBから入力されたデータが存在するか検索する
+
 if(!loginHasError($error)){
     $pdo = connectDB();
     $member = lookUpUser($pdo, $user['email']);
     logD($user, 'login user');
 }
-//レコードが存在しない場合
-    if(!$member){
+
+if(!$member){
         $error['login'] = 'failed';
         require('login.tpl.php');
         exit;
     }
     if($member){
-        //レコードが存在して、パスワードが一致しない場合
+
         if(password_verify($user['password'], $member['password']) == false){
             $error['login'] = 'failed';
             require('login.tpl.php'); 
             exit;
         }
-    //レコードが存在して、パスワードが一致する場合
+
         elseif(password_verify($user['password'], $member['password']) == true){
         $uri = 'login_check.tpl.php';
         setCookieAndSession($member['id'], $member['nickname']);

@@ -7,6 +7,7 @@
 </div>
 <div class="signup_container">
     <form action="signup_check.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
     <div class="form_group">
         <label>名前</label>
         <input type="text" name="nickname" class="form-control" value="<?php if(isset($user['nickname'])){echo $user['nickname'];} ?>">

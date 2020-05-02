@@ -2,12 +2,17 @@
 session_start();
 require_once __DIR__ . '/vendor/autoload.php';
 $login = checkLoginStatus();
-displayLink($login);
 $message = "入力エラーがあります";
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location:room.php');
     exit;
     }
+
+if(!CsrfValidator::validate(filter_input(INPUT_POST, 'token'))){
+    header('Content-type: text/plain; charset=UTF-8', true, 400);
+    die('CSRF validation failed.');
+}
+    
 $pbook = assignmentPost();
 $error = validatePbook($pbook);
 

@@ -8,6 +8,7 @@
 
 <div class="login_container">
     <form action="login_check.php" method="post">
+        <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
         <div class="form-group">
             <label>ID(メールアドレス)</label>
             <input type="text" name="email" class="form-control"　

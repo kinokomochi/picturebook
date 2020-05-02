@@ -24,6 +24,7 @@
     <div class="image_form">
         <p><a href="myimg_edit.php">画像を選び直す</a></p>
         <form action="myimg_update.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
             <label>新しいプロフィール画像</label>
             <p></p>
             <?php if(isset($user['newImage'])):?>

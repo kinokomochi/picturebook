@@ -26,6 +26,7 @@
                 width="300" height="300" alt="" /> <br></p> 
     </div> 
     <form action="update.php" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
         <input type="hidden" name="id" value="<?=$pbook['id']; ?>" > 
         <input type="hidden" name="picture" value="<?php h($pbook['picture']); ?>" > 
         <div class="form-group">

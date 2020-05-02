@@ -26,6 +26,7 @@
 	</div>
 	<div class="image_form">
 		<form action="myimg_check.php" method="post" enctype="multipart/form-data">
+			<input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
 			<div class="form-group">
 				<label>新しいプロフィール画像</label>
 				<p></p>

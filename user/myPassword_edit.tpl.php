@@ -23,6 +23,7 @@
         <?php endif; ?>
     </div>
     <form action="myPassword_check.php" method="post">
+        <input type="hidden" name="token" value="<?=CsrfValidator::generate() ?>">
         <div class="form-group">
             <label>現在のパスワード</label>
             <input type="password" name="currentPass" class="form-control">

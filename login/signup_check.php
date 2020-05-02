@@ -1,10 +1,15 @@
 <?php 
 session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
-
+var_dump($_SESSION);
 if($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location:../room.php');
     exit;
+}
+
+if(!CsrfValidator::validate(filter_input(INPUT_POST, 'token'))){
+    header('Content-type: text/plain; charset=UTF-8', true, 400);
+    die('CSRF validation failed.');
 }
 
 $user = makeSignupUserFromPost();
@@ -18,8 +23,6 @@ logD($_POST, '$post');
 $_SESSION['rewrite'] = $user;
 
 
-//$errorが空でなければsignup_check.tpl.phpを呼び出す
-//書き直しの場合はsignup.tpl.phpを呼び出す
 if((signupHasError($error)) || (signupHasEmailError($emailError)) || (signupHasPasswordError($passwordError))){
     logD($user, 'user');
     logD($error, 'error');
@@ -28,7 +31,6 @@ if((signupHasError($error)) || (signupHasEmailError($emailError)) || (signupHasP
     exit;
 }
 if((!signupHasError($error)) && (!signupHasPasswordError($passwordError))){
-    $_SESSION['token'] = $token = mt_rand();
     $user['password'] = password_hash($user['password'], PASSWORD_BCRYPT);
     $user['password_re_enter'] = password_hash($user['password_re_enter'], PASSWORD_BCRYPT);
     $user['image'] = date('YmdHis') . $user['image'];
