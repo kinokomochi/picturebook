@@ -15,4 +15,4 @@ const COOKIE_PATH = URL_PATH;
 const COOKIE_DOMAIN = URL_HOST;
 
 //開発用
-const IMAGE_PATH = '/Applications/XAMPP/xamppfiles/htdocs/pbook/files/';
+const IMAGE_DIR = '/Applications/XAMPP/xamppfiles/htdocs/pbook/files/';

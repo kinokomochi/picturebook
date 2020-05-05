@@ -33,7 +33,7 @@ if((!signupHasError($error)) && (!signupHasPasswordError($passwordError))){
     $user['password'] = password_hash($user['password'], PASSWORD_BCRYPT);
     $user['password_re_enter'] = password_hash($user['password_re_enter'], PASSWORD_BCRYPT);
     $user['image'] = date('YmdHis') . $user['image'];
-    move_uploaded_file($_FILES['image']['tmp_name'], IMAGE_URL .$user['image']);
+    move_uploaded_file($_FILES['image']['tmp_name'], IMAGE_DIR.$user['image']);
     $_SESSION['image'] = $user['image'];
 
     $message = '以下の内容で登録しますか？';

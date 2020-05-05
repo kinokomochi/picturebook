@@ -31,7 +31,7 @@ if($error['newImage']){
 if(!$error['newImage']){
     $message = 'この画像に更新してよろしいですか？';
     $user['newImage'] = date('YmdHis') . $user['newImage'];
-    move_uploaded_file($_FILES['newImage']['tmp_name'],IMAGE_URL.$user['newImage']);
+    move_uploaded_file($_FILES['newImage']['tmp_name'],IMAGE_DIR.$user['newImage']);
     $_SESSION['newImage'] = $user['newImage'];
     logD($_FILES['newImage']['name'], 'make a myimg');
     require_once 'myimg_check.tpl.php';
