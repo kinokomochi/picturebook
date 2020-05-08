@@ -6,7 +6,7 @@ function checkLoginStatus(){
         $_SESSION = array();
         if(ini_get("session.use_cookies")){
             $params = session_get_cookie_params();
-            setcookie('email', '', time() - 6050000, 
+            setcookie('str', '', time() - 6050000, 
             $params['path'], $params['domain'],
             $params['secure'], $params['httponly']
         );
