@@ -4,13 +4,6 @@ function checkLoginStatus(){
         return true;
     }else{
         $_SESSION = array();
-        if(ini_get("session.use_cookies")){
-            $params = session_get_cookie_params();
-            setcookie('str', '', time() - 6050000, 
-            $params['path'], $params['domain'],
-            $params['secure'], $params['httponly']
-        );
-        }
         session_destroy();
         session_start();
 
@@ -212,7 +205,7 @@ function setCookieAndSession($id, $name){
         $str = $_POST['email'] . '<<>>' . $_POST['password'];
         $str = openssl_encrypt($str, 'aes-256-ecb', 'engWe99r41');
         $str = base64_encode($str);
-        setcookie('str', $str, time()+60*60*24*7, COOKIE_PATH, COOKIE_DOMAIN, false, true);
+        setcookie('str', $str, time()+60*60*24*7, COOKIE_PATH, '', false, true);
         $_SESSION['save'] = 'on';
     }
     $_SESSION['id'] = $id;
